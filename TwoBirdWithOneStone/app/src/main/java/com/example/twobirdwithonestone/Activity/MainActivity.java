@@ -1,7 +1,12 @@
-package com.example.twobirdwithonestone;
+package com.example.twobirdwithonestone.Activity;
 
 import android.os.Bundle;
 
+import com.example.twobirdwithonestone.Fragment.AccountFragment;
+import com.example.twobirdwithonestone.Fragment.HomeFragment;
+import com.example.twobirdwithonestone.R;
+import com.example.twobirdwithonestone.Fragment.SettingsFragment;
+import com.example.twobirdwithonestone.Fragment.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {

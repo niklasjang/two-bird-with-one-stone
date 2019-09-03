@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.example.twobirdwithonestone.R;
+import com.example.twobirdwithonestone.Service.LockScreenService;
 
 public class LockScreenActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class LockScreenActivity extends AppCompatActivity {
         findViewById(R.id.btn_lock_screen).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //버튼 클릭하면 잠금화면 종료
                 finish();
             }
         });

@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_settings:
                     selectedFragment = new SettingsFragment();
                     break;
+                default:
+                    selectedFragment = new HomeFragment();
+                    break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     selectedFragment).commit();
@@ -65,14 +68,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
 
-        editText = (EditText) findViewById(R.id.editText);
-    }
-
-    public void onButton1Clicked(View v){
-        String name = editText.getText().toString();
+        //Main이 생성되면 바로 LockScreenService를 실행시킨다.
         Intent intent = new Intent(this, LockScreenService.class);
-        intent.putExtra("command", "show");
-        intent.putExtra("name", name);
         startService(intent);
     }
 

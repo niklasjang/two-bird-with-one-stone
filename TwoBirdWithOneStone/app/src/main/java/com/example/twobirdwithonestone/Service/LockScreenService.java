@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.twobirdwithonestone.Activity.LockScreenActivity;
 
@@ -16,10 +18,16 @@ public class LockScreenService extends Service {
     * */
 
     private static final String TAG = "LockScreenService";
+    /*
+    * BroadCastReceiver 는 4대 컴포넌트 중에 하나이다. BroadCastReceiver 의 역할은 단말기 안에서 이루어지는 수많은 일들을 대신해서 알려준다.
+    * 예를들어 배터리부족,SMS문자메시지,전화가온다거나 하는 일들을 방송알림 해준다.
+    * */
+    private boolean boolLockScreen = true;
+
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if(Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
+            if(boolLockScreen && Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
                 Intent i = new Intent(context, LockScreenActivity.class);
                 /*
                 * Service에서 activitity를 호출할 때는 새로운 태스크를 생성하도록 플래그를 추가해야 한다. 서비스는 화면이 없기 떄문에
@@ -32,10 +40,8 @@ public class LockScreenService extends Service {
             }
         }
     };
-
     public LockScreenService() {
     }
-
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -45,37 +51,34 @@ public class LockScreenService extends Service {
 
     @Override
     public void onCreate() {
+        //Service가 생성될 때 onCreate가 실행된다.
         super.onCreate();
         IntentFilter filter =  new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        //BroadcastReceiver의 onReceive()메서드는 intent-filter을 통해 걸러진 intent를 받아들이는 곳이다.
         registerReceiver(receiver,filter);
         Log.d(TAG, "onCreate() 호출됨.");
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        //Service의 onCreate가 실행된 이후, onStartCommand가 실행된다. <https://mailmail.tistory.com/9>
+        //Main Activity가 생성될 때 startService(intent);를 호출한다.
         Log.d(TAG, "onStartCommand() 호출됨.");
         if(intent == null){
-            //아래와 같은 값을 반환하면 서비스가 비정상 종료 되었ㅇ르 때 시스템이 자동으로 재시작한다.
+            //아래와 같은 값을 반환하면 서비스가 비정상 종료 되었을 때 시스템이 자동으로 재시작한다.
             //만약 재시작하지 않도록 하고 싶으면 다른 상수를 넣으면 된다.
             return Service.START_STICKY;
         }else{
-            processCommand(intent);
+            boolLockScreen = intent.getBooleanExtra("LockScreen", true);
+            //Toast.makeText(getApplicationContext(), "boolLockScreen is " + boolLockScreen, Toast.LENGTH_LONG).show();
         }
         return super.onStartCommand(intent, flags, startId);
     }
 
     private void processCommand(Intent intent){
-        String command = intent.getStringExtra("command");
-        String name = intent.getStringExtra("name");
 
-        Log.d(TAG, "Command: " + command + ", name : " + name);
-        //5초 동안 1초에 한 번 로그를 찍는다.
-        for(int i=0; i<5; i++){
-            try{
-                Thread.sleep(1000);
-            }catch(Exception e){ Log.d(TAG, "Empty");}
-            Log.d(TAG, "Waiting " + i + " seconds.");
-        }
+
+
     }
 
     @Override
@@ -84,4 +87,6 @@ public class LockScreenService extends Service {
         super.onDestroy();
         unregisterReceiver(receiver);
     }
+
+
 }

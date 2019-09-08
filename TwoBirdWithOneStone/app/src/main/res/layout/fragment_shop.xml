@@ -1,14 +1,732 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light">
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_shop"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#E2E2E2"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="문화"
+                android:textSize="20dp"
+                android:fontFamily="@font/barungothicbold"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                >
 
-</RelativeLayout>
+            </TextView>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:layout_margin="1dp"
+                >
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_edge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:id="@+id/culture_btn1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:src="@drawable/ic_culture1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="경복궁"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="야간개장 이용권"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="3,000">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/culture_btn2"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/culture_btn3"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/culture_btn4"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/culture_btn5"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#E2E2E2"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="아이스크림"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:layout_weight="1">
+
+            </TextView>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:layout_margin="1dp"
+                >
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_edge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:id="@+id/coffee_btn1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카페 아메리카노"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/coffee_btn2"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/coffee_btn3"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/coffee_btn4"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/coffee_btn5"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#E2E2E2"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="아이스크림"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:layout_weight="1">
+
+            </TextView>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:layout_margin="1dp"
+                >
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_edge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:id="@+id/icecream_btn1"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카페 아메리카노"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/icecream_btn2"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/icecream_btn3"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/icecream_btn4"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/ic_edge"
+                    android:padding="2dp"
+                    android:id="@+id/icecream_btn5"
+                    >
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@null"
+                        android:src="@drawable/ic_coffee"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="스타벅스">
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="아이스 카라멜 마끼아또">
+
+                    </TextView>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="4,100">
+
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+</ScrollView>

@@ -20,6 +20,6 @@
 
         android:layout_marginBottom="210dp"
 
-        app:srcCompat="@drawable/gmrm_only_logo" />
+        app:srcCompat="@drawable/circle_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

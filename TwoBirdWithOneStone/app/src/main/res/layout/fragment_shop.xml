@@ -42,7 +42,7 @@
 
                 <LinearLayout
 
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_edge"
                     android:clickable="true"
@@ -52,7 +52,105 @@
                     android:padding="2dp">
 
                     <ImageView
-                        android:layout_width="100dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:src="@drawable/ic_culture1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="3dp"
+                        android:text="경복궁"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="3dp"
+                        android:text="야간개장 이용권"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="3,000">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_edge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:id="@+id/culture_btn2"
+                    android:layout_marginLeft="5dp"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:src="@drawable/ic_culture2_bike" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="3dp"
+                        android:text="따릉이"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="3dp"
+                        android:text="2시간 이용권"
+                        android:fontFamily="@font/barunsquarer">
+
+                    </TextView>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="#89d9a2"
+                        android:text="3,000">
+
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_edge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:id="@+id/culture_btn3"
+                    android:layout_marginLeft="5dp"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:layout_weight="3"
@@ -83,86 +181,6 @@
                         android:layout_weight="1"
                         android:background="#89d9a2"
                         android:text="3,000">
-
-                    </Button>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/ic_edge"
-                    android:padding="2dp"
-                    android:id="@+id/culture_btn2"
-                    >
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@null"
-                        android:src="@drawable/ic_coffee"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"
-
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="스타벅스">
-
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="아이스 카라멜 마끼아또">
-
-                    </TextView>
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:background="#89d9a2"
-                        android:text="4,100">
-
-                    </Button>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/ic_edge"
-                    android:padding="2dp"
-                    android:id="@+id/culture_btn3"
-                    >
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@null"
-                        android:src="@drawable/ic_coffee"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"
-
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="스타벅스">
-
-                    </TextView>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="아이스 카라멜 마끼아또">
-
-                    </TextView>
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:background="#89d9a2"
-                        android:text="4,100">
 
                     </Button>
                 </LinearLayout>

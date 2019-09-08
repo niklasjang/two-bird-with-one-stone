@@ -63,13 +63,19 @@ public class MainActivity extends AppCompatActivity {
         //To hide app_name title bar, go to res/values/style. And then change DarkActionBar to NoActionBar.
 
         setContentView(R.layout.activity_main);
+
+        //***** Start LoadingActivity 2019-09-08 3AM Hz *****
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
+        //***** Finish LoadingActivity *****
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
 
         //Main이 생성되면 바로 LockScreenService를 실행시킨다.
-        Intent intent = new Intent(this, LockScreenService.class);
+        intent = new Intent(this, LockScreenService.class);
         startService(intent);
     }
 

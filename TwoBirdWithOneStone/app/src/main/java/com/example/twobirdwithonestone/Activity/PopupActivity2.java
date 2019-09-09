@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.twobirdwithonestone.R;
 
-public class PopupActivity extends Activity {
+public class PopupActivity2 extends Activity {
 
     TextView txtText;
 
@@ -19,7 +19,7 @@ public class PopupActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_museum_popup);
+        setContentView(R.layout.activity_bike_popup);
 
         txtText = (TextView)findViewById(R.id.txtText);
 

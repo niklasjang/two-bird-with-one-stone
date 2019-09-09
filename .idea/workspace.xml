@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a9d8529f-62f5-4412-ad46-5ea7488d533c" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="e92dfbe8-6899-4d13-b707-dd252d5357c0" name="Default Changelist" comment="" />
+>>>>>>> 18dbf589bed26956d1a8913549019b09214c4ed6
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -22,6 +27,37 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes />
+=======
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="326" />
+    <option name="y" value="35" />
+    <option name="width" value="1535" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+>>>>>>> 18dbf589bed26956d1a8913549019b09214c4ed6
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -44,18 +80,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="a9d8529f-62f5-4412-ad46-5ea7488d533c" name="Default Changelist" comment="" />
       <created>1567950957794</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567950957794</updated>
+=======
+      <changelist id="e92dfbe8-6899-4d13-b707-dd252d5357c0" name="Default Changelist" comment="" />
+      <created>1567849605613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1567849605613</updated>
+>>>>>>> 18dbf589bed26956d1a8913549019b09214c4ed6
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32980832" />
+>>>>>>> 18dbf589bed26956d1a8913549019b09214c4ed6
       <window_info id="Structure" side_tool="true" />
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -71,5 +119,13 @@
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Palette&#9;" />
     </layout>
+<<<<<<< HEAD
+=======
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> 18dbf589bed26956d1a8913549019b09214c4ed6
   </component>
 </project>

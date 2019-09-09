@@ -136,20 +136,14 @@
             android:textSize="20dp">
 
         </Button>
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="73dp"
+            android:text="logout" />
+
 
     </LinearLayout>
-
-<<<<<<< HEAD
 </ScrollView>
-=======
-    <Button
-    android:id="@+id/btn_logout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_marginTop="73dp"
-    android:text="logout" />
-
-
-</RelativeLayout>
->>>>>>> 18dbf589bed26956d1a8913549019b09214c4ed6

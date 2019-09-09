@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment {
 
-    Boolean boolLockScreen = true;
+    Boolean boolLockScreen = false;
 
     @Nullable
     @Override

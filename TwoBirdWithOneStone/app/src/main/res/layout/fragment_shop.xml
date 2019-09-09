@@ -190,6 +190,7 @@
                     android:orientation="vertical"
                     android:background="@drawable/ic_edge"
                     android:padding="2dp"
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/culture_btn4"
                     >
                     <ImageView
@@ -350,6 +351,8 @@
                     android:orientation="vertical"
                     android:background="@drawable/ic_edge"
                     android:padding="2dp"
+                    android:layout_marginLeft="5dp"
+
                     android:id="@+id/coffee_btn2"
                     >
                     <ImageView
@@ -390,6 +393,7 @@
                     android:orientation="vertical"
                     android:background="@drawable/ic_edge"
                     android:padding="2dp"
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/coffee_btn3"
                     >
                     <ImageView
@@ -588,6 +592,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:background="@drawable/ic_edge"
+                    android:layout_marginLeft="5dp"
                     android:padding="2dp"
                     android:id="@+id/icecream_btn2"
                     >
@@ -629,6 +634,7 @@
                     android:orientation="vertical"
                     android:background="@drawable/ic_edge"
                     android:padding="2dp"
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/icecream_btn3"
                     >
                     <ImageView

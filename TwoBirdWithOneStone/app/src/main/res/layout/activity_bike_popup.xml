@@ -30,17 +30,26 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@null"
-            android:src="@drawable/ic_culture1">
+            android:src="@drawable/ic_culture2_bike">
 
         </ImageView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:text="@string/_2019_7_71_9_09_12_09_15_19_00_21_30_20_30_9_09_22_10_05_19_00_21_30_20_30_10_10_20_11_06_19_00_21_30_20_30_4_04_27_05_05_19_00_21_30_5_05_19_06_01_19_00_21_30_6_06_16_06_23_19_30_22_00_7_07_21_08_03_19_30_22_00_4_10_7_65_02_3700_3900_3901">
-
-
+            android:text="@string/bike_ex">
         </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/_15_19_24_1_1_1_3_1_5_6_1_5_1_3"></TextView>
+
+
+
         <TextView
             android:id="@+id/txtText"
             android:textSize="15sp"

@@ -20,4 +20,13 @@
         android:checked="true"
         android:text="LockScreen" />
 
+    <Button
+    android:id="@+id/btn_logout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="73dp"
+    android:text="logout" />
+
+
 </RelativeLayout>

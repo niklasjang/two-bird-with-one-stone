@@ -7,36 +7,26 @@
         android:id="@+id/info_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/button2"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="7dp"
         android:background="#cff0da"
         android:stretchColumns="*">
 
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_span="3"
                 android:gravity="center"
-
                 android:text="닉네임"
                 android:textSize="30sp" />
         </TableRow>
 
         <TableRow>
-
             <TextView
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:layout_span="2"
@@ -46,7 +36,6 @@
 
             <TextView
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:layout_span="1"
@@ -56,5 +45,34 @@
         </TableRow>
     </TableLayout>
 
+    <Button
+        android:background="#4DFFFFFF"
+        android:id="@+id/coupon_bnt"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="7dp"
+        android:layout_below="@id/info_user"
+        android:text="쿠폰"
+        android:textSize="20sp" />
+
+    <Button
+        android:background="#00ff0000"
+        android:id="@+id/zeropay_bnt"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:layout_margin="7dp"
+        android:layout_below="@id/coupon_bnt"
+        android:text="제로페이전환"
+        android:textSize="20sp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/text_logo_horizontal"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

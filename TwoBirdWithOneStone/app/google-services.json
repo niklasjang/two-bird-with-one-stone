@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "207810081845",
+    "firebase_url": "https://twobirdwithonestone.firebaseio.com",
+    "project_id": "twobirdwithonestone",
+    "storage_bucket": "twobirdwithonestone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207810081845:android:9bb88d1764dd53b9c96d7c",
+        "android_client_info": {
+          "package_name": "com.example.twobirdwithonestone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207810081845-79ujrou7ud7rhj1d9603s7acvugt57g9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.twobirdwithonestone",
+            "certificate_hash": "0d9e26d471eeb59371861b05108a8ad267c2e68d"
+          }
+        },
+        {
+          "client_id": "207810081845-r2otjat4099b4b5rdiqqe8lujn7j3f6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFTTBiBdgxY1mkGtxcOsKk0-LokUdkcMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207810081845-r2otjat4099b4b5rdiqqe8lujn7j3f6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

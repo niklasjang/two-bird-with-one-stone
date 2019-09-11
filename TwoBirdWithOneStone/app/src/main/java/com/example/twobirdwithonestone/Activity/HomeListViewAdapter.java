@@ -1,9 +1,13 @@
 package com.example.twobirdwithonestone.Activity;
 
+import com.bumptech.glide.Glide;
 import com.example.twobirdwithonestone.R;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import androidx.core.content.ContextCompat;
+
+/*
+작성자 : 박규영
+수정일 : 2019 09 12
+변수 수정, 수정할 버전으로 사용할 것,
+* */
 
 public class HomeListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
@@ -44,27 +56,35 @@ public class HomeListViewAdapter extends BaseAdapter {
          ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
          */
 
-        TextView imgUrlTextView = (TextView) convertView.findViewById(R.id.imgUrl_text_view) ;
+        ImageView imgUrlImageView = (ImageView) convertView.findViewById(R.id.imgUrl_image_view) ;
         TextView titleTextView = (TextView) convertView.findViewById(R.id.title_text_view) ;
-        TextView subTitleTextView = (TextView) convertView.findViewById(R.id.subtitle_text_view) ;
-        TextView rankTextView = (TextView) convertView.findViewById(R.id.rank_text_view) ;
-        TextView urlTextView = (TextView) convertView.findViewById(R.id.url_text_view) ;
-
+        TextView contentTextView = (TextView) convertView.findViewById(R.id.content_text_view) ;
+        TextView rankTextView = (TextView) convertView.findViewById(R.id.date_textview) ;
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        HomeListViewItem listViewItem = listViewItemList.get(position);
+        final HomeListViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
         /**
          iconImageView.setImageDrawable(listViewItem.getIcon());
          coinTextView.setText(listViewItem.getCoin());
          */
-
-        imgUrlTextView.setText(listViewItem.getImgUrl());
+        if(listViewItem.getImgUrl() == "default"){
+            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
+            imgUrlImageView.setImageDrawable(image);
+        }else{
+            Glide.with(convertView.getContext()).load(listViewItem.getImgUrl()).into(imgUrlImageView);
+        }
         titleTextView.setText(listViewItem.getTitle());
-        subTitleTextView.setText(listViewItem.getSubtitle());
-        rankTextView.setText(listViewItem.getRank());
-        urlTextView.setText(listViewItem.getUrl());
+        contentTextView.setText("내용: "+listViewItem.getContent());
+        rankTextView.setText("날짜: "+listViewItem.getDate());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(listViewItem.getUrl())));
+            }
+        });
 
         return convertView;
     }
@@ -90,8 +110,8 @@ public class HomeListViewAdapter extends BaseAdapter {
 
         item.setImgUrl(imgUrl);
         item.setTitle(title);
-        item.setSubtitle(subtitle);
-        item.setRank(rank);
+        item.setContent(subtitle);
+        item.setDate(rank);
         item.setUrl(url);
 
         listViewItemList.add(item);

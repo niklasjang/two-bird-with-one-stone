@@ -29,6 +29,13 @@ public class SettingsFragment extends Fragment {
 
     Boolean boolLockScreen = false;
 
+    public Boolean getBoolLockScreen() {
+        return boolLockScreen;
+    }
+    public void setBoolLockScreen(Boolean boolLockScreen) {
+        this.boolLockScreen = boolLockScreen;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -7,12 +7,16 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class HomeListViewAdapter {
+public class HomeListViewAdapter extends BaseAdapter {
+    /**
+     * Adapter가 하는 역할은 사용자 데이터를 입력받아 View를 생성하는 것이며 Adapter에서 생성되는 View는 ListView 내 하나의 아이템 영역에 표시되는 것입니다.
+     * */
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<HomeListViewItem> listViewItemList = new ArrayList<HomeListViewItem>() ;
 

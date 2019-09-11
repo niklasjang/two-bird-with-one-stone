@@ -13,7 +13,9 @@
         android:stretchColumns="*">
 
         <TableRow>
+
             <TextView
+                android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -25,7 +27,9 @@
         </TableRow>
 
         <TableRow>
+
             <TextView
+                android:id="@+id/tvUserPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"

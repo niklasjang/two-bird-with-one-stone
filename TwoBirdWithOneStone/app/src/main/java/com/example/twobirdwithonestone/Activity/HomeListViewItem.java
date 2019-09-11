@@ -2,12 +2,15 @@ package com.example.twobirdwithonestone.Activity;
 
 import android.graphics.drawable.Drawable;
 
+
+
 public class HomeListViewItem {
     private Drawable iconDrawable ;
     private String titleStr ;
     private String coinStr ;
     private String subtitleStr ;
-
+    public HomeListViewItem(){
+    }
     public void setIcon(Drawable icon) {
         iconDrawable = icon ;
     }

@@ -34,8 +34,11 @@ public class HomeFragment extends Fragment {
 
         mListView = (ListView)view.findViewById(R.id.listView);
         mAdapter = new HomeListViewAdapter();
-        //mListView.setAdapter(mAdapter);
+        if(mListView != null){
+            mListView.setAdapter(mAdapter);
+        }
 
+        //mAdapter.addItem();
         /**
          * listView.setAdapter(adapter);
          *

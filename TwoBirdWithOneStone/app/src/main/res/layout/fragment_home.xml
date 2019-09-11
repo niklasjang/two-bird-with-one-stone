@@ -19,8 +19,8 @@
         />
 
     <ListView
-        android:background="#4DFFFFFF"
         android:id="@+id/listView"
+        android:background="#4DFFFFFF"
         android:layout_margin="7dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

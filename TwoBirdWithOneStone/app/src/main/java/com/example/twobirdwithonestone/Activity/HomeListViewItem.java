@@ -1,12 +1,17 @@
 package com.example.twobirdwithonestone.Activity;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import androidx.core.content.ContextCompat;
+
+import com.example.twobirdwithonestone.R;
+
 public class HomeListViewItem {
-    private Drawable iconDrawable ;
-    private String titleStr ;
-    private String coinStr ;
-    private String subtitleStr ;
+    private Drawable iconDrawable;
+    private String titleStr = "";
+    private String coinStr = "";
+    private String subtitleStr  = "";
 
     public void setIcon(Drawable icon) {
         iconDrawable = icon ;
@@ -26,5 +31,6 @@ public class HomeListViewItem {
     }
     public String getSubtitle() { return this.subtitleStr ; }
     public String getCoin() { return this.coinStr ; }
+
 
 }

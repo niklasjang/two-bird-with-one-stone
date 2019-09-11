@@ -66,11 +66,9 @@ public class AccountFragment extends Fragment {
             }
         });
         //
-
-
         return view;
     }
-
+/*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -78,7 +76,6 @@ public class AccountFragment extends Fragment {
             String strPointBeforeTransform = getArguments().getString("PointBeforeTransform");
             String strPointHowMuchTransform = getArguments().getString("PointHowMuchTransform");
             String strPointAfterTransform = getArguments().getString("PointAfterTransform");
-
         }
-    }
+    }*/
 }

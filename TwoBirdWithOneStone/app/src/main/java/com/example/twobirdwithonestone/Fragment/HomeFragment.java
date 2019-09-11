@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
@@ -30,13 +31,11 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+        View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
         mListView = (ListView)view.findViewById(R.id.listView);
         mAdapter = new HomeListViewAdapter();
-        if(mListView != null){
-            mListView.setAdapter(mAdapter);
-        }
+        mListView.setAdapter(mAdapter);
 
         //mAdapter.addItem();
         /**
@@ -46,8 +45,22 @@ public class HomeFragment extends Fragment {
          * https://recipes4dev.tistory.com/63?category=643521 참고해서 수정하기
          */
 
-        //mContext = getContext();
-        //mContext = getApplicationContext();
+        mContext = getActivity();
+
+
+        //1. 정상적으로 값이 들어갈 경우
+        title = "제목";
+        subtitle = "부제";
+        coin = "1000";
+        image = (Drawable) ContextCompat.getDrawable(mContext, R.drawable.image_logo_bird);
+
+        mAdapter.addItem(image, title, subtitle, coin);
+
+        //2. 제목과 부제목이 없는 경우
+        title = null;
+        subtitle = null;
+
+        mAdapter.addItem(image, title, subtitle, coin);
 
 
         /**

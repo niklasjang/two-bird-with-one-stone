@@ -48,6 +48,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //***** Start LoadingActivity 2019-09-08 3AM Hz *****
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
+        //***** Finish LoadingActivity *****
+
         //btn id정리
         Button btnSign = (Button) findViewById(R.id.btn_signin);
         Button btnLogin = (Button) findViewById(R.id.btn_login);

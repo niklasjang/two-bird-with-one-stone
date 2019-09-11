@@ -53,22 +53,22 @@
         android:background="#4DFFFFFF"
         android:id="@+id/coupon_bnt"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_margin="7dp"
         android:layout_below="@id/info_user"
         android:text="쿠폰"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <Button
-        android:background="#00ff0000"
+        android:background="#4DFFFFFF"
         android:id="@+id/zeropay_bnt"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
 
         android:layout_margin="7dp"
         android:layout_below="@id/coupon_bnt"
         android:text="제로페이전환"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 
     <ImageView

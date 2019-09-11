@@ -39,20 +39,32 @@ public class HomeListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
+        /**
+         TextView coinTextView = (TextView) convertView.findViewById(R.id.coin_text_view) ;
+         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
+         */
+
+        TextView imgUrlTextView = (TextView) convertView.findViewById(R.id.imgUrl_text_view) ;
         TextView titleTextView = (TextView) convertView.findViewById(R.id.title_text_view) ;
         TextView subTitleTextView = (TextView) convertView.findViewById(R.id.subtitle_text_view) ;
-        TextView coinTextView = (TextView) convertView.findViewById(R.id.coin_text_view) ;
+        TextView rankTextView = (TextView) convertView.findViewById(R.id.rank_text_view) ;
+        TextView urlTextView = (TextView) convertView.findViewById(R.id.url_text_view) ;
 
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         HomeListViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        iconImageView.setImageDrawable(listViewItem.getIcon());
+        /**
+         iconImageView.setImageDrawable(listViewItem.getIcon());
+         coinTextView.setText(listViewItem.getCoin());
+         */
+
+        imgUrlTextView.setText(listViewItem.getImgUrl());
         titleTextView.setText(listViewItem.getTitle());
         subTitleTextView.setText(listViewItem.getSubtitle());
-        coinTextView.setText(listViewItem.getCoin());
+        rankTextView.setText(listViewItem.getRank());
+        urlTextView.setText(listViewItem.getUrl());
 
         return convertView;
     }
@@ -68,13 +80,19 @@ public class HomeListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, String title, String subtitle, String coin) {
+    public void addItem(String imgUrl, String title, String subtitle, String rank, String url) {
         HomeListViewItem item = new HomeListViewItem();
 
-        item.setIcon(icon);
+        /**
+         item.setIcon(icon);
+         item.setCoin(coin);
+         */
+
+        item.setImgUrl(imgUrl);
         item.setTitle(title);
         item.setSubtitle(subtitle);
-        item.setCoin(coin);
+        item.setRank(rank);
+        item.setUrl(url);
 
         listViewItemList.add(item);
     }

@@ -20,10 +20,15 @@ public class HomeFragment extends Fragment {
     private ListView mListView;
     private HomeListViewAdapter mAdapter;
 
-    private Drawable image = null;
+    //private Drawable image = null;
+
+    private String imgUrl = null;
     private String title = null;
     private String subtitle = null;
-    private String coin = null;
+    private String rank = null;
+    private String url = null;
+
+    //private String coin = null;
     private String getId = null;
 
     private Context mContext;
@@ -46,20 +51,16 @@ public class HomeFragment extends Fragment {
 
         mContext = getActivity();
 
-
-        //1. 정상적으로 값이 들어갈 경우
+        imgUrl = "이미지 Url";
         title = "제목";
         subtitle = "부제";
-        coin = "1000";
-        image = (Drawable) ContextCompat.getDrawable(mContext, R.drawable.image_logo_bird);
+        rank = "순위";
+        url = "Url";
 
-        mAdapter.addItem(image, title, subtitle, coin);
+        //coin = "1000";
+        //image = (Drawable) ContextCompat.getDrawable(mContext, R.drawable.image_logo_bird);
 
-        //2. 제목과 부제목이 없는 경우
-        title = null;
-        subtitle = null;
-
-        mAdapter.addItem(image, title, subtitle, coin);
+        mAdapter.addItem(imgUrl, title, subtitle, rank, url);
 
 
         /**

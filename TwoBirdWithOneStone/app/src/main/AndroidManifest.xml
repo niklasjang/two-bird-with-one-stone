@@ -25,9 +25,11 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.CreateQR" />
         <activity android:name=".Activity.PopupActivity1" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".Activity.PopupActivity2" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".Activity.SubsubshopActivity">
+
+        </activity>
         <activity android:name=".Activity.SubshopActivity">
 
         </activity>

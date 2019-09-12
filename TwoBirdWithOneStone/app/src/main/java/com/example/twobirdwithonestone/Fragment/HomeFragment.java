@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
@@ -30,11 +31,12 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+        View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
         mListView = (ListView)view.findViewById(R.id.listView);
         mAdapter = new HomeListViewAdapter();
-        //mListView.setAdapter(mAdapter);
+
+        mListView.setAdapter(mAdapter);
 
         /**
          * listView.setAdapter(adapter);
@@ -43,8 +45,8 @@ public class HomeFragment extends Fragment {
          * https://recipes4dev.tistory.com/63?category=643521 참고해서 수정하기
          */
 
-        //mContext = getContext();
-        //mContext = getApplicationContext();
+        mContext = getContext();
+
 
 
         /**
@@ -63,7 +65,13 @@ public class HomeFragment extends Fragment {
          * 2. 리스트 값을 전부 삭제할 경우
          *  >> adapter.notifyDataSetChanged();
          */
+        title = "제목";
+        subtitle = "부제";
+        coin = "1000";
+        image = (Drawable) ContextCompat.getDrawable(mContext, R.drawable.circle_logo);
 
+        mAdapter.addItem(image, title, subtitle, coin);
+        mAdapter.addItem(image, title, subtitle, coin);
         return view;
     }
 }

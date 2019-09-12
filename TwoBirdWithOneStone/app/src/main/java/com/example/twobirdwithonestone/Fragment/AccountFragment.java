@@ -12,9 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.twobirdwithonestone.Activity.Coupon;
 import com.example.twobirdwithonestone.Activity.ZeropayActivity;
 import com.example.twobirdwithonestone.R;
+import com.example.twobirdwithonestone.Activity.CouponRecyclerViewAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -22,12 +26,17 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class AccountFragment extends Fragment {
     private static final int REQUEST_ZEROPAY = 200;
     private FirebaseFirestore db;
+    private CouponRecyclerViewAdapter couponAdapter;
     Button btn_zeropay;
+    public ArrayList<Coupon> couponList;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,10 +74,35 @@ public class AccountFragment extends Fragment {
                 }
             }
         });
-        //
+
+        // 리사이클러뷰에 LinearLayoutManager 객체 지정.
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewCoupon) ;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())) ;
+
+        // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
+        couponAdapter = new CouponRecyclerViewAdapter(couponList);
+        recyclerView.setAdapter(couponAdapter) ;
         return view;
     }
-/*
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //쿠폰 Recycler View default 객체 생성
+        couponList = new ArrayList<>();
+        Coupon c;
+        for (int i=0; i<3; i++) {
+            c = new Coupon("Name", "2019-09-12", false);
+            couponList.add(c) ;
+        }
+    }
+
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

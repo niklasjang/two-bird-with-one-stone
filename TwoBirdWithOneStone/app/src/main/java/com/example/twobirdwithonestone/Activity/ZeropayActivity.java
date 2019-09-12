@@ -43,11 +43,12 @@ public class ZeropayActivity extends AppCompatActivity {
                 bundle.putString("PointBeforeTransform", tvPointBeforeTransform.getText().toString());
                 bundle.putString("PointHowMuchTransform", tvPointHowMuchTransform.getText().toString());
                 bundle.putString("PointAfterTransform", tvPointAfterTransform.getText().toString());
-                AccountFragment myAccount = new AccountFragment();
-                myAccount.setArguments(bundle);                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, myAccount)
-                        .commit();
-
+//                AccountFragment myAccount = new AccountFragment();
+//                myAccount.setArguments(bundle);
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_container, myAccount)
+//                        .commit();
+                finish();
             }
         });
     }

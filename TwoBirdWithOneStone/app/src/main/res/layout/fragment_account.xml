@@ -1,82 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-    <TableLayout
-        android:id="@+id/info_user"
+    <LinearLayout
+        android:id="@+id/linearLayoutAccountFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="7dp"
-        android:background="#cff0da"
-        android:stretchColumns="*">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imgAppName">
 
-        <TableRow>
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="닉네임"
+            android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/tvUserName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="20dp"
-                android:layout_span="3"
-                android:gravity="center"
-                android:text="닉네임"
-                android:textSize="30sp" />
-        </TableRow>
-
-        <TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvUserPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
-                android:layout_span="2"
                 android:gravity="right"
                 android:text="1000"
                 android:textSize="50sp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/textView"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
-                android:layout_span="1"
-                android:gravity="left"
-                android:text="point"
-                android:textSize="30sp" />
-        </TableRow>
-    </TableLayout>
+                android:layout_weight="1"
+                android:text="P"
+                android:textSize="50sp" />
 
-    <Button
-        android:background="#4DFFFFFF"
-        android:id="@+id/coupon_bnt"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="7dp"
-        android:layout_below="@id/info_user"
-        android:text="쿠폰"
-        android:textSize="18sp" />
+            <Button
+                android:id="@+id/zeropay_bnt"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="제로페이전환"
+                android:textSize="18sp" />
 
-    <Button
-        android:background="#4DFFFFFF"
-        android:id="@+id/zeropay_bnt"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        </LinearLayout>
 
-        android:layout_margin="7dp"
-        android:layout_below="@id/coupon_bnt"
-        android:text="제로페이전환"
-        android:textSize="18sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
 
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
 
     <ImageView
+        android:id="@+id/imgAppName"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
         android:src="@drawable/text_logo_horizontal"
-        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

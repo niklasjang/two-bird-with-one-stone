@@ -14,7 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/imgAppName">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/barungothicbold">
 
         <TextView
             android:id="@+id/tvUserName"
@@ -63,15 +64,5 @@
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imgAppName"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:src="@drawable/text_logo_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

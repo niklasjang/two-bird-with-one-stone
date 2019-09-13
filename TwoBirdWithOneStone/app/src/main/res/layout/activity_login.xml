@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1) 이메일과 비밀번호를 입력 후 SIGNIN을 누른다\n2) 구글 아이디를 통해 아이디를 연동한다"
+            android:text="1) 이메일과 비밀번호를 입력 후 [회원가입]을 누른다\n2) 구글 아이디를 통해 아이디를 연동한다"
             />
         <TextView
             android:textStyle="bold"
@@ -58,7 +58,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이메일과 비밀번호를 입력 후 LOGIN을 누른다\n  "
+            android:text="이메일과 비밀번호를 입력 후 [로그인]을 누른다\n  "
             />
 
     </LinearLayout>
@@ -122,7 +122,7 @@
                 android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="login"
+                android:text="로그인"
                 />
 
             <Button
@@ -131,7 +131,7 @@
                 android:id="@+id/btn_signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="signin"
+                android:text="회원가입"
 
                 />
 

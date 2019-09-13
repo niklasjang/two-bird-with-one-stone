@@ -12,21 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/nav_view"
-        android:layout_marginTop="1dp">
-
-    </FrameLayout>
-
+        android:layout_marginTop="1dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="?android:attr/windowBackground"
-        app:itemIconTint="@android:color/holo_red_dark"
-        app:itemTextColor="@android:color/holo_orange_dark"
+        android:background="#4DFFFFFF"
+        android:paddingTop="5dp"
+        app:itemIconTint="#888888"
+        app:itemTextColor="#888888"
         app:menu="@menu/bottom_nav_menu" >
-
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

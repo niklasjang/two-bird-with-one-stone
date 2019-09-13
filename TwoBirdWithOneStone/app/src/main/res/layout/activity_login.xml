@@ -44,11 +44,11 @@
             android:layout_height="wrap_content"
             android:text="\n회원가입"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1) 이메일과 비밀번호를 입력 후 [회원가입]을 누른다\n2) 구글 아이디를 통해 아이디를 연동한다"
-            />
+            android:text="1) 이메일과 비밀번호를 입력 후 [회원가입]을 누른다\n2) [sign in]을 눌러 구글 아이디를 통해 아이디를 연동한다" />
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"

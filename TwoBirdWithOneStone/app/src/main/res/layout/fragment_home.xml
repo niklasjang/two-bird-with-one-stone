@@ -6,17 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="#cff0da"
     android:fillViewport="true">
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:src="@drawable/text_logo_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        />
 
     <ListView
         android:id="@+id/listView"

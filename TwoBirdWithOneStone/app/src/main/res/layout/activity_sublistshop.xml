@@ -15,13 +15,8 @@
         android:id="@+id/listView"
         android:layout_margin="7dp"
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="match_parent">
     </ListView>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/purchase_btn"/>
 
 
 </LinearLayout>

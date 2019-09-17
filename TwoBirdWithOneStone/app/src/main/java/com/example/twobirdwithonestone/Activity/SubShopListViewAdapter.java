@@ -39,9 +39,11 @@ public class SubShopListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
+        TextView coinTextView = (TextView) convertView.findViewById(R.id.culture_text_view) ;
         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
         TextView titleTextView = (TextView) convertView.findViewById(R.id.text_view) ;
-        TextView coinTextView = (TextView) convertView.findViewById(R.id.culture_text_view) ;
+        TextView explanationTextView = (TextView) convertView.findViewById(R.id.explanation_text_view) ;
+
 
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
@@ -52,6 +54,7 @@ public class SubShopListViewAdapter extends BaseAdapter {
         iconImageView.setImageBitmap(listViewItem.getIcon());
         titleTextView.setText(listViewItem.getTitle());
         coinTextView.setText(listViewItem.getCoin());
+        explanationTextView.setText(listViewItem.getExplanation());
 
         return convertView;
     }
@@ -66,21 +69,14 @@ public class SubShopListViewAdapter extends BaseAdapter {
         return listViewItemList.get(position) ;
     }
 
-    // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    class Items{
-        public Bitmap image;
-        public String name;
-        public String price;
-
-        public Items(Bitmap image, String coffee, String s) {
-        }
-    }
-    public void addItem(Bitmap image, String title, String coin) {
+    //이미지, 카테고리 제목, 가격, 설명
+    public void addItem(Bitmap image, String title, String coin, String explanation) {
         SubShopListViewItem item = new SubShopListViewItem();
 
         item.setIcon(image);
         item.setTitle(title);
         item.setCoin(coin);
+        item.setExplanation(explanation);
         listViewItemList.add(item);
     }
 

@@ -2,7 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff">
 
@@ -16,7 +17,6 @@
             android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
             android:layout_weight="7"
              />
         <LinearLayout
@@ -24,34 +24,56 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:orientation="vertical"
-            android:weightSum="5">
-
+            android:weightSum="10">
             <TextView
+                android:id="@+id/brand_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/text_view"
-                android:text="아이스크림"
-                android:paddingTop="15dp"
+                android:text="베라"
+                android:textSize="15dp"
+                android:fontFamily="@font/barungothicbold"
+                android:layout_marginTop="5dp"
                 android:paddingLeft="5dp"
+                android:layout_weight="4"
+                />
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
                 android:fontFamily="@font/hoon"
-                android:textSize="25dp"
-                android:layout_weight="2"
-                android:textColor="#000000">
+                android:paddingLeft="5dp"
+                android:paddingTop="6dp"
+                android:text="아이스크림"
+                android:textColor="#000000"
+                android:textSize="25dp">
 
             </TextView>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight="3">
+                android:layout_weight="3"
+                >
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@null"
+                    android:paddingBottom="8dp"
+                    android:src="@drawable/ic_cash" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/coin_text_view"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/barungothicbold"
+                    android:paddingTop="6dp"
                     android:text="3,500 Point"
-                    android:fontFamily="@font/maplebold"
-                    android:paddingLeft="10dp"
+                    android:textColor="#FF9439"
                     android:textSize="20dp">
 
                 </TextView>

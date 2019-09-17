@@ -32,7 +32,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
         ArrayList<Items> list = intent.getParcelableArrayListExtra("coffee_list");
         for(int i=0;i<list.size();i++){
             Bitmap bitmap = BitmapFactory.decodeByteArray(list.get(i).image, 0, list.get(i).image.length);
-            mAdapter.addItem(bitmap,list.get(i).name,list.get(i).price);
+            mAdapter.addItem(bitmap,list.get(i).name,list.get(i).price,list.get(i).explanation);
         }
         //
 

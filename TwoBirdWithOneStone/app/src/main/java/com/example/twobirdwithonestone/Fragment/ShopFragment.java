@@ -65,11 +65,11 @@ public class ShopFragment extends Fragment {
 
 
                     ArrayList<Items> culture_list = new ArrayList<Items>();
-                    culture_list.add(new Items(byteArray2,"경복궁 야간개장 입장권","3000"));
-                    culture_list.add(new Items(byteArray1,"따릉이 이용권","2000"));
-                    culture_list.add(new Items(byteArray2,"코엑스 아쿠아리움 입장권","15000"));
-                    culture_list.add(new Items(byteArray2,"롯데월드타워 전망대","20000"));
-                    culture_list.add(new Items(byteArray2,"서울대공원 동물원 입장권","3000"));
+                    culture_list.add(new Items(byteArray2,"경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new Items(byteArray1,"따릉이 이용권","2000","설명설명설명"));
+                    culture_list.add(new Items(byteArray2,"코엑스 아쿠아리움 입장권","15000","설명설명설명"));
+                    culture_list.add(new Items(byteArray2,"롯데월드타워 전망대","20000","설명설명설명"));
+                    culture_list.add(new Items(byteArray2,"서울대공원 동물원 입장권","3000","설명설명설명"));
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
@@ -86,11 +86,11 @@ public class ShopFragment extends Fragment {
 
 
                     ArrayList<Items> culture_list = new ArrayList<Items>();
-                    culture_list.add(new Items(byteArray2,"경복궁 야간개장 입장권","3000"));
-                    culture_list.add(new Items(byteArray1,"따릉이 이용권","2000"));
-                    culture_list.add(new Items(byteArray2,"코엑스 아쿠아리움 입장권","15000"));
-                    culture_list.add(new Items(byteArray2,"롯데월드타워 전망대","20000"));
-                    culture_list.add(new Items(byteArray2,"서울대공원 동물원 입장권","3000"));
+                    culture_list.add(new Items(byteArray2,"경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new Items(byteArray1,"따릉이 이용권","2000","설명설명설명"));
+                    culture_list.add(new Items(byteArray2,"코엑스 아쿠아리움 입장권","15000","설명설명설명"));
+                    culture_list.add(new Items(byteArray2,"롯데월드타워 전망대","20000","설명설명설명"));
+                    culture_list.add(new Items(byteArray2,"서울대공원 동물원 입장권","3000","설명설명설명"));
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
@@ -117,7 +117,7 @@ public class ShopFragment extends Fragment {
 
 
         ArrayList<String> listTitle = new ArrayList<String>();
-        listTitle.add("문화생활"); listTitle.add("커피/음료"); listTitle.add("아이스크림"); listTitle.add("케이크"); listTitle.add("뷰티");
+        listTitle.add("문화생활"); listTitle.add("커피/음료"); listTitle.add("아이스크림"); listTitle.add("케이크"); listTitle.add("기부");
         listTitle.add("기타");
         ArrayList<Drawable> listIcon = new ArrayList<Drawable>();
 
@@ -125,7 +125,7 @@ public class ShopFragment extends Fragment {
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_coffee));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_icecream3));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_cakec));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_beauty));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_fund));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_tent));
 
         for(int i=0; i<listTitle.size();i++){

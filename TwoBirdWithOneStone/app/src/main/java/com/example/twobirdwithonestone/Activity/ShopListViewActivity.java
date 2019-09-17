@@ -47,12 +47,15 @@ public class ShopListViewActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(ShopListViewActivity.this,SubShopListViewActivity.class);
                     ArrayList<Items> coffee_list = new ArrayList<Items>();
-                    coffee_list.add(new Items(list.get(i).image,list.get(i).name,list.get(i).price));
+                    coffee_list.add(new Items(list.get(i).image,list.get(i).name,list.get(i).price,list.get(i).explanation));
                     intent.putParcelableArrayListExtra("coffee_list", coffee_list);
                     startActivity(intent);
                 }
                 if ( i == 1) {
                     Intent intent = new Intent(ShopListViewActivity.this,SubShopListViewActivity.class);
+                    ArrayList<Items> coffee_list = new ArrayList<Items>();
+                    coffee_list.add(new Items(list.get(i).image,list.get(i).name,list.get(i).price,list.get(i).explanation));
+                    intent.putParcelableArrayListExtra("coffee_list", coffee_list);
                     startActivity(intent);
                 }
                 if ( i == 2) {

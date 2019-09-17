@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="7"
-            app:srcCompat="@drawable/ic_icecream" />
+             />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -4,28 +4,34 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Items implements Parcelable {
-    public int icon;
+    public byte[] image;
     public String name;
     public String price;
 
 
-    public Items(int icon, String name,String price) {
-        this.icon = icon;
+    public Items(byte[] image, String name,String price) {
+        this.image = image;
         this.name = name;
         this.price = price;
     }
 
     public Items(Parcel in) {
-        icon = in.readInt();
+        readFromParcel(in);
+
+    }
+
+    public void readFromParcel(Parcel in){
+        image = new byte[in.readInt()];
+        in.readByteArray(image);
         name = in.readString();
         price = in.readString();
-
     }
 
     public static final Creator<Items> CREATOR = new Creator<Items>() {
         @Override
         public Items createFromParcel(Parcel in) {
             return new Items(in);
+
         }
 
         @Override
@@ -41,8 +47,8 @@ public class Items implements Parcelable {
     public String getprice() {
         return price;
     }
-    public int geticon() {
-        return icon;
+    public byte[] getBytes() {
+        return image;
     }
     @Override
     public int describeContents() {
@@ -51,7 +57,8 @@ public class Items implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(icon);
+        dest.writeInt(image.length);
+        dest.writeByteArray(image);
         dest.writeString(name);
         dest.writeString(price);
 

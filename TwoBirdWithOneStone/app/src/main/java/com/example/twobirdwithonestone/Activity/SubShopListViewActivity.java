@@ -1,44 +1,41 @@
 package com.example.twobirdwithonestone.Activity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.example.twobirdwithonestone.R;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SubshopActivity extends AppCompatActivity {
+public class SubShopListViewActivity extends AppCompatActivity {
     private ListView mListView;
-    private ShopListViewAdapter mAdapter;
+    private SubShopListViewAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subshop);
+        setContentView(R.layout.activity_sublistshop);
         mListView = (ListView)findViewById(R.id.listView);
-        mAdapter = new ShopListViewAdapter();
+        mAdapter = new SubShopListViewAdapter();
         mListView.setAdapter(mAdapter);
 
-        //shop_fragment에서 intent로 전달하는 배열 받기
+        //ShopListViewActivity에서 intent로 전달하는 배열 받기
         Intent intent = getIntent();
-
+        //ArrayList 를 받아 addItem
         ArrayList<Items> list = intent.getParcelableArrayListExtra("coffee_list");
         for(int i=0;i<list.size();i++){
-            mAdapter.addItem(list.get(i).icon,list.get(i).name,list.get(i).price);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(list.get(i).image, 0, list.get(i).image.length);
+            mAdapter.addItem(bitmap,list.get(i).name,list.get(i).price);
         }
-
-
-        }
+        //
 
 
     }
+}

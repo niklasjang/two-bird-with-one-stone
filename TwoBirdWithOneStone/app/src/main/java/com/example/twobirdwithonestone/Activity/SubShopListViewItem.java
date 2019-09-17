@@ -1,9 +1,8 @@
 package com.example.twobirdwithonestone.Activity;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 
-public class ShopListViewItem {
+public class SubShopListViewItem {
     private Bitmap imageByte ;
     private String titleStr ;
     private String coinStr ;

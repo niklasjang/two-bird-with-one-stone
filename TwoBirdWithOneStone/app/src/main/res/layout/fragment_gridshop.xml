@@ -4,18 +4,23 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E2E2E2"
+    android:background="#cff0da"
     >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="상품 목록"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:fontFamily="@font/maplebold"/>
 
     <GridView
         android:id="@+id/shop_gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:columnWidth="100dp"
+        android:columnWidth="160dp"
+        android:verticalSpacing="7dp"
         android:numColumns="2"
-        android:verticalSpacing="24dp"
-        android:horizontalSpacing="10dp"
         android:stretchMode="spacingWidthUniform">
 
     </GridView>

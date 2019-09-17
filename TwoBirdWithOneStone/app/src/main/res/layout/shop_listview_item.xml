@@ -47,7 +47,7 @@
                 android:paddingTop="6dp"
                 android:text="아이스크림"
                 android:textColor="#000000"
-                android:textSize="25dp">
+                android:textSize="20dp">
 
             </TextView>
             <LinearLayout

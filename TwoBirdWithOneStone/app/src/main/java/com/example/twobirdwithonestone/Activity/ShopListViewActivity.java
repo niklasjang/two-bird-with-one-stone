@@ -18,6 +18,7 @@ public class ShopListViewActivity extends AppCompatActivity {
     private ListView mListView;
     private ShopListViewAdapter mAdapter;
     @Override
+    //listshop과 연결
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listshop);
@@ -27,7 +28,7 @@ public class ShopListViewActivity extends AppCompatActivity {
 
         //shop_fragment에서 intent로 전달하는 배열 받기
         Intent intent = getIntent();
-        //ArrayList 를 받아 addItem
+        //parcelable로 ArrayList 를 받아 addItem
         final ArrayList<Items> list = intent.getParcelableArrayListExtra("culture_list");
 
         for(int i=0;i<list.size();i++){
@@ -36,7 +37,7 @@ public class ShopListViewActivity extends AppCompatActivity {
         //
 
 
-        //Shoplistview ->> subshoplistview
+        //Shoplistview ->> subshoplistview 클릭하는 position마다 조건달아 지정
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -44,17 +45,18 @@ public class ShopListViewActivity extends AppCompatActivity {
 
                 if ( i == 0) {
 
-
                     Intent intent = new Intent(ShopListViewActivity.this,SubShopListViewActivity.class);
                     ArrayList<Items> coffee_list = new ArrayList<Items>();
-                    coffee_list.add(new Items(list.get(i).image,list.get(i).name,list.get(i).price,list.get(i).explanation));
+                    //받아온 arraylist의 items 객체 내 가져올 항목 add
+                    coffee_list.add(new Items(list.get(i).image,list.get(i).category,list.get(i).name,list.get(i).price,list.get(i).explanation));
+                    //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("coffee_list", coffee_list);
                     startActivity(intent);
                 }
                 if ( i == 1) {
                     Intent intent = new Intent(ShopListViewActivity.this,SubShopListViewActivity.class);
                     ArrayList<Items> coffee_list = new ArrayList<Items>();
-                    coffee_list.add(new Items(list.get(i).image,list.get(i).name,list.get(i).price,list.get(i).explanation));
+                    coffee_list.add(new Items(list.get(i).image,list.get(i).category,list.get(i).name,list.get(i).price,list.get(i).explanation));
                     intent.putParcelableArrayListExtra("coffee_list", coffee_list);
                     startActivity(intent);
                 }

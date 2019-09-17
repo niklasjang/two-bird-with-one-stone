@@ -5,13 +5,15 @@ import android.os.Parcelable;
 
 public class Items implements Parcelable {
     public byte[] image;
+    public String category;
     public String name;
     public String price;
     public String explanation;
 
 
-    public Items(byte[] image, String name,String price,String explanation) {
+    public Items(byte[] image,String category, String name,String price,String explanation) {
         this.image = image;
+        this.category = category;
         this.name = name;
         this.price = price;
         this.explanation = explanation;
@@ -26,6 +28,7 @@ public class Items implements Parcelable {
         // readByteArray가 받는 인자를 readInt형으로 바꾸어 줌
         image = new byte[in.readInt()];
         in.readByteArray(image);
+        category = in.readString();
         name = in.readString();
         price = in.readString();
         explanation = in.readString();
@@ -43,7 +46,9 @@ public class Items implements Parcelable {
             return new Items[size];
         }
     };
-
+    public String getcategory() {
+        return category;
+    }
     public String getname() {
         return name;
     }
@@ -66,6 +71,7 @@ public class Items implements Parcelable {
         // read 형식과 동일하게 int형 써주고 bytearray, readfromparcel 와 같이 순서 동일하게 적어주어야함
         dest.writeInt(image.length);
         dest.writeByteArray(image);
+        dest.writeString(category);
         dest.writeString(name);
         dest.writeString(price);
         dest.writeString(explanation);

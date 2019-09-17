@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 public class ShopListViewItem {
+    //shoplistview에 들어갈 이미지, 상품명, 가격 순
     private Bitmap imageByte ;
     private String titleStr ;
     private String coinStr ;

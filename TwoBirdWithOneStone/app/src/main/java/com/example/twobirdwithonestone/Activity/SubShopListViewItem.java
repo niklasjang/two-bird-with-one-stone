@@ -3,27 +3,27 @@ package com.example.twobirdwithonestone.Activity;
 import android.graphics.Bitmap;
 
 public class SubShopListViewItem {
-    private Bitmap imageByte ;
+    //subshoplistview에 들어갈 category명, 상품명, 이미지, 상품설명
+    private String categoryStr ;
     private String titleStr ;
-    private String coinStr ;
+    private Bitmap imageByte ;
     private String explanationStr ;
 
-    public void setIcon(Bitmap image) {
-        imageByte = image ;
-    }
+    public void setCategory(String sub) { categoryStr = sub ; }
     public void setTitle(String title) {
         titleStr = title ;
     }
-    public void setCoin(String sub) { coinStr = sub ; }
+    public void setIcon(Bitmap image) {
+        imageByte = image ;
+    }
     public void setExplanation(String explanation) { explanationStr = explanation ; }
 
-
-    public Bitmap getIcon() {
-        return this.imageByte ;
-    }
+    public String getCategory() { return this.categoryStr ; }
     public String getTitle() {
         return this.titleStr ;
     }
-    public String getCoin() { return this.coinStr ; }
+    public Bitmap getIcon() {
+        return this.imageByte ;
+    }
     public String getExplanation() { return this.explanationStr ; }
 }

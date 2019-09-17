@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ZeropayActivity">
+    <TextView
+        android:id="@+id/tvBeforeTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 포인트"
+        app:layout_constraintTop_toBottomOf="@+id/btnTransForm100"
+        app:layout_constraintBottom_toTopOf="@+id/tvHowMuchTransform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvPointBeforeTransform"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <TextView
+        android:id="@+id/tvPointBeforeTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="000000"
+        app:layout_constraintTop_toTopOf="@+id/tvBeforeTransform"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBeforeTransform"
+        app:layout_constraintStart_toEndOf="@+id/tvBeforeTransform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/tvHowMuchTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전환 포인트"
+        app:layout_constraintTop_toBottomOf="@+id/tvBeforeTransform"
+        app:layout_constraintBottom_toTopOf="@+id/tvAfterTransform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvPointHowMuchTransform"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <TextView
+        android:id="@+id/tvPointHowMuchTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="000000"
+        app:layout_constraintTop_toTopOf="@+id/tvHowMuchTransform"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHowMuchTransform"
+        app:layout_constraintStart_toEndOf="@+id/tvHowMuchTransform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/tvAfterTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예정 포인트"
+        app:layout_constraintTop_toBottomOf="@+id/tvHowMuchTransform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvPointAfterTransform"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <TextView
+        android:id="@+id/tvPointAfterTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="000000"
+        app:layout_constraintTop_toTopOf="@+id/tvAfterTransform"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAfterTransform"
+        app:layout_constraintStart_toEndOf="@+id/tvAfterTransform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <Button
+        android:id="@+id/btnTransForm100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100P"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnTransForm500"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvBeforeTransform"
+ />
+    <Button
+        android:id="@+id/btnTransForm500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="500P"
+        app:layout_constraintStart_toEndOf="@+id/btnTransForm100"
+        app:layout_constraintEnd_toStartOf="@+id/btnTransForm1000"
+        app:layout_constraintTop_toTopOf="@+id/btnTransForm100"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTransForm100"
+    />
+
+    <Button
+        android:id="@+id/btnTransForm1000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000P"
+        app:layout_constraintStart_toEndOf="@+id/btnTransForm500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnTransForm100"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTransForm100"
+ />
+
+    <Button
+        android:id="@+id/btnTransform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전환"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAfterTransform"
+ />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

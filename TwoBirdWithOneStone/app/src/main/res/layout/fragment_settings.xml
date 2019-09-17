@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    >
+    android:fontFamily="@font/barungothicbold">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E2E2E2"
+        android:background="#4DFFFFFF"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +19,8 @@
             android:paddingBottom="10dp"
             android:text="설정"
 
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginTop="7dp"/>
 
 
         <Switch
@@ -29,8 +29,8 @@
             android:layout_height="50dp"
             android:background="@android:color/white"
             android:checked="true"
-            android:thumbTint="@android:color/holo_red_light"
-            android:trackTint="@android:color/holo_red_light"
+            android:thumbTint="#cff0da"
+            android:trackTint="#dadbdb"
             android:paddingLeft="10dp"
             android:text="잠금화면 설정"
             android:textSize="20dp" />
@@ -40,8 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
-            android:thumbTint="@android:color/holo_red_light"
-            android:trackTint="@android:color/holo_red_light"
+            android:thumbTint="#cff0da"
+            android:trackTint="#dadbdb"
             android:checked="false"
             android:paddingLeft="10dp"
             android:text="잠금해제 시 진동"
@@ -57,15 +57,17 @@
             android:paddingBottom="10dp"
             android:text="알림"
 
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginTop="7dp"
+            />
 
         <Switch
             android:id="@+id/switch_news"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:thumbTint="@android:color/holo_red_light"
-            android:trackTint="@android:color/holo_red_light"
             android:background="@android:color/white"
+            android:thumbTint="#cff0da"
+            android:trackTint="#dadbdb"
             android:checked="true"
             android:paddingLeft="10dp"
             android:text="서울시 새 소식"
@@ -77,9 +79,9 @@
             android:id="@+id/switch_accumulate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:thumbTint="@android:color/holo_red_light"
-            android:trackTint="@android:color/holo_red_light"
             android:background="@android:color/white"
+            android:thumbTint="#cff0da"
+            android:trackTint="#dadbdb"
             android:checked="true"
             android:paddingLeft="10dp"
             android:text="적립 알림"
@@ -91,9 +93,9 @@
             android:id="@+id/switch_notice"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:thumbTint="@android:color/holo_red_light"
-            android:trackTint="@android:color/holo_red_light"
             android:background="@android:color/white"
+            android:thumbTint="#cff0da"
+            android:trackTint="#dadbdb"
             android:checked="true"
             android:paddingLeft="10dp"
             android:text="어플 공지사항"
@@ -109,7 +111,8 @@
             android:paddingBottom="10dp"
             android:text="도움"
 
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginTop="7dp"/>
 
         <Button
             android:id="@+id/help_btn"
@@ -119,10 +122,10 @@
             android:gravity="left"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:text="공지사항"
-            android:textSize="20dp">
 
-        </Button>
+            android:text="공지사항"
+            android:textSize="20dp"/>
+
 
         <Button
             android:id="@+id/introduce_btn"
@@ -132,18 +135,32 @@
             android:gravity="left"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:text="꿩먹알먹 사용 방법"
-            android:textSize="20dp">
 
-        </Button>
+            android:text="꿩먹알먹 사용 방법"
+            android:textSize="20dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="개인"
+
+            android:textSize="15dp"
+            android:layout_marginTop="7dp"/>
+
         <Button
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="73dp"
-            android:text="logout" />
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
 
-
+            android:text="로그아웃"
+            android:textSize="20dp"/>
     </LinearLayout>
 </ScrollView>

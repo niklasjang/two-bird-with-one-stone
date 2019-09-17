@@ -48,6 +48,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //***** Start LoadingActivity 2019-09-08 3AM Hz *****
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
+        //***** Finish LoadingActivity *****
+
         //btn id정리
         Button btnSign = (Button) findViewById(R.id.btn_signin);
         Button btnLogin = (Button) findViewById(R.id.btn_login);
@@ -65,8 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //회원가입 후 최초 로그인 시에만 db에 생성, 아닐 시에는 데이터를 만들 필요가 없기 때문에 넘어가게 된다.
-                user = firebaseAuth.getCurrentUser();
-
+                user = firebaseAuth.getCurrentUser(); //로그인한 사용자가 없으면 getCurrentUser는 null을 반환합니다.
                 if(user != null){
                     db = new DataBase();
                     db.registerUserData("Users",user.getUid()).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

@@ -1,50 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="coin"
-        android:id="@+id/coin_text_view"
-        android:textSize="18dp"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="10dp"
-        android:layout_marginLeft="20dp"
-        android:paddingBottom="2dp"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:layout_marginBottom="20dp"
+    android:background="#F5F8F4"
+    android:divider="#0000"
+    android:showDividers="middle"
+    android:dividerPadding="10dp"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/image_view"
-        android:layout_gravity="center_vertical" />
+        android:id="@+id/imgUrl_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+        android:maxHeight="200dp"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_margin="10dp"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+>>>>>>> origin/Hz1.1
 
         <TextView
-            android:layout_margin="2dp"
+            android:id="@+id/title_display_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:textStyle="bold"
+
+            android:fontFamily="@font/bmhanna_pro"
+            android:text="제목 : " />
+
+        <TextView
             android:id="@+id/title_text_view"
-            android:textSize="20dp" />
-
-        <TextView
-            android:layout_margin="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subtitle"
-            android:id="@+id/subtitle_text_view"
-            android:textSize="18dp"/>
-
+            android:paddingBottom="10dp"
+            android:text="Title" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+>>>>>>> origin/Hz1.1
+
+        <TextView
+            android:id="@+id/content_display_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bmhanna_pro"
+            android:text="내용 : " />
+>>>>>>> origin/Hz1.1
+
+        <TextView
+            android:id="@+id/content_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="Title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/date_display_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bmhanna_pro"
+            android:text="날짜 : " />
+
+        <TextView
+            android:id="@+id/date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="Title" />
+    </LinearLayout>
+<!--
+ 작성자 :박규영
+ 일자 : 2019 09 12
+ 내용 : 레이아웃 수정 요망, 빨간 줄은 뜨지만 문제는없다. 다만, 뷰안의 아이템들 간의 간격 조정이 안됨, 수정 요망
+-->
 </LinearLayout>

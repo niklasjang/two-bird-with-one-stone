@@ -1,9 +1,13 @@
 package com.example.twobirdwithonestone.Activity;
 
+import com.bumptech.glide.Glide;
 import com.example.twobirdwithonestone.R;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +15,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 
+
+/*
+작성자 : 박규영
+수정일 : 2019 09 12
+변수 수정, 수정할 버전으로 사용할 것,
+* */
+
 public class HomeListViewAdapter extends BaseAdapter {
+    /**
+     * Adapter가 하는 역할은 사용자 데이터를 입력받아 View를 생성하는 것이며 Adapter에서 생성되는 View는 ListView 내 하나의 아이템 영역에 표시되는 것입니다.
+     * */
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<HomeListViewItem> listViewItemList = new ArrayList<HomeListViewItem>() ;
 
@@ -39,20 +55,40 @@ public class HomeListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
-        TextView titleTextView = (TextView) convertView.findViewById(R.id.title_text_view) ;
-        TextView subTitleTextView = (TextView) convertView.findViewById(R.id.subtitle_text_view) ;
-        TextView coinTextView = (TextView) convertView.findViewById(R.id.coin_text_view) ;
+        /**
+         TextView coinTextView = (TextView) convertView.findViewById(R.id.coin_text_view) ;
+         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
+         */
 
+        ImageView imgUrlImageView = (ImageView) convertView.findViewById(R.id.imgUrl_image_view) ;
+        TextView titleTextView = (TextView) convertView.findViewById(R.id.title_text_view) ;
+        TextView contentTextView = (TextView) convertView.findViewById(R.id.content_text_view) ;
+        TextView rankTextView = (TextView) convertView.findViewById(R.id.date_textview) ;
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        HomeListViewItem listViewItem = listViewItemList.get(position);
+        final HomeListViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        iconImageView.setImageDrawable(listViewItem.getIcon());
+        /**
+         iconImageView.setImageDrawable(listViewItem.getIcon());
+         coinTextView.setText(listViewItem.getCoin());
+         */
+        if(listViewItem.getImgUrl() == "default"){
+            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
+            imgUrlImageView.setImageDrawable(image);
+        }else{
+            Glide.with(convertView.getContext()).load(listViewItem.getImgUrl()).into(imgUrlImageView);
+        }
         titleTextView.setText(listViewItem.getTitle());
-        subTitleTextView.setText(listViewItem.getSubtitle());
-        coinTextView.setText(listViewItem.getCoin());
+        contentTextView.setText("내용: "+listViewItem.getContent());
+        rankTextView.setText("날짜: "+listViewItem.getDate());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(listViewItem.getUrl())));
+            }
+        });
 
         return convertView;
     }
@@ -68,13 +104,19 @@ public class HomeListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Drawable icon, String title, String subtitle, String coin) {
+    public void addItem(String imgUrl, String title, String subtitle, String rank, String url) {
         HomeListViewItem item = new HomeListViewItem();
 
-        item.setIcon(icon);
+        /**
+         item.setIcon(icon);
+         item.setCoin(coin);
+         */
+
+        item.setImgUrl(imgUrl);
         item.setTitle(title);
-        item.setSubtitle(subtitle);
-        item.setCoin(coin);
+        item.setContent(subtitle);
+        item.setDate(rank);
+        item.setUrl(url);
 
         listViewItemList.add(item);
     }

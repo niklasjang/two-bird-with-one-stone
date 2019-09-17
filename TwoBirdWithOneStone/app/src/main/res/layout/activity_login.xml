@@ -5,51 +5,137 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.LoginActivity">
-    <Button
-        android:id="@+id/btn_signin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="signin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
-    <Button
-        android:id="@+id/btn_login"
+    <ImageView
+        android:id="@+id/logo_img"
         android:layout_width="wrap_content"
+        android:layout_height="90dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_login_text_layout"
+
+        android:layout_marginTop="30dp"
+        android:src="@drawable/text_logo_horizontal" />
+
+
+    <LinearLayout
+        android:id="@+id/info_login_text_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        android:gravity="center"
+        android:background="@drawable/login_edge"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/logo_img"
+        app:layout_constraintBottom_toTopOf="@+id/et_id"
+
+        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n회원가입"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1) 이메일과 비밀번호를 입력 후 [회원가입]을 누른다\n2) [sign in]을 눌러 구글 아이디를 통해 아이디를 연동한다" />
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n로그인"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일과 비밀번호를 입력 후 [로그인]을 누른다\n  "
+            />
+
+    </LinearLayout>
+
+
 
     <EditText
         android:id="@+id/et_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+
         android:ems="10"
-        android:hint="아이디"
+        android:hint="ex@email.com"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+        app:layout_constraintTop_toBottomOf="@id/info_login_text_layout"
+        app:layout_constraintBottom_toTopOf="@+id/et_password"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+
+        android:layout_marginTop="10dp"
+        />
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="비밀번호"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_id" />
+        android:layout_marginTop="5dp"
 
+        android:ems="10"
+        android:hint="password "
+        android:inputType="textPassword"
+
+        app:layout_constraintTop_toBottomOf="@id/et_id"
+        app:layout_constraintBottom_toTopOf="@+id/btn_layout"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="15dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/et_password"
+        app:layout_constraintBottom_toTopOf="@+id/btn_googleLogin"
+
+        >
+            <Button
+                android:background="@drawable/rounded_hz"
+                android:layout_marginRight="5dp"
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="로그인"
+                />
+
+            <Button
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rounded_hz"
+                android:id="@+id/btn_signin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회원가입"
+
+                />
+
+    </LinearLayout>
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_googleLogin"
         android:layout_width="wrap_content"
@@ -57,8 +143,7 @@
         android:layout_marginTop="8dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

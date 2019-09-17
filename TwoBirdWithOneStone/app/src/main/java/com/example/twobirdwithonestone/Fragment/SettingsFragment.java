@@ -2,32 +2,30 @@ package com.example.twobirdwithonestone.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.twobirdwithonestone.Activity.DataBase;
-import com.example.twobirdwithonestone.Activity.UserData;
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Service.LockScreenService;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment {
 
     Boolean boolLockScreen = false;
+
+    public Boolean getBoolLockScreen() {
+        return boolLockScreen;
+    }
+    public void setBoolLockScreen(Boolean boolLockScreen) {
+        this.boolLockScreen = boolLockScreen;
+    }
 
     @Nullable
     @Override

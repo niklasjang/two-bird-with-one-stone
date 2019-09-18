@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,6 +57,7 @@ public class HomeFragment extends Fragment {
         seoulBoardCrawler.execute();
         mListView = (ListView)view.findViewById(R.id.listView);
         mAdapter = new HomeListViewAdapter();
+
         mListView.setAdapter(mAdapter);
 
         //mAdapter.addItem();
@@ -66,7 +67,9 @@ public class HomeFragment extends Fragment {
          * adapter 부분이 에러...
          * https://recipes4dev.tistory.com/63?category=643521 참고해서 수정하기
          */
+
         mContext = getActivity();
+
 
         /**
          * 1. 리스트에 값을 넣을경우
@@ -84,6 +87,10 @@ public class HomeFragment extends Fragment {
          * 2. 리스트 값을 전부 삭제할 경우
          *  >> adapter.notifyDataSetChanged();
          */
+        title = "제목";
+        subtitle = "부제";
+        coin = "1000";
+        image = (Drawable) ContextCompat.getDrawable(mContext, R.drawable.circle_logo);
 
         return view;
     }

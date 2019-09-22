@@ -6,10 +6,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import androidx.annotation.NonNull;
@@ -17,14 +19,22 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.twobirdwithonestone.Activity.Coupon;
 import com.example.twobirdwithonestone.Activity.Items;
 import com.example.twobirdwithonestone.Activity.ShopGridViewAdapter;
 import com.example.twobirdwithonestone.Activity.ShopListViewActivity;
 import com.example.twobirdwithonestone.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class ShopFragment extends Fragment {
@@ -135,6 +145,7 @@ public class ShopFragment extends Fragment {
         for(int i=0; i<listTitle.size();i++){
             mAdapter.addItem(listIcon.get(i),listTitle.get(i));
         }
+
         return view;
     }
 }

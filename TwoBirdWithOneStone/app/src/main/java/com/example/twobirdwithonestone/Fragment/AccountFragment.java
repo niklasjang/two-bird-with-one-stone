@@ -20,6 +20,7 @@ import com.example.twobirdwithonestone.Activity.ZeropayActivity;
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Activity.CouponRecyclerViewAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -27,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -35,8 +38,11 @@ public class AccountFragment extends Fragment {
     private static final int REQUEST_ZEROPAY = 200;
     private FirebaseFirestore db;
     private CouponRecyclerViewAdapter couponAdapter;
+    private Date currentTime;
+    private String currentUID;
     Button btn_zeropay;
     public ArrayList<Coupon> couponList;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -75,6 +81,9 @@ public class AccountFragment extends Fragment {
             }
         });
 
+
+
+
         // 리사이클러뷰에 LinearLayoutManager 객체 지정.
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewCoupon) ;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())) ;
@@ -96,8 +105,11 @@ public class AccountFragment extends Fragment {
         //쿠폰 Recycler View default 객체 생성
         couponList = new ArrayList<>();
         Coupon c;
+        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         for (int i=0; i<3; i++) {
-            c = new Coupon("Name", "2019-09-12", false);
+            currentTime = Calendar.getInstance().getTime();
+            c = new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID, );
             couponList.add(c) ;
         }
     }

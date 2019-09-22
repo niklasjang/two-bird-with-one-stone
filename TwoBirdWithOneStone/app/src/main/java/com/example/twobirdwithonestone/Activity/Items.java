@@ -11,7 +11,7 @@ public class Items implements Parcelable {
     public String explanation;
 
 
-    public Items(byte[] image,String category, String name,String price,String explanation) {
+    public Items(byte[] image, String category, String name, String price, String explanation) {
         this.image = image;
         this.category = category;
         this.name = name;

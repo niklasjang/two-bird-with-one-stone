@@ -8,7 +8,14 @@ public class SubShopListViewItem {
     private String titleStr ;
     private Bitmap imageByte ;
     private String explanationStr ;
+    private String priceStr;
 
+    public void setPriceStr(String priceStr) {
+        this.priceStr = priceStr;
+    }
+    public String getPriceStr() {
+        return priceStr;
+    }
     public void setCategory(String sub) { categoryStr = sub ; }
     public void setTitle(String title) {
         titleStr = title ;

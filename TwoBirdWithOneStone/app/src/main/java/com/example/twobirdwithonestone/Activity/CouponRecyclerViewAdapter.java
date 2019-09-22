@@ -1,6 +1,7 @@
 package com.example.twobirdwithonestone.Activity;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,16 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Coupon coupon = mData.get(position) ;
-        holder.imgCoupon.setImageResource(R.drawable.circle_logo_b);
+        Log.d("CouponRecyclerView", Integer.toString(position));
+        Log.d("CouponRecyclerView", Integer.toString(mData.size()));
+        Log.d("CouponRecyclerView", coupon.couponCreateTime);
+        if(coupon.couponImgIndex == 0) {
+            holder.imgCoupon.setImageResource(R.drawable.ic_cakec);
+        }else if(coupon.couponImgIndex == 1) {
+            holder.imgCoupon.setImageResource(R.drawable.ic_cake1);
+        }else{
+            holder.imgCoupon.setImageResource(R.drawable.circle_logo_b);
+        }
         holder.tvCouponName.setText(coupon.couponName);
         holder.tvCouponCreateTime.setText(coupon.couponCreateTime);
         holder.tvCouponUsedOrNot.setText(coupon.couponUesrOrNot.toString());

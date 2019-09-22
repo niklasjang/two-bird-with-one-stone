@@ -100,7 +100,8 @@ public class AccountFragment extends Fragment {
         // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
         couponAdapter = new CouponRecyclerViewAdapter(couponList);
         couponAdapter.notifyDataSetChanged();
-        recyclerView.setAdapter(couponAdapter) ;
+        recyclerView.setAdapter(couponAdapter);
+
         Log.d("QueryCoupons", "return view 합니다?");
         return view;
     }
@@ -111,17 +112,13 @@ public class AccountFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //쿠폰 Recycler View default 객체 생성
-        couponList = new ArrayList<Coupon>();
-        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    public void onStart() {
+        super.onStart();
         FirebaseFirestore.getInstance().collection("Coupons")
                 .whereEqualTo("userUID", currentUID)
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onSuccess(QuerySnapshot documentSnapshots) {
+                    public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
                         if(documentSnapshots.isEmpty()){
                             Log.d("QueryCoupons", "쿠폰이 비었어요");
                         }else{
@@ -131,30 +128,30 @@ public class AccountFragment extends Fragment {
                                     //.toObject를 쓰면 터져서 그냥 이렇게 한다. 변수명은 여기 부분에서만 쓰이니까 무시해도 됨.
                                     String str1 = snapshot.get("couponCreateTime").toString();
                                     Log.d("QueryCoupons", "이건 가져와요" + str1);
-//                                    String str2 = snapshot.get("couponName").toString();
-//                                    String str3 = snapshot.get("couponUID").toString();
-//                                    Boolean a = (Boolean)snapshot.get("couponUesrOrNot");
-//                                    String str4 = snapshot.get("userUID").toString();
-//                                    int b = Integer.parseInt(snapshot.get("couponImgIndex").toString());
-//                                    myCounpon = new Coupon(str1, str2, str3, a, str4, b);
+                                    String str2 = snapshot.get("couponName").toString();
+                                    String str3 = snapshot.get("couponUID").toString();
+                                    Boolean a = (Boolean)snapshot.get("couponUesrOrNot");
+                                    String str4 = snapshot.get("userUID").toString();
+                                    int b = Integer.parseInt(snapshot.get("couponImgIndex").toString());
+                                    myCounpon = new Coupon(str1, str2, str3, a, str4, b);
                                     couponList.add(myCounpon);
-                                    Coupon c = new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID,1 );
-                                    couponList.add(c);
-                                    queryIsDone = true;
-                                    Log.d("QueryCoupons", "쿠폰이 추가했어요");
+                                    Log.d("QueryCoupons", "쿠폰이 추가했어요 "+couponList.size());
                                 }else{
                                     Log.d("QueryCoupons", "쿠폰이 이상하네요");
                                 }
                             }
                         }
                     }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("QueryCoupons", "Fail!!");
-                    }
                 });
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //쿠폰 Recycler View default 객체 생성
+        couponList = new ArrayList<Coupon>();
+        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
         //If Default coupon exists, add default coupon to couponList.
         for (int i=0; i<1; i++) {

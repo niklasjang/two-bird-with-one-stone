@@ -19,6 +19,8 @@ public class Coupon {
         this.couponImgIndex = _imgIndex;
     }
 
+
+
     public String getUserUID() {
         return userUID;
     }

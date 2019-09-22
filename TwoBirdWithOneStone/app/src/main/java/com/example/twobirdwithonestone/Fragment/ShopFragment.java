@@ -73,7 +73,7 @@ public class ShopFragment extends Fragment {
                     startActivity(intent);
                 }
                 //커피음료
-                if ( i == 1) {
+                else if ( i == 1) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cake1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
@@ -95,23 +95,22 @@ public class ShopFragment extends Fragment {
                     startActivity(intent);
                 }
                 //아이스크림
-                if ( i == 2) {
+                else if ( i == 2) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
-
                     startActivity(intent);
                 }
                 //케이크
-                if ( i == 3) {
+                else if ( i == 3) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     startActivity(intent);
                 }
                 //기부
-                if ( i == 4) {
+                else if ( i == 4) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     startActivity(intent);
                 }
                 //봉사
-                if ( i == 5) {
+                else if ( i == 5) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     startActivity(intent);
                 }

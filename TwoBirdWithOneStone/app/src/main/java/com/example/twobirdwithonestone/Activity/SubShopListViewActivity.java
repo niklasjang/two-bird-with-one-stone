@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -35,7 +36,13 @@ public class SubShopListViewActivity extends AppCompatActivity {
             mAdapter.addItem(list.get(i).category,list.get(i).name,bitmap,list.get(i).explanation);
         }
         //
+        Button btn_buy_item = findViewById(R.id.btn_buy_item);
+        btn_buy_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
     }
 }

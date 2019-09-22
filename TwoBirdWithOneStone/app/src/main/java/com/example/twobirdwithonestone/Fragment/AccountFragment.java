@@ -119,6 +119,8 @@ public class AccountFragment extends Fragment {
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+                        //로그아웃 시 여기서 앱이 터져서 null 체크를 해주어야 한다.
+                        if(documentSnapshots == null) return;
                         if(documentSnapshots.isEmpty()){
                             Log.d("QueryCoupons", "쿠폰이 비었어요");
                         }else{

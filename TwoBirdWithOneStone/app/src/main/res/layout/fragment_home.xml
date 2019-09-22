@@ -9,12 +9,125 @@
     android:fillViewport="true"
     android:fontFamily="@font/barungothicbold">
 
+    <LinearLayout
+        android:background="#4DFFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="7dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:background="#4DFFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="1dp">
+            <Button
+                android:drawableTop="@drawable/ic_home_transportation"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/Transportation_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginRight="1dp"
+                android:text="교통"
+                android:textSize="13dp" />
+            <Button
+                android:drawableTop="@drawable/ic_home_safety"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/safety_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:text="안전"
+                android:textSize="13dp" />
+
+            <Button
+                android:drawableTop="@drawable/ic_home_housing"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/housing_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="1dp"
+                android:text="주택"
+                android:textSize="13dp" />
+            <Button
+                android:drawableTop="@drawable/ic_home_economy"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/economy_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="1dp"
+                android:text="경제"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#4DFFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="1dp">
+            <Button
+                android:drawableTop="@drawable/ic_home_environment"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/environment_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="1dp"
+                android:text="환경"
+                android:textSize="13dp" />
+            <Button
+                android:drawableTop="@drawable/ic_home_culture"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/culture_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="1dp"
+                android:text="문화"
+                android:textSize="13dp" />
+            <Button
+                android:drawableTop="@drawable/ic_home_welfare"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/welfare_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="1dp"
+                android:text="복지"
+                android:textSize="13dp" />
+            <Button
+                android:drawableTop="@drawable/ic_home_administrative"
+                android:background="@drawable/rounded_hz_home"
+                android:id="@+id/administrative_bnt"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="1dp"
+                android:text="행정"
+                android:textSize="13dp" />
+        </LinearLayout>
+    </LinearLayout>
+
     <ListView
         android:id="@+id/listView"
-        android:background="#4DFFFFFF"
         android:layout_margin="7dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
     </ListView>
 
 </LinearLayout>

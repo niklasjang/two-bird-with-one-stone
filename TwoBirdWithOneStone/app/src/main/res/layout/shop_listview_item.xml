@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="7"
+            android:src="@drawable/circle_logo"
              />
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="6dp"
                 android:text="아이스크림"
-                android:textColor="#000000"
+
                 android:textSize="20dp">
 
             </TextView>
@@ -58,22 +59,19 @@
                 >
 
                 <ImageView
-                    android:layout_width="32dp"
+                    android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="8"
-                    android:background="@null"
                     android:paddingBottom="8dp"
-                    android:src="@drawable/ic_cash" />
+                    android:src="@drawable/ic_attach_money_black_24dp" />
 
                 <TextView
                     android:id="@+id/coin_text_view"
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
                     android:fontFamily="@font/barungothicbold"
                     android:paddingTop="6dp"
-                    android:text="3,500 Point"
-                    android:textColor="#FF9439"
+                    android:text="3,500 P"
+                    android:textColor="#000000"
                     android:textSize="20dp">
 
                 </TextView>

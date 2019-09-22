@@ -6,14 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="#cff0da"
     android:fillViewport="true">
 
-
     <ListView
-        android:background="#4DFFFFFF"
         android:id="@+id/listView"
-        android:layout_margin="7dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>

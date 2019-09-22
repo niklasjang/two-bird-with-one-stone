@@ -21,7 +21,7 @@
 
             android:layout_margin="20dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            app:srcCompat="@drawable/ic_ticket_shop"
+            app:srcCompat="@drawable/ic_shop_ticket"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView

@@ -126,12 +126,12 @@ public class ShopFragment extends Fragment {
         //상품 category image arraylist 생성
         ArrayList<Drawable> listIcon = new ArrayList<Drawable>();
         //arraylist에 drawable 이미지 추가
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_ticket_shop));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_coffee_shop));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_icecream_shop));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_cake_shop));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_donate_shop));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_dots_shop));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_ticket));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_coffee));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_icecream));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_cake));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_donate));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_dots));
         //gridview에 gridview item 루프돌며 생성
         for(int i=0; i<listTitle.size();i++){
             mAdapter.addItem(listIcon.get(i),listTitle.get(i));

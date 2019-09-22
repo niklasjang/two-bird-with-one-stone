@@ -10,7 +10,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginRight="5dp"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/circle_logo"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

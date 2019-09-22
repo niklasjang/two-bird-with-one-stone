@@ -75,7 +75,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
         btn_buy_item.setText(buyString);
         Log.d("123", btn_buy_item.getText().toString());
         db = FirebaseFirestore.getInstance();
-        final CollectionReference couponRef = db.collection("Users").document(currentUID).collection("Coupons");
+        final CollectionReference couponRef = db.collection("Coupons");
         btn_buy_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

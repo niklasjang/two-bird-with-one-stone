@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +17,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.twobirdwithonestone.Activity.Coupon;
+import com.example.twobirdwithonestone.Activity.UserData;
 import com.example.twobirdwithonestone.Activity.ZeropayActivity;
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Activity.CouponRecyclerViewAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -26,10 +32,13 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -40,7 +49,10 @@ public class AccountFragment extends Fragment {
     private CouponRecyclerViewAdapter couponAdapter;
     private Date currentTime;
     private String currentUID;
+    private boolean queryIsDone = false;
+    private RecyclerView recyclerView;
     Button btn_zeropay;
+    private Coupon myCounpon = null;
     public ArrayList<Coupon> couponList;
 
     @Nullable
@@ -61,7 +73,7 @@ public class AccountFragment extends Fragment {
         final TextView tvUserPoint = view.findViewById(R.id.tvUserPoint);
         final TextView tvUserName = view.findViewById(R.id.tvUserName);
         db = FirebaseFirestore.getInstance();
-        final DocumentReference docRef = db.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        final DocumentReference docRef = db.collection("Users").document(currentUID);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -81,16 +93,15 @@ public class AccountFragment extends Fragment {
             }
         });
 
-
-
-
         // 리사이클러뷰에 LinearLayoutManager 객체 지정.
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewCoupon) ;
+        recyclerView = view.findViewById(R.id.recyclerViewCoupon) ;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())) ;
 
         // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
         couponAdapter = new CouponRecyclerViewAdapter(couponList);
+        couponAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(couponAdapter) ;
+        Log.d("QueryCoupons", "return view 합니다?");
         return view;
     }
 
@@ -103,19 +114,55 @@ public class AccountFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //쿠폰 Recycler View default 객체 생성
-        couponList = new ArrayList<>();
-        Coupon c;
+        couponList = new ArrayList<Coupon>();
         currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        //Get user's coupon fromm firebase
-        //TODO
+        FirebaseFirestore.getInstance().collection("Coupons")
+                .whereEqualTo("userUID", currentUID)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot documentSnapshots) {
+                        if(documentSnapshots.isEmpty()){
+                            Log.d("QueryCoupons", "쿠폰이 비었어요");
+                        }else{
+                            for(DocumentSnapshot snapshot :documentSnapshots.getDocuments()){
+                                if(snapshot.exists()){
+                                    //쿠폰의 각 필드를 일일이 가져와서 새로운 쿠폰 객체를 만든다.
+                                    //.toObject를 쓰면 터져서 그냥 이렇게 한다. 변수명은 여기 부분에서만 쓰이니까 무시해도 됨.
+                                    String str1 = snapshot.get("couponCreateTime").toString();
+                                    Log.d("QueryCoupons", "이건 가져와요" + str1);
+//                                    String str2 = snapshot.get("couponName").toString();
+//                                    String str3 = snapshot.get("couponUID").toString();
+//                                    Boolean a = (Boolean)snapshot.get("couponUesrOrNot");
+//                                    String str4 = snapshot.get("userUID").toString();
+//                                    int b = Integer.parseInt(snapshot.get("couponImgIndex").toString());
+//                                    myCounpon = new Coupon(str1, str2, str3, a, str4, b);
+                                    couponList.add(myCounpon);
+                                    Coupon c = new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID,1 );
+                                    couponList.add(c);
+                                    queryIsDone = true;
+                                    Log.d("QueryCoupons", "쿠폰이 추가했어요");
+                                }else{
+                                    Log.d("QueryCoupons", "쿠폰이 이상하네요");
+                                }
+                            }
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("QueryCoupons", "Fail!!");
+                    }
+                });
 
         //If Default coupon exists, add default coupon to couponList.
-//        for (int i=0; i<3; i++) {
-//            currentTime = Calendar.getInstance().getTime();
-//            c = new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID, );
-//            couponList.add(c) ;
-//        }
+        for (int i=0; i<1; i++) {
+            currentTime = Calendar.getInstance().getTime();
+            Coupon c = new Coupon(currentTime.toString(), "쿠폰hh", currentUID, false, currentUID,1 );
+            couponList.add(c) ;
+            Log.d("QueryCoupons", "default 쿠폰이 추가했어요");
+        }
     }
 
     /*

@@ -107,11 +107,15 @@ public class AccountFragment extends Fragment {
         Coupon c;
         currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        for (int i=0; i<3; i++) {
-            currentTime = Calendar.getInstance().getTime();
-            c = new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID, );
-            couponList.add(c) ;
-        }
+        //Get user's coupon fromm firebase
+        //TODO
+
+        //If Default coupon exists, add default coupon to couponList.
+//        for (int i=0; i<3; i++) {
+//            currentTime = Calendar.getInstance().getTime();
+//            c = new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID, );
+//            couponList.add(c) ;
+//        }
     }
 
     /*

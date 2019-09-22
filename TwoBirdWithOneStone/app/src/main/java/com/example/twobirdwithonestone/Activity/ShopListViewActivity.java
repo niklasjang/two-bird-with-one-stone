@@ -31,6 +31,7 @@ public class ShopListViewActivity extends AppCompatActivity {
         final ArrayList<ParcelableItems> list = intent.getParcelableArrayListExtra("culture_list");
 
         for(int i=0;i<list.size();i++){
+            //public void addItem(Bitmap image, String title, String coin) {}
             mAdapter.addItem(BitmapFactory.decodeByteArray(list.get(i).image, 0, list.get(i).image.length),list.get(i).name,list.get(i).price);
         }
         //Shoplistview ->> subshoplistview 클릭하는 position마다 조건달아 지정

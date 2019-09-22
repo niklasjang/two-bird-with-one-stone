@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class SubShopListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<SubShopListViewItemDetail> listViewItemList = new ArrayList<SubShopListViewItemDetail>() ;
+    private ArrayList<SubShopListViewItem> listViewItemList = new ArrayList<SubShopListViewItem>() ;
 
     // ListViewAdapter의 생성자
     public SubShopListViewAdapter() {
@@ -49,7 +49,7 @@ public class SubShopListViewAdapter extends BaseAdapter {
 
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        SubShopListViewItemDetail listViewItem = listViewItemList.get(position);
+        SubShopListViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
 
@@ -72,12 +72,13 @@ public class SubShopListViewAdapter extends BaseAdapter {
     }
 
     //이미지, 카테고리 제목, 가격, 설명
-    public void addItem(String category, String title, Bitmap image, String explanation) {
-        SubShopListViewItemDetail item = new SubShopListViewItemDetail();
+    public void addItem(String category, String title, Bitmap image,String _priceStr, String explanation) {
+        SubShopListViewItem item = new SubShopListViewItem();
 
         item.setCategory(category);
         item.setTitle(title);
         item.setIcon(image);
+        item.setPriceStr(_priceStr);
         item.setExplanation(explanation);
         listViewItemList.add(item);
     }

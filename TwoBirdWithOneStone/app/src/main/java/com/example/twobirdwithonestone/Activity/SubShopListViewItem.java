@@ -2,7 +2,7 @@ package com.example.twobirdwithonestone.Activity;
 
 import android.graphics.Bitmap;
 
-public class SubShopListViewItemDetail {
+public class SubShopListViewItem {
     //subshoplistview에 들어갈 category명, 상품명, 이미지, 상품설명
     private String categoryStr ;
     private String titleStr ;
@@ -12,9 +12,6 @@ public class SubShopListViewItemDetail {
 
     public void setPriceStr(String priceStr) {
         this.priceStr = priceStr;
-    }
-    public String getPriceStr() {
-        return priceStr;
     }
     public void setCategory(String sub) { categoryStr = sub ; }
     public void setTitle(String title) {
@@ -33,4 +30,7 @@ public class SubShopListViewItemDetail {
         return this.imageByte ;
     }
     public String getExplanation() { return this.explanationStr ; }
+    public String getPriceStr() {
+        return priceStr;
+    }
 }

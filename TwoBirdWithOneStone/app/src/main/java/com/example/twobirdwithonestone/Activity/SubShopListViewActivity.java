@@ -22,6 +22,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,7 +38,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
     private long userPoint = 0;
     private String itemPrice;
     private DataBase database;
-
+    private Coupon selectedItemasCoupon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +51,22 @@ public class SubShopListViewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //ArrayList 를 받아 addItem
         ArrayList<ParcelableItems> list = intent.getParcelableArrayListExtra("coffee_list");
-        for(int i=0;i<list.size();i++) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(list.get(i).image, 0, list.get(i).image.length);
-            mAdapter.addItem(list.get(i).category, list.get(i).name, bitmap, list.get(i).explanation);
+
+        currentTime = Calendar.getInstance().getTime();
+        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID)
+
+        final int i = 0;
+        int couponImgIndex = -1;
+        Bitmap bitmap = BitmapFactory.decodeByteArray(list.get(i).image, 0, list.get(i).image.length);
+        //선택한 아이템의 Detail한 설명을 보여주기 위해 listview에 하나의 아이템만 add. 굳이 listView를 쓸 필요는 없지만 개발의 편의를 위해 수정하지 않고 진행함.
+        mAdapter.addItem(list.get(i).category, list.get(i).name, bitmap, list.get(i).price, list.get(i).explanation);
+        if(list.get(i).name.equals("경복궁 야간개장 입장권")){
+            couponImgIndex = 1;
+        }else{
+            couponImgIndex = 0;
         }
+        selectedItemasCoupon = new Coupon(currentTime.toString(), list.get(i).name, currentUID, false, currentUID, couponImgIndex );
 
         Button btn_buy_item = findViewById(R.id.btn_buy_item);
         itemPrice = list.get(0).getprice();
@@ -62,8 +75,6 @@ public class SubShopListViewActivity extends AppCompatActivity {
         btn_buy_item.setText(buyString);
         Log.d("123", btn_buy_item.getText().toString());
         db = FirebaseFirestore.getInstance();
-        currentTime = Calendar.getInstance().getTime();
-        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final CollectionReference couponRef = db.collection("Users").document(currentUID).collection("Coupons");
         btn_buy_item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,19 +99,21 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                             public void onSuccess(Void aVoid) {
                                                 Toast.makeText(getApplicationContext(), "햐햐 유저 포인트 업데이트 성공", Toast.LENGTH_SHORT).show();
                                                 //쿠폰 추가하기!
-                                                SubShopListViewItemDetail bitem = (SubShopListViewItemDetail)mListView.getItemAtPosition(0);
+                                                SubShopListViewItem bitem = (SubShopListViewItem)mListView.getItemAtPosition(0);
                                                 Log.d("SubShopListview", "SUSU"+ bitem.getTitle());
-                                                couponRef.add(new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID))
+                                                couponRef.add(selectedItemasCoupon)
                                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                             @Override
                                                             public void onSuccess(DocumentReference documentReference) {
                                                                 Log.d("SubShopListViewActivity", "햐햐 쿠폰 저장 성공");
+                                                                finish();
                                                             }
                                                         })
                                                         .addOnFailureListener(new OnFailureListener() {
                                                             @Override
                                                             public void onFailure(@NonNull Exception e) {
                                                                 Log.d("SubShopListViewActivity", "햐햐 쿠폰 저장 실패");
+                                                                finish();
                                                             }
                                                         });
                                             }
@@ -110,14 +123,17 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                             public void onFailure(@NonNull Exception e) {
                                                 Toast.makeText(getApplicationContext(), "햐햐 유저 포인트 업데이트 실패", Toast.LENGTH_SHORT).show();
                                                 Log.w(TAG, "Error updating document", e);
+                                                finish();
                                             }
                                         });
                             }else{
                                 Toast.makeText(getApplicationContext(), "포인트가 부족합니다.", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
                         }else{
                             Toast.makeText(getApplicationContext(), "포인트가 부족합니다.", Toast.LENGTH_SHORT).show();
                             Log.d("SubShopListViewActivity", "O point");
+                            finish();
                         }
                     }
                 });

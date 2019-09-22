@@ -39,7 +39,7 @@
             android:layout_marginBottom="15dp"
             android:gravity="right"
 
-            android:background="@drawable/login_edge"
+            android:background="@drawable/edge_login"
             android:orientation="horizontal">
 
             <TextView

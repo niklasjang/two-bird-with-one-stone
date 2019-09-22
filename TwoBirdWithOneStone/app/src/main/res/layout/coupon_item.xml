@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="horizontal"
-    android:background="@drawable/cupon_bar">
+    android:background="@drawable/edge_cupon_bar">
 
     <ImageView
         android:id="@+id/imgCoupon"

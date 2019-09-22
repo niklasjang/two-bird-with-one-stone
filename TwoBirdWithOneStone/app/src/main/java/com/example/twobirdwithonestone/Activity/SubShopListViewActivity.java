@@ -1,36 +1,26 @@
 package com.example.twobirdwithonestone.Activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.twobirdwithonestone.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,7 +49,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
         //ShopListViewActivity에서 intent로 전달하는 배열 받기
         Intent intent = getIntent();
         //ArrayList 를 받아 addItem
-        ArrayList<Items> list = intent.getParcelableArrayListExtra("coffee_list");
+        ArrayList<ParcelableItems> list = intent.getParcelableArrayListExtra("coffee_list");
         for(int i=0;i<list.size();i++) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(list.get(i).image, 0, list.get(i).image.length);
             mAdapter.addItem(list.get(i).category, list.get(i).name, bitmap, list.get(i).explanation);
@@ -98,7 +88,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                             public void onSuccess(Void aVoid) {
                                                 Toast.makeText(getApplicationContext(), "햐햐 유저 포인트 업데이트 성공", Toast.LENGTH_SHORT).show();
                                                 //쿠폰 추가하기!
-                                                SubShopListViewItem bitem = (SubShopListViewItem)mListView.getItemAtPosition(0);
+                                                SubShopListViewItemDetail bitem = (SubShopListViewItemDetail)mListView.getItemAtPosition(0);
                                                 Log.d("SubShopListview", "SUSU"+ bitem.getTitle());
                                                 couponRef.add(new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID))
                                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

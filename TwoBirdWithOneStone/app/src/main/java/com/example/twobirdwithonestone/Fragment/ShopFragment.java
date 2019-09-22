@@ -6,12 +6,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 
 import androidx.annotation.NonNull;
@@ -19,22 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.twobirdwithonestone.Activity.Coupon;
-import com.example.twobirdwithonestone.Activity.Items;
+import com.example.twobirdwithonestone.Activity.ParcelableItems;
 import com.example.twobirdwithonestone.Activity.ShopGridViewAdapter;
 import com.example.twobirdwithonestone.Activity.ShopListViewActivity;
 import com.example.twobirdwithonestone.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 
 public class ShopFragment extends Fragment {
@@ -67,18 +56,20 @@ public class ShopFragment extends Fragment {
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
+
+                    //Drawable 객체를 ParcelableItems에 넣기 위해 byteArray로 변환한다.
                     Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cakec);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-
-                    ArrayList<Items> culture_list = new ArrayList<Items>();
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    //문화생활 카테고리를 클릭했을 때 보여지는 구매 가능한 아이템 종류
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
@@ -94,12 +85,12 @@ public class ShopFragment extends Fragment {
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    ArrayList<Items> culture_list = new ArrayList<Items>();
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);

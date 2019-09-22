@@ -11,13 +11,11 @@ import android.widget.TextView;
 
 import com.example.twobirdwithonestone.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class SubShopListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<SubShopListViewItem> listViewItemList = new ArrayList<SubShopListViewItem>() ;
+    private ArrayList<SubShopListViewItemDetail> listViewItemList = new ArrayList<SubShopListViewItemDetail>() ;
 
     // ListViewAdapter의 생성자
     public SubShopListViewAdapter() {
@@ -51,7 +49,7 @@ public class SubShopListViewAdapter extends BaseAdapter {
 
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        SubShopListViewItem listViewItem = listViewItemList.get(position);
+        SubShopListViewItemDetail listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
 
@@ -75,7 +73,7 @@ public class SubShopListViewAdapter extends BaseAdapter {
 
     //이미지, 카테고리 제목, 가격, 설명
     public void addItem(String category, String title, Bitmap image, String explanation) {
-        SubShopListViewItem item = new SubShopListViewItem();
+        SubShopListViewItemDetail item = new SubShopListViewItemDetail();
 
         item.setCategory(category);
         item.setTitle(title);

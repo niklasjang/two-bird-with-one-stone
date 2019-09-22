@@ -2,7 +2,7 @@ package com.example.twobirdwithonestone.Activity;
 
 import android.graphics.Bitmap;
 
-public class SubShopListViewItem {
+public class SubShopListViewItemDetail {
     //subshoplistview에 들어갈 category명, 상품명, 이미지, 상품설명
     private String categoryStr ;
     private String titleStr ;

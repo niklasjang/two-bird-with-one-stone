@@ -14,7 +14,8 @@
         <activity android:name=".Activity.SubHomeActivity"></activity>
         <activity android:name=".Activity.ZeropayActivity" />
         <activity android:name=".Activity.LoadingActivity" />
-        <activity android:name=".Activity.LoginActivity">
+        <activity
+            android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

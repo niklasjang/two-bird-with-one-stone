@@ -15,7 +15,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_margin="10dp"
         android:layout_weight="1"
@@ -38,22 +38,14 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvCouponUsedOrNot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CouponUsedOrNot"
-            android:layout_margin="2dp"
-            />
-
     </LinearLayout>
 
     <Button
-        android:background="@drawable/rounded_hz"
         android:id="@+id/btnCouponUse"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="right"
+        android:background="@drawable/rounded_hz"
         android:text="사용하기" />
 
 </LinearLayout>

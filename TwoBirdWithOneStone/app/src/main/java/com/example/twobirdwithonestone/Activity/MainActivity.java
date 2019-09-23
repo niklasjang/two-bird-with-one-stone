@@ -16,13 +16,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
+    boolean doubleBackToExitPressedOnce = false;
     EditText editText;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         //***** Start LoadingActivity 2019-09-08 3AM Hz *****
         Intent intent = new Intent(this, LoadingActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
         //***** Finish LoadingActivity *****
 
@@ -76,7 +80,31 @@ public class MainActivity extends AppCompatActivity {
 
         //Main이 생성되면 바로 LockScreenService를 실행시킨다.
         intent = new Intent(this, LockScreenService.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startService(intent);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            //앱을 종료하지 않고 홈 화면을 띄운다.
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
 }

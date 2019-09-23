@@ -17,14 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.twobirdwithonestone.Activity.Items;
+import com.example.twobirdwithonestone.Activity.ParcelableItems;
 import com.example.twobirdwithonestone.Activity.ShopGridViewAdapter;
 import com.example.twobirdwithonestone.Activity.ShopListViewActivity;
 import com.example.twobirdwithonestone.R;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-
 
 
 public class ShopFragment extends Fragment {
@@ -57,23 +56,25 @@ public class ShopFragment extends Fragment {
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
+
+                    //Drawable 객체를 ParcelableItems에 넣기 위해 byteArray로 변환한다.
                     Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cakec);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-
-                    ArrayList<Items> culture_list = new ArrayList<Items>();
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    //문화생활 카테고리를 클릭했을 때 보여지는 구매 가능한 아이템 종류
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
                 //커피음료
-                if ( i == 1) {
+                else if ( i == 1) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_cake1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
@@ -84,34 +85,33 @@ public class ShopFragment extends Fragment {
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    ArrayList<Items> culture_list = new ArrayList<Items>();
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
-                    culture_list.add(new Items(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
+                    culture_list.add(new ParcelableItems(byteArray2,"문화생활","경복궁 야간개장 입장권","3000","설명설명설명"));
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
                 //아이스크림
-                if ( i == 2) {
+                else if ( i == 2) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
-
                     startActivity(intent);
                 }
                 //케이크
-                if ( i == 3) {
+                else if ( i == 3) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     startActivity(intent);
                 }
                 //기부
-                if ( i == 4) {
+                else if ( i == 4) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     startActivity(intent);
                 }
                 //봉사
-                if ( i == 5) {
+                else if ( i == 5) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     startActivity(intent);
                 }
@@ -136,6 +136,7 @@ public class ShopFragment extends Fragment {
         for(int i=0; i<listTitle.size();i++){
             mAdapter.addItem(listIcon.get(i),listTitle.get(i));
         }
+
         return view;
     }
 }

@@ -49,33 +49,33 @@ public class ShopFragment extends Fragment {
                     //이미지 전달을 위해서 bitmap 이미지를 bytearray로 압축시켜 바꿈
                     //사진 용량 제한이 있음
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
-                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_culture_goong3);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_goong1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
 
-                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_culture_bike3);
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_bike);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_culture_aqua);
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_aqua);
                     ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                     sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byte[] byteArray3 = stream3.toByteArray();
 
-                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_culture_seoulpark1);
+                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_park);
                     ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
                     sendBitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byte[] byteArray4 = stream4.toByteArray();
 
-                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_culture_lottetower1);
+                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_tower);
                     ByteArrayOutputStream stream5 = new ByteArrayOutputStream();
                     sendBitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byte[] byteArray5 = stream5.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"문화생활","경복궁 야간개장 입장권","3000",getString(R.string.goong),"서울시"));
+                    culture_list.add(new ParcelableItems(byteArray1,"문화생활","경복궁 야간개장 입장권","3000",getString(R.string.culture_goong),"서울시"));
                     culture_list.add(new ParcelableItems(byteArray2,"문화생활","따릉이","3000",getString(R.string.bike),"서울시"));
                     culture_list.add(new ParcelableItems(byteArray3,"문화생활","아쿠아리움","3000",getString(R.string.aqua),"코엑스"));
                     culture_list.add(new ParcelableItems(byteArray4,"문화생활","서울대공원 동물원","3000",getString(R.string.seoulpark),"서울시"));
@@ -88,27 +88,27 @@ public class ShopFragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
 
-                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_fund_unicef);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_unicef);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
 
-                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_fund_peoplesub);
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_peoplesub);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_fund_redcross);
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_redcross);
                     ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                     sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byte[] byteArray3 = stream3.toByteArray();
 
-                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_fund_asia);
+                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_asia);
                     ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
                     sendBitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byte[] byteArray4 = stream4.toByteArray();
 
-                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_fund_goodneighbors);
+                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_goodneighbors);
                     ByteArrayOutputStream stream5 = new ByteArrayOutputStream();
                     sendBitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byte[] byteArray5 = stream5.toByteArray();
@@ -124,26 +124,106 @@ public class ShopFragment extends Fragment {
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
-                //아이스크림
+                //커피/음료
                 else if ( i == 2) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_coffee_1);
+                    ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+                    sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
+                    byte[] byteArray1 = stream1.toByteArray();
+
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_coffee_2);
+                    ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                    sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byte[] byteArray2 = stream2.toByteArray();
+
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_coffee_3);
+                    ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
+                    sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byte[] byteArray3 = stream3.toByteArray();
+
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray1,"커피/음료","아메리카노","3000","아메리카노","커피"));
+                    culture_list.add(new ParcelableItems(byteArray2,"커피/음료","카푸치노","3000","카푸치노" ,"커피"));
+                    culture_list.add(new ParcelableItems(byteArray3,"커피/음료","프라푸치노","3000","프라푸치노","커피"));
+
+                    //parcelable로 arraylist 넘기기
+                    intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
-                //케이크
+                //캠핑
                 else if ( i == 3) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_nanji1);
+                    ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+                    sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
+                    byte[] byteArray1 = stream1.toByteArray();
+
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_noel1);
+                    ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                    sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byte[] byteArray2 = stream2.toByteArray();
+
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_seoulpark1);
+                    ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
+                    sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
+                    byte[] byteArray3 = stream3.toByteArray();
+
+                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_jungrang1);
+                    ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
+                    sendBitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
+                    byte[] byteArray4 = stream4.toByteArray();
+
+                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_gangdong1);
+                    ByteArrayOutputStream stream5 = new ByteArrayOutputStream();
+                    sendBitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
+                    byte[] byteArray5 = stream5.toByteArray();
+
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray1,"캠핑","난지 캠핑장","3000",getString(R.string.camp_nanji),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray2,"캠핑","노을 캠핑장","3000",getString(R.string.camp_noel),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray3,"캠핑","서울대공원 캠핑장","3000",getString(R.string.camp_seoulpark),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray4,"캠핑","중랑 캠핑숲","3000",getString(R.string.camp_jungrang),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray5,"캠핑","강동 그린웨이 캠핑장","3000",getString(R.string.camp_gangdong),"서울로 떠나는 캠핑"));
+
+                    //parcelable로 arraylist 넘기기
+                    intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
 
-                //커피/음료
+                //케이크
                 if ( i == 4) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_cake_1);
+                    ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+                    sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
+                    byte[] byteArray1 = stream1.toByteArray();
+
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_cake_2);
+                    ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                    sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                    byte[] byteArray2 = stream2.toByteArray();
+
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray1,"케이크","딸기 생크림 케이크","3000","","케이크"));
+                    culture_list.add(new ParcelableItems(byteArray2,"케이크","딸기 조각 케이크","3000","" ,"케이크"));
+
+                    //parcelable로 arraylist 넘기기
+                    intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
-
+                //기타
                 if ( i == 5) {
 
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_icecream_1);
+                    ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+                    sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
+                    byte[] byteArray1 = stream1.toByteArray();
+
+                    ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
+                    culture_list.add(new ParcelableItems(byteArray1,"아이스크림","아이스크림 콘","3000","",""));
+                    intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
                 }
@@ -152,7 +232,7 @@ public class ShopFragment extends Fragment {
 
         //상품 category arraylist 생성
         ArrayList<String> listTitle = new ArrayList<String>();
-        listTitle.add("문화생활"); listTitle.add("기부"); listTitle.add("아이스크림"); listTitle.add("케이크"); listTitle.add("커피/음료");
+        listTitle.add("문화생활"); listTitle.add("기부"); listTitle.add("커피/음료"); listTitle.add("캠핑"); listTitle.add("케이크");
         listTitle.add("기타");
         //상품 category image arraylist 생성
         ArrayList<Drawable> listIcon = new ArrayList<Drawable>();
@@ -160,9 +240,9 @@ public class ShopFragment extends Fragment {
 
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_ticket));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_donate));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_icecream));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_cake));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_coffee));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_camp));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_cake));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_shop_dots));
 
         //gridview에 gridview item 루프돌며 생성

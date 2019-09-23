@@ -86,7 +86,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         UserData userData = documentSnapshot.toObject(UserData.class);
                         userPoint =  userData.getPoint();
-                        Toast.makeText(getApplicationContext(), "햐햐 보유 포인트는 "+userPoint, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "햐햐 보유 포인트는 "+userPoint, Toast.LENGTH_SHORT).show();
                         //아이템 구매하기
                         if(userPoint != 0){
                             int itemPriceInt = Integer.parseInt(itemPrice);
@@ -97,7 +97,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Toast.makeText(getApplicationContext(), "햐햐 유저 포인트 업데이트 성공", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(getApplicationContext(), "햐햐 유저 포인트 업데이트 성공", Toast.LENGTH_SHORT).show();
                                                 //쿠폰 추가하기!
                                                 SubShopListViewItem bitem = (SubShopListViewItem)mListView.getItemAtPosition(0);
                                                 Log.d("SubShopListview", "SUSU"+ bitem.getTitle());
@@ -121,7 +121,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(getApplicationContext(), "햐햐 유저 포인트 업데이트 실패", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "유저 포인트 업데이트 실패", Toast.LENGTH_SHORT).show();
                                                 Log.w(TAG, "Error updating document", e);
                                                 finish();
                                             }

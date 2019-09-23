@@ -44,6 +44,7 @@ public class SettingsFragment extends Fragment {
                     boolLockScreen = true;
                 }
                 Intent intent = new Intent(getActivity(), LockScreenService.class);
+                //TODO intent.addFlags() 필요할까?
                 intent.putExtra("LockScreen", boolLockScreen);
                 getActivity().startService(intent);
                 //Toast.makeText(getContext(), "SETTINGS에서 START SERVICE", Toast.LENGTH_LONG).show();
@@ -57,6 +58,7 @@ public class SettingsFragment extends Fragment {
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }

@@ -65,6 +65,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ZeropayActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivityForResult(intent,REQUEST_ZEROPAY);
             }
         });

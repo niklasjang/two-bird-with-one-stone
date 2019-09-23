@@ -9,14 +9,16 @@ public class Items implements Parcelable {
     public String name;
     public String price;
     public String explanation;
+    public String brand;
 
 
-    public Items(byte[] image,String category, String name,String price,String explanation) {
+    public Items(byte[] image,String category, String name,String price,String explanation, String brand) {
         this.image = image;
         this.category = category;
         this.name = name;
         this.price = price;
         this.explanation = explanation;
+        this.brand = brand;
     }
 
     public Items(Parcel in) {
@@ -32,6 +34,7 @@ public class Items implements Parcelable {
         name = in.readString();
         price = in.readString();
         explanation = in.readString();
+        brand = in.readString();
     }
 
     public static final Creator<Items> CREATOR = new Creator<Items>() {
@@ -58,6 +61,9 @@ public class Items implements Parcelable {
     public String getprice() {
         return price;
     }
+    public String getbrand() {
+        return brand;
+    }
     public byte[] getBytes() {
         return image;
     }
@@ -75,6 +81,7 @@ public class Items implements Parcelable {
         dest.writeString(name);
         dest.writeString(price);
         dest.writeString(explanation);
+        dest.writeString(brand);
     }
 
 

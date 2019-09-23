@@ -8,6 +8,7 @@ public class ShopListViewItem {
     private Bitmap imageByte ;
     private String titleStr ;
     private String coinStr ;
+    private String brandStr;
 
     public void setIcon(Bitmap image) {
         imageByte = image ;
@@ -16,6 +17,7 @@ public class ShopListViewItem {
         titleStr = title ;
     }
     public void setCoin(String sub) { coinStr = sub ; }
+    public void setBrand(String brand) { brandStr = brand ; }
 
 
     public Bitmap getIcon() {
@@ -25,5 +27,6 @@ public class ShopListViewItem {
         return this.titleStr ;
     }
     public String getCoin() { return this.coinStr ; }
+    public String getBrand() { return this.brandStr ; }
 
 }

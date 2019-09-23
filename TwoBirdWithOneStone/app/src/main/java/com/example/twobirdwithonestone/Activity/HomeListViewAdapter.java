@@ -80,8 +80,8 @@ public class HomeListViewAdapter extends BaseAdapter {
             Glide.with(convertView.getContext()).load(listViewItem.getImgUrl()).into(imgUrlImageView);
         }
         titleTextView.setText(listViewItem.getTitle());
-        contentTextView.setText("내용: "+listViewItem.getContent());
-        rankTextView.setText("날짜: "+listViewItem.getDate());
+        contentTextView.setText(listViewItem.getContent());
+        rankTextView.setText(listViewItem.getDate());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override

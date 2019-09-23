@@ -31,7 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
->>>>>>> origin/Hz1.1
 
         <TextView
             android:id="@+id/title_display_textView"
@@ -53,7 +52,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
->>>>>>> origin/Hz1.1
 
         <TextView
             android:id="@+id/content_display_textView"
@@ -90,6 +88,7 @@
             android:paddingBottom="10dp"
             android:text="Title" />
     </LinearLayout>
+
 <!--
  작성자 :박규영
  일자 : 2019 09 12

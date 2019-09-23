@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.twobirdwithonestone.Fragment.AccountFragment;
 import com.example.twobirdwithonestone.R;
 
@@ -26,6 +25,7 @@ public class ZeropayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zeropay);
+
         tvBeforeTransform = findViewById(R.id.tvBeforeTransform);
         tvHowMuchTransform = findViewById(R.id.tvHowMuchTransform);
         tvAfterTransform = findViewById(R.id.tvAfterTransform);

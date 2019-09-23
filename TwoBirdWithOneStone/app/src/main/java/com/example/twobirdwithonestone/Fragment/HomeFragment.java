@@ -1,28 +1,27 @@
 package com.example.twobirdwithonestone.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
+import com.example.twobirdwithonestone.Activity.SubHomeActivity;
 import com.example.twobirdwithonestone.R;
-import com.github.siyamed.shapeimageview.CircularImageView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -59,38 +58,86 @@ public class HomeFragment extends Fragment {
         mAdapter = new HomeListViewAdapter();
 
         mListView.setAdapter(mAdapter);
-
-        //mAdapter.addItem();
-        /**
-         * listView.setAdapter(adapter);
-         *
-         * adapter 부분이 에러...
-         * https://recipes4dev.tistory.com/63?category=643521 참고해서 수정하기
-         */
-
         mContext = getActivity();
 
+        /*
+        작성자 : 박혜지
+        날짜 : 2019 - 09 - 22
+        내용 : 홈화면에있는 카테고리와 연동시킨 버튼 8개
+        */
 
-        /**
-         * 1. 리스트에 값을 넣을경우
-         *
-         * - title, subtitle, coin (String)형식
-         *  >> title = 가져온title.toString();
-         * - image(Drawable)형식
-         *  >> image = (Drawable)ContextCompat.getDrawable(mContext, 이미지 소스);
-         *  이미지 소스 ex)R.drawable.launcher 등등
-         *
-         * - 아답터에 연결
-         *  >> adater.additem(Drawable icon, String title, String subtitle, String coin);
-         *
-         *
-         * 2. 리스트 값을 전부 삭제할 경우
-         *  >> adapter.notifyDataSetChanged();
-         */
-        title = "제목";
-        subtitle = "부제";
-        coin = "1000";
-        image = (Drawable) ContextCompat.getDrawable(mContext, R.drawable.circle_logo);
+        Button btnTransportation = (Button) view.findViewById(R.id.transportation_btn);
+        btnTransportation.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","교통");
+                startActivity(intent);
+            }
+        });
+        Button btnSafety = (Button) view.findViewById(R.id.safety_btn);
+        btnSafety.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","안전");
+                startActivity(intent);
+            }
+        });
+        Button btnHousing = (Button) view.findViewById(R.id.housing_btn);
+        btnHousing.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","주택");
+                startActivity(intent);
+            }
+        });
+        Button btnEconomy = (Button) view.findViewById(R.id.economy_btn);
+        btnEconomy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","경제");
+                startActivity(intent);
+            }
+        });
+        Button btnEnvironment = (Button) view.findViewById(R.id.environment_btn);
+        btnEnvironment.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","환경");
+                startActivity(intent);
+            }
+        });
+        Button btnCulture = (Button) view.findViewById(R.id.culture_btn);
+        btnCulture.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","문화");
+                startActivity(intent);
+            }
+        });
+        Button btnWelfare = (Button) view.findViewById(R.id.welfare_btn);
+        btnWelfare.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","복지");
+                startActivity(intent);
+            }
+        });
+        Button btnAdministrative = (Button) view.findViewById(R.id.administrative_btn);
+        btnAdministrative.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
+                intent.putExtra("category","행정");
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -15,34 +16,35 @@
             android:id="@+id/category_text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#F7E600"
+
             android:gravity="center"
             android:text="문화"
-            android:textColor="#000000"
             android:textSize="20sp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="676dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_icecream"></ImageView>
 
         <TextView
             android:id="@+id/title_view"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="상품명"
             android:textColor="@android:color/black"
             android:textSize="30dp" />
 
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_icecream"></ImageView>
 
         <TextView
             android:layout_width="match_parent"
@@ -50,18 +52,22 @@
             android:gravity="bottom"
             android:text="상품설명"
             android:textSize="18dp"
-            android:fontFamily="@font/barungothicbold"
-            android:textColor="@android:color/black" />
 
+            android:textColor="@android:color/black"/>
         <TextView
             android:id="@+id/explanation_text_view"
             android:layout_width="match_parent"
-            android:layout_height="356dp"
-            android:layout_marginTop="3dp"
-            android:text="설명설명설명"
-            android:textSize="15dp"
-            android:fontFamily="@font/barungothic"
+            android:layout_height="wrap_content"
+            android:text="abcd"
             android:textColor="@android:color/black"></TextView>
 
+        <TextView
+            android:id="@+id/tvSubShopItemPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            tools:text="0 Point" />
     </LinearLayout>
 </LinearLayout>

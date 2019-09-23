@@ -14,9 +14,9 @@ public class LockScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(
-            // 기본 잠금화면보다 우선출력
-            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+//        getWindow().addFlags(
+//            // 기본 잠금화면보다 우선출력
+//            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         setContentView(R.layout.activity_lock_screen);
         findViewById(R.id.btn_lock_screen).setOnClickListener(new View.OnClickListener() {
             @Override

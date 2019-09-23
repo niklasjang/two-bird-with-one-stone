@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -43,12 +44,13 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener = null;
     private GoogleSignInClient mGoogleSignInClient;
     private DataBase db;
+    static Context mContext;
     FirebaseUser user;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        mContext = this;
         //***** Start LoadingActivity 2019-09-08 3AM Hz *****
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);

@@ -3,27 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E2E2E2"
-    >
+
+    android:layout_height="match_parent">
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:text="상품 목록"
         android:textSize="30dp"
-        android:background="#E2E2E2"
-        android:gravity="center"
-        android:fontFamily="@font/maplebold"/>
+        android:gravity="center"/>
 
     <GridView
         android:id="@+id/shop_gridview"
         android:layout_width="match_parent"
-        android:layout_height="683dp"
-        android:background="#E2E2E2"
-        android:columnWidth="160dp"
+        android:layout_height="wrap_content"
+        android:columnWidth="200dp"
+        android:verticalSpacing="5dp"
         android:numColumns="2"
-        android:stretchMode="spacingWidthUniform"
-        android:verticalSpacing="7dp">
-
+        android:stretchMode="spacingWidthUniform">
     </GridView>
     </LinearLayout>

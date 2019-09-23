@@ -3,7 +3,7 @@ package com.example.twobirdwithonestone.Activity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Items implements Parcelable {
+public class ParcelableItems implements Parcelable {
     public byte[] image;
     public String category;
     public String name;
@@ -12,7 +12,9 @@ public class Items implements Parcelable {
     public String brand;
 
 
-    public Items(byte[] image,String category, String name,String price,String explanation, String brand) {
+
+    public ParcelableItems(byte[] image, String category, String name, String price, String explanation,String brand) {
+
         this.image = image;
         this.category = category;
         this.name = name;
@@ -21,7 +23,7 @@ public class Items implements Parcelable {
         this.brand = brand;
     }
 
-    public Items(Parcel in) {
+    public ParcelableItems(Parcel in) {
         readFromParcel(in);
 
     }
@@ -37,16 +39,16 @@ public class Items implements Parcelable {
         brand = in.readString();
     }
 
-    public static final Creator<Items> CREATOR = new Creator<Items>() {
+    public static final Creator<ParcelableItems> CREATOR = new Creator<ParcelableItems>() {
         @Override
-        public Items createFromParcel(Parcel in) {
-            return new Items(in);
+        public ParcelableItems createFromParcel(Parcel in) {
+            return new ParcelableItems(in);
 
         }
 
         @Override
-        public Items[] newArray(int size) {
-            return new Items[size];
+        public ParcelableItems[] newArray(int size) {
+            return new ParcelableItems[size];
         }
     };
     public String getcategory() {

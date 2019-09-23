@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="#ffffff"
     android:fillViewport="true">
-
 
     <ImageView
         android:layout_width="wrap_content"
@@ -20,13 +18,12 @@
         />
 
 
+
     <ListView
         android:background="#00ffffff"
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="1dp"
-        >
-    </ListView>
+        android:dividerHeight="1dp" />
 
 </LinearLayout>

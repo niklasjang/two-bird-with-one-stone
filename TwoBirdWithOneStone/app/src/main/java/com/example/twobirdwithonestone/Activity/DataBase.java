@@ -23,7 +23,6 @@ import androidx.annotation.NonNull;
 public class DataBase {
     private FirebaseFirestore db;
     private UserData currentUserData;
-
     public DataBase(){
         db = FirebaseFirestore.getInstance();
         currentUserData = null;

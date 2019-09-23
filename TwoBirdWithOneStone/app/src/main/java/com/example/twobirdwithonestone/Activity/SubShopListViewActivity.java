@@ -23,9 +23,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -33,7 +35,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
     private ListView mListView;
     private SubShopListViewAdapter mAdapter;
     private FirebaseFirestore db;
-    private Date currentTime;
+    private String currentTime;
     private String currentUID;
     private long userPoint = 0;
     private String itemPrice;
@@ -52,7 +54,9 @@ public class SubShopListViewActivity extends AppCompatActivity {
         //ArrayList 를 받아 addItem
         ArrayList<ParcelableItems> list = intent.getParcelableArrayListExtra("coffee_list");
 
-        currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
+        Calendar cal = Calendar.getInstance();
+        currentTime = sdf.format(cal.getTime());
         currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         //new Coupon(currentTime.toString(), "쿠폰", currentUID, false, currentUID)
 

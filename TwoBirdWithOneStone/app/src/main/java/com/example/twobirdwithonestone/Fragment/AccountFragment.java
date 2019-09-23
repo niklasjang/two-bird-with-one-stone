@@ -34,6 +34,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -47,7 +48,7 @@ public class AccountFragment extends Fragment {
     private static final int REQUEST_ZEROPAY = 200;
     private FirebaseFirestore db;
     private CouponRecyclerViewAdapter couponAdapter;
-    private Date currentTime;
+    private String currentTime;
     private String currentUID;
     private boolean queryIsDone = false;
     private RecyclerView recyclerView;
@@ -158,8 +159,10 @@ public class AccountFragment extends Fragment {
 
         //If Default coupon exists, add default coupon to couponList.
         for (int i=0; i<1; i++) {
-            currentTime = Calendar.getInstance().getTime();
-            Coupon c = new Coupon(currentTime.toString(), "쿠폰hh", currentUID, false, currentUID,1 );
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
+            Calendar cal = Calendar.getInstance();
+            currentTime = sdf.format(cal.getTime());
+            Coupon c = new Coupon(currentTime, "쿠폰hh", currentUID, false, currentUID,1 );
             couponList.add(c) ;
             Log.d("QueryCoupons", "default 쿠폰이 추가했어요");
         }

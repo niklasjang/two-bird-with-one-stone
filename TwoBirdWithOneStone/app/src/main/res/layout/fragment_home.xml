@@ -28,7 +28,7 @@
             <Button
                 android:drawableTop="@drawable/ic_home_transportation"
                 android:background="@drawable/rounded_hz_home"
-                android:id="@+id/transportation_btn"
+                android:id="@+id/traffic_btn"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -38,12 +38,12 @@
             <Button
                 android:drawableTop="@drawable/ic_home_safety"
                 android:background="@drawable/rounded_hz_home"
-                android:id="@+id/safety_btn"
+                android:id="@+id/event_btn"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="1dp"
-                android:text="안전"
+                android:text="이벤트 신청"
                 android:textSize="13dp"/>
             <Button
                 android:drawableTop="@drawable/ic_home_housing"
@@ -59,13 +59,13 @@
             <Button
                 android:drawableTop="@drawable/ic_home_economy"
                 android:background="@drawable/rounded_hz_home"
-                android:id="@+id/economy_btn"
+                android:id="@+id/festival_btn"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="1dp"
-                android:text="경제"
+                android:text="행사 및 축제"
                 android:textSize="13dp"/>
         </LinearLayout>
 
@@ -84,7 +84,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="1dp"
-                android:text="환경"
+                android:text="소식"
                 android:textSize="13dp"/>
             <Button
                 android:drawableTop="@drawable/ic_home_culture"

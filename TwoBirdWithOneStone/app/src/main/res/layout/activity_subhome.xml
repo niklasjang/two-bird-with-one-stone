@@ -21,10 +21,11 @@
         android:text="카테고리"
         android:textSize="20sp" />
 
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="647dp"
         android:layout_margin="7dp"></ListView>
 
 </LinearLayout>

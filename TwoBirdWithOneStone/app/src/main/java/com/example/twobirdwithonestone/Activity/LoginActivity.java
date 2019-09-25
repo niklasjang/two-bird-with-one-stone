@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if(db.getUserData() == null){
-                                db.setUserData("Users",user.getUid(),new UserData(user.getUid(),10,true));
+                                db.setUserData("Users",user.getUid(),new UserData(user.getUid(),6000,true));
                             }else{
 
                             }

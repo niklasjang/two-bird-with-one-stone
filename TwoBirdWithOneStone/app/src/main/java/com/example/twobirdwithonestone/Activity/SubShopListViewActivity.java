@@ -109,6 +109,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                             @Override
                                                             public void onSuccess(DocumentReference documentReference) {
+                                                                Toast.makeText(getApplicationContext(), "쿠폰을 구매했습니다.", Toast.LENGTH_SHORT).show();
                                                                 Log.d("SubShopListViewActivity", "햐햐 쿠폰 저장 성공");
                                                                 finish();
                                                             }

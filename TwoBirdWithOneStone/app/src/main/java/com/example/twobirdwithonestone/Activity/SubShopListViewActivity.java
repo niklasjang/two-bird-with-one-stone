@@ -66,9 +66,49 @@ public class SubShopListViewActivity extends AppCompatActivity {
         //선택한 아이템의 Detail한 설명을 보여주기 위해 listview에 하나의 아이템만 add. 굳이 listView를 쓸 필요는 없지만 개발의 편의를 위해 수정하지 않고 진행함.
         mAdapter.addItem(list.get(i).category, list.get(i).name, bitmap, list.get(i).price, list.get(i).explanation);
         if(list.get(i).name.equals("경복궁 야간개장 입장권")){
-            couponImgIndex = 1;
+            couponImgIndex = 101;
+        }else if(list.get(i).name.equals("따릉이")){
+            couponImgIndex = 102;
+        }else if(list.get(i).name.equals("아쿠아리움")){
+            couponImgIndex = 103;
+        }else if(list.get(i).name.equals("서울대공원 동물원")){
+            couponImgIndex = 104;
+        }else if(list.get(i).name.equals("롯데월드 타워 전망대")){
+            couponImgIndex = 105;
+        }else if(list.get(i).name.equals("개발도상국 어린이 지원")){
+            couponImgIndex = 201;
+        }else if(list.get(i).name.equals("도심 숲 조성과 보존")){
+            couponImgIndex = 202;
+        }else if(list.get(i).name.equals("기부금품 모집")){
+            couponImgIndex = 203;
+        }else if(list.get(i).name.equals("동화책선물")){
+            couponImgIndex = 204;
+        }else if(list.get(i).name.equals("국내 사업현장의 아동권리 보호")){
+            couponImgIndex = 205;
+        }else if(list.get(i).name.equals("아메리카노")){
+            couponImgIndex = 301;
+        }else if(list.get(i).name.equals("카푸치노")){
+            couponImgIndex = 302;
+        }else if(list.get(i).name.equals("프라푸치노")){
+            couponImgIndex = 303;
+        }else if(list.get(i).name.equals("난지 캠핑장")){
+            couponImgIndex = 401;
+        }else if(list.get(i).name.equals("노을 캠핑장")){
+            couponImgIndex = 402;
+        }else if(list.get(i).name.equals("서울대공원 캠핑장")){
+            couponImgIndex = 403;
+        }else if(list.get(i).name.equals("중랑 캠핑장")){
+            couponImgIndex = 404;
+        }else if(list.get(i).name.equals("강동 그린웨이 캠핑장")){
+            couponImgIndex = 405;
+        }else if(list.get(i).name.equals("딸기 생크림 케이크")){
+            couponImgIndex = 501;
+        }else if(list.get(i).name.equals("딸기 조각 케이크")){
+            couponImgIndex = 502;
+        }else if(list.get(i).name.equals("아이스크림 콘")){
+            couponImgIndex = 601;
         }else{
-            couponImgIndex = 0;
+            couponImgIndex = -1;
         }
 
         Button btn_buy_item = findViewById(R.id.btn_buy_item);

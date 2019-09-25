@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <!--TextView
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -22,7 +22,7 @@
         android:layout_marginTop="30dp"
         android:textSize="20dp"
 
-        android:text="닉네임" />
+        android:text="닉네임" /-->
 
         <LinearLayout
             android:id="@+id/point_layout"
@@ -31,7 +31,7 @@
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             android:layout_margin="15dp"
             android:layout_marginTop="15dp"

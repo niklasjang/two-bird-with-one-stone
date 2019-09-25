@@ -75,7 +75,7 @@ public class AccountFragment extends Fragment {
 
         //DB의 User정보 가져와서 보여주기
         final TextView tvUserPoint = view.findViewById(R.id.tvUserPoint);
-        final TextView tvUserName = view.findViewById(R.id.tvUserName);
+        //final TextView tvUserName = view.findViewById(R.id.tvUserName);
         db = FirebaseFirestore.getInstance();
         final DocumentReference docRef = db.collection("Users").document(currentUID);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -89,7 +89,7 @@ public class AccountFragment extends Fragment {
 
                 if (snapshot != null && snapshot.exists()) {
                     tvUserPoint.setText(snapshot.get("point").toString());
-                    tvUserName.setText(snapshot.get("uid").toString());
+                    //tvUserName.setText(snapshot.get("uid").toString());
                     Log.d(TAG, "Current data: " + snapshot.get("point"));
                 } else {
                     Log.d(TAG, "Current data: null");

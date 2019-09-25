@@ -1,6 +1,5 @@
 package com.example.twobirdwithonestone.Activity;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.twobirdwithonestone.R;
@@ -40,34 +37,94 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         Log.d("CouponRecyclerView", Integer.toString(position));
         Log.d("CouponRecyclerView", Integer.toString(mData.size()));
         Log.d("CouponRecyclerView", coupon.couponCreateTime);
-        if(coupon.couponImgIndex == 0) {
-            holder.imgCoupon.setImageResource(R.drawable.ic_cake);
-        }else if(coupon.couponImgIndex == 1) {
-            holder.imgCoupon.setImageResource(R.drawable.ic_cake);
-        }else{
-            holder.imgCoupon.setImageResource(R.drawable.circle_logo_b);
+        /**
+         * 문화생활  100  :101~105
+         * 기부      200 : 201~205
+         * 커피/음료 300  : 301~303
+         * 캠핑      400  : 401~405
+         * 케이크    500  : 501~502
+         * 기타      600  : 601
+         * */
+        switch(coupon.couponImgIndex){
+            case 101:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_culture_1);
+                break;
+            case 102:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_culture_2);
+                break;
+            case 103:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_culture_3);
+                break;
+            case 104:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_culture_4);
+                break;
+            case 105:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_culture_5);
+                break;
+            case 201:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_fund_1);
+                break;
+            case 202:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_fund_2);
+                break;
+            case 203:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_fund_3);
+                break;
+            case 204:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_fund_4);
+                break;
+            case 205:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_fund_5);
+                break;
+            case 301:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_coffee_1);
+                break;
+            case 302:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_coffee_2);
+                break;
+            case 303:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_coffee_3);
+                break;
+            case 401:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_camp_1);
+                break;
+            case 402:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_camp_2);
+                break;
+            case 403:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_camp_3);
+                break;
+            case 404:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_camp_4);
+                break;
+            case 405:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_camp_5);
+                break;
+            case 501:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_cake_1);
+                break;
+            case 502:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_cake_2);
+                break;
+            case 601:
+                holder.imgCoupon.setImageResource(R.drawable.ic_shop_etc_1);
+                break;
+            default:
+                holder.imgCoupon.setImageResource(R.drawable.circle_logo_b);
         }
         holder.tvCouponName.setText(coupon.couponName);
         holder.tvCouponCreateTime.setText(coupon.couponCreateTime+" 생성");
         if(coupon.couponUesrOrNot){
             holder.btnCouponUse.setText("사용완료");
         }else{
-            holder.btnCouponUse.setText("사용");
+            holder.btnCouponUse.setText("길게 눌러서 사용");
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "쿠폰을 길게 클릭하면 사용할 수 있습니다.", Toast.LENGTH_SHORT).show();
-                DataBase database = new DataBase();
-                database.updataCouponUsedOrNot("Coupons", coupon.getCouponUID(), coupon.couponUesrOrNot);
-            }
-        });
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.btnCouponUse.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if(holder.btnCouponUse.getText().equals("사용")){
+                if(holder.btnCouponUse.getText().equals("길게 눌러서 사용")){
                     Toast.makeText(v.getContext(), "쿠폰을 사용합니다.", Toast.LENGTH_SHORT).show();
                     holder.btnCouponUse.setText("사용완료");
                 }else{

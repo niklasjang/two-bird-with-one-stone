@@ -62,16 +62,16 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        //제로페이 전환 버튼
-        btn_zeropay = view.findViewById(R.id.zeropay_bnt);
-        btn_zeropay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ZeropayActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                startActivityForResult(intent,REQUEST_ZEROPAY);
-            }
-        });
+//        //제로페이 전환 버튼
+//        btn_zeropay = view.findViewById(R.id.zeropay_bnt);
+//        btn_zeropay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), ZeropayActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//                startActivityForResult(intent,REQUEST_ZEROPAY);
+//            }
+//        });
 
         //DB의 User정보 가져와서 보여주기
         final TextView tvUserPoint = view.findViewById(R.id.tvUserPoint);
@@ -102,7 +102,7 @@ public class AccountFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())) ;
 
         // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
-        couponAdapter = new CouponRecyclerViewAdapter(couponList);
+        couponAdapter = new CouponRecyclerViewAdapter(getActivity(), couponList);
         couponAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(couponAdapter);
 

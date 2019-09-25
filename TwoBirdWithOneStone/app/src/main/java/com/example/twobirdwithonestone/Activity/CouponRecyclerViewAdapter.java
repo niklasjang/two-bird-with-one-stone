@@ -35,8 +35,8 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
 
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Coupon coupon = mData.get(position) ;
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final Coupon coupon = mData.get(position) ;
         Log.d("CouponRecyclerView", Integer.toString(position));
         Log.d("CouponRecyclerView", Integer.toString(mData.size()));
         Log.d("CouponRecyclerView", coupon.couponCreateTime);
@@ -54,6 +54,28 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
         }else{
             holder.btnCouponUse.setText("사용");
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "쿠폰을 길게 클릭하면 사용할 수 있습니다.", Toast.LENGTH_SHORT).show();
+                DataBase database = new DataBase();
+                database.updataCouponUsedOrNot("Coupons", coupon.getCouponUID(), coupon.couponUesrOrNot);
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if(holder.btnCouponUse.getText().equals("사용")){
+                    Toast.makeText(v.getContext(), "쿠폰을 사용합니다.", Toast.LENGTH_SHORT).show();
+                    holder.btnCouponUse.setText("사용완료");
+                }else{
+                    Toast.makeText(v.getContext(), "이미 사용된 쿠폰입니다.", Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
     }
 
     // getItemCount() - 전체 데이터 갯수 리턴.

@@ -70,7 +70,6 @@ public class SubShopListViewActivity extends AppCompatActivity {
         }else{
             couponImgIndex = 0;
         }
-        selectedItemasCoupon = new Coupon(currentTime.toString(), list.get(i).name, currentUID, false, currentUID, couponImgIndex );
 
         Button btn_buy_item = findViewById(R.id.btn_buy_item);
         itemPrice = list.get(0).getprice();
@@ -79,7 +78,12 @@ public class SubShopListViewActivity extends AppCompatActivity {
         btn_buy_item.setText(buyString);
         Log.d("123", btn_buy_item.getText().toString());
         db = FirebaseFirestore.getInstance();
-        final CollectionReference couponRef = db.collection("Coupons");
+        DocumentReference couponDocRef= db.collection("Coupons").document();
+        String couponUID = couponDocRef.getId();
+        final DocumentReference couponRef = db.collection("Coupons").document(couponUID);
+        Log.d("SubShopSubShop", couponDocRef.getId());
+        selectedItemasCoupon = new Coupon(currentTime, list.get(i).name, couponUID, false, currentUID, couponImgIndex );
+        //여기에 CUID 생성해야하는데 TODO
         btn_buy_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,10 +109,11 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                                 //쿠폰 추가하기!
                                                 SubShopListViewItem bitem = (SubShopListViewItem)mListView.getItemAtPosition(0);
                                                 Log.d("SubShopListview", "SUSU"+ bitem.getTitle());
-                                                couponRef.add(selectedItemasCoupon)
-                                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                couponRef
+                                                        .set(selectedItemasCoupon)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
-                                                            public void onSuccess(DocumentReference documentReference) {
+                                                            public void onSuccess(Void aVoid) {
                                                                 Toast.makeText(getApplicationContext(), "쿠폰을 구매했습니다.", Toast.LENGTH_SHORT).show();
                                                                 Log.d("SubShopListViewActivity", "햐햐 쿠폰 저장 성공");
                                                                 finish();
@@ -121,6 +126,18 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                                                 finish();
                                                             }
                                                         });
+//                                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                                                            @Override
+//                                                            public void onSuccess(DocumentReference documentReference) {
+//
+//                                                            }
+//                                                        })
+//                                                        .addOnFailureListener(new OnFailureListener() {
+//                                                            @Override
+//                                                            public void onFailure(@NonNull Exception e) {
+//
+//                                                            }
+//                                                        });
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -61,6 +62,7 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
+        //제로페이 전환 버튼
         btn_zeropay = view.findViewById(R.id.zeropay_bnt);
         btn_zeropay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +106,9 @@ public class AccountFragment extends Fragment {
         couponAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(couponAdapter);
 
+
+        //2019-09-25
+        //For Degub. Do not delete this message. - hwanseok
         Log.d("QueryCoupons", "return view 합니다?");
         return view;
     }

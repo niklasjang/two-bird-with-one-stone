@@ -57,32 +57,37 @@ public class SubHomeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         categoryText = intent.getExtras().getString("category");
-        categoryTextView.setText(categoryText) ;
-        switch (categoryText){
-            case "news":
-                seoulBoardCrawler = new SeoulBoardCrawler(seoul_news_url);
-                seoulBoardCrawler.execute();
-                break;
-            case "event":
-                seoulBoardCrawler = new SeoulBoardCrawler(seoul_event_url);
-                seoulBoardCrawler.execute();
-                break;
 
-            case "festival":
-                seoulBoardCrawler = new SeoulBoardCrawler(seoul_festival_url);
-                seoulBoardCrawler.execute();
-                break;
+        switch (categoryText){
             case "traffic":
+                categoryTextView.setText("교통") ;
                 seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_traffic_url);
                 seoulCategoryCrawler.execute();
                 break;
+            case "house":
+                categoryTextView.setText("주택") ;
+                seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
+                seoulHouseCrawler.execute();
+                break;
             case "welfare":
+                categoryTextView.setText("복지") ;
                 seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_welfare_url);
                 seoulCategoryCrawler.execute();
                 break;
-            case "house":
-                seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
-                seoulHouseCrawler.execute();
+            case "news":
+                categoryTextView.setText("소식") ;
+               seoulBoardCrawler = new SeoulBoardCrawler(seoul_news_url);
+                seoulBoardCrawler.execute();
+                break;
+            case "festival":
+                categoryTextView.setText("행사 및 축제") ;
+                seoulBoardCrawler = new SeoulBoardCrawler(seoul_festival_url);
+                seoulBoardCrawler.execute();
+                break;
+            case "event":
+                categoryTextView.setText("이벤트 신청") ;
+                seoulBoardCrawler = new SeoulBoardCrawler(seoul_event_url);
+                seoulBoardCrawler.execute();
                 break;
         }
         mListView = (ListView)findViewById(R.id.listView);

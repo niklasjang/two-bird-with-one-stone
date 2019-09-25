@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="#cff0da"
+    android:background="#E2E2E2"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"></ListView>
 
     <Button
+        android:background="@drawable/rounded_hz"
         android:id="@+id/btn_buy_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

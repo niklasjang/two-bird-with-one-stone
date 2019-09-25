@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -61,19 +62,20 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        btn_zeropay = view.findViewById(R.id.zeropay_bnt);
-        btn_zeropay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ZeropayActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                startActivityForResult(intent,REQUEST_ZEROPAY);
-            }
-        });
+//        //제로페이 전환 버튼
+//        btn_zeropay = view.findViewById(R.id.zeropay_bnt);
+//        btn_zeropay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), ZeropayActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//                startActivityForResult(intent,REQUEST_ZEROPAY);
+//            }
+//        });
 
         //DB의 User정보 가져와서 보여주기
         final TextView tvUserPoint = view.findViewById(R.id.tvUserPoint);
-        final TextView tvUserName = view.findViewById(R.id.tvUserName);
+        //final TextView tvUserName = view.findViewById(R.id.tvUserName);
         db = FirebaseFirestore.getInstance();
         final DocumentReference docRef = db.collection("Users").document(currentUID);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -87,7 +89,7 @@ public class AccountFragment extends Fragment {
 
                 if (snapshot != null && snapshot.exists()) {
                     tvUserPoint.setText(snapshot.get("point").toString());
-                    tvUserName.setText(snapshot.get("uid").toString());
+                    //tvUserName.setText(snapshot.get("uid").toString());
                     Log.d(TAG, "Current data: " + snapshot.get("point"));
                 } else {
                     Log.d(TAG, "Current data: null");
@@ -100,10 +102,13 @@ public class AccountFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())) ;
 
         // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
-        couponAdapter = new CouponRecyclerViewAdapter(couponList);
+        couponAdapter = new CouponRecyclerViewAdapter(getActivity(), couponList);
         couponAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(couponAdapter);
 
+
+        //2019-09-25
+        //For Degub. Do not delete this message. - hwanseok
         Log.d("QueryCoupons", "return view 합니다?");
         return view;
     }

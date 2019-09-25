@@ -61,13 +61,5 @@
             android:text="abcd"
             android:textColor="@android:color/black"></TextView>
 
-        <TextView
-            android:id="@+id/tvSubShopItemPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:gravity="center"
-            android:textSize="15sp"
-            tools:text="0 Point" />
     </LinearLayout>
 </LinearLayout>

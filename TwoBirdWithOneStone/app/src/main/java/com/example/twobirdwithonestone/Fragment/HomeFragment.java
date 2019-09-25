@@ -7,21 +7,29 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
+import com.example.twobirdwithonestone.Activity.HomeListViewItem;
+import com.example.twobirdwithonestone.Activity.LoginActivity;
+import com.example.twobirdwithonestone.Activity.MainActivity;
 import com.example.twobirdwithonestone.Activity.SubHomeActivity;
 import com.example.twobirdwithonestone.R;
+import com.github.siyamed.shapeimageview.CircularImageView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -42,172 +50,92 @@ public class HomeFragment extends Fragment {
     private String subtitle = null;
     private String coin = null;
     private String getId = null;
-    //String melon_chart_url = "https://www.melon.com/chart/";
+    // ?fetchStart=1로 페이지 라우팅을 실행
     private String seoul_url = "https://www.seoul.go.kr/realmnews/in/list.do";
 
     private Context mContext;
+    private Button btnEnvironment;
+    private Button btnEvent;
+    private Button btnFestival;
+    private Button btnTraffic;
+    private Button btnWelfare;
+    private Button btnHouse;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
-        SeoulBoardCrawler seoulBoardCrawler = new SeoulBoardCrawler();
-        seoulBoardCrawler.execute();
-        mListView = (ListView)view.findViewById(R.id.listView);
-        mAdapter = new HomeListViewAdapter();
 
+
+        mListView = (ListView)view.findViewById(R.id.listView);
+        btnEnvironment = (Button)view.findViewById(R.id.environment_btn);
+        btnEvent  = (Button)view.findViewById(R.id.event_btn);
+        btnFestival  = (Button)view.findViewById(R.id.festival_btn);
+        btnTraffic = (Button)view.findViewById(R.id.traffic_btn);
+        btnWelfare = (Button)view.findViewById(R.id.welfare_btn);
+        btnHouse = (Button)view.findViewById(R.id.housing_btn);
+
+        mAdapter = new HomeListViewAdapter();
         mListView.setAdapter(mAdapter);
         mContext = getActivity();
 
-        /*
-        작성자 : 박혜지
-        날짜 : 2019 - 09 - 22
-        내용 : 홈화면에있는 카테고리와 연동시킨 버튼 8개
-        */
-
-        Button btnTransportation = (Button) view.findViewById(R.id.transportation_btn);
-        btnTransportation.setOnClickListener(new View.OnClickListener(){
+        btnEnvironment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","교통");
-                startActivity(intent);
-            }
-        });
-        Button btnSafety = (Button) view.findViewById(R.id.safety_btn);
-        btnSafety.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","안전");
-                startActivity(intent);
-            }
-        });
-        Button btnHousing = (Button) view.findViewById(R.id.housing_btn);
-        btnHousing.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","주택");
-                startActivity(intent);
-            }
-        });
-        Button btnEconomy = (Button) view.findViewById(R.id.economy_btn);
-        btnEconomy.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","경제");
-                startActivity(intent);
-            }
-        });
-        Button btnEnvironment = (Button) view.findViewById(R.id.environment_btn);
-        btnEnvironment.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","환경");
-                startActivity(intent);
-            }
-        });
-        Button btnCulture = (Button) view.findViewById(R.id.culture_btn);
-        btnCulture.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","문화");
-                startActivity(intent);
-            }
-        });
-        Button btnWelfare = (Button) view.findViewById(R.id.welfare_btn);
-        btnWelfare.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","복지");
-                startActivity(intent);
-            }
-        });
-        Button btnAdministrative = (Button) view.findViewById(R.id.administrative_btn);
-        btnAdministrative.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SubHomeActivity.class);
-                intent.putExtra("category","행정");
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "news");
                 startActivity(intent);
             }
         });
 
+        btnEvent.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "event");
+                startActivity(intent);
+            }
+        });
+
+        btnFestival.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "festival");
+                startActivity(intent);
+            }
+        });
+
+        btnTraffic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "traffic");
+                startActivity(intent);
+            }
+        });
+
+        btnWelfare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "welfare");
+                startActivity(intent);
+            }
+        });
+
+        btnHouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "house");
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
-    /*
-    작성자 : 박규영
-    날짜 : 2019 - 09 - 12
-    내용 : 서울 분야별 새소식 크롤러로, HomeListViewAdapter , HomeListViewItem과 관련이 있다.
-     */
-    private class SeoulBoardCrawler extends AsyncTask<Void, Void, Void> {
-        ArrayList<String> listTitle = new ArrayList<>();
-        ArrayList<String> listDate = new ArrayList<>();
-        ArrayList<String> listContent = new ArrayList<>();
-        ArrayList<String> listUrl = new ArrayList<>();
-        Map<String , String> mapImgUrl = new HashMap<String , String>();
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                Document doc = Jsoup.connect(seoul_url).get();
-                //final Elements rank_list1 = doc.select("div.wrap_song_info div.ellipsis.rank01 span a");
-                final Elements crawledSubject = doc.select("span.tbx em.subject");
-                final Elements crawledDate = doc.select("span.tbx em.date");
-                final Elements crawledTxt = doc.select("span.tbx em.txt");
-                final Elements crawledUrl = doc.select("div.item a");
-                final Elements crawledImgUrl = doc.select("div.item img");
-
-                Handler handler = new Handler(Looper.getMainLooper()); // 객체생성
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        for(Element element: crawledSubject) {
-                            String res = "";
-                            String[] splitedTitle = element.text().split(" ");
-                            for(int i = 1; i < splitedTitle.length; i++) {
-                                if(i == 1){
-                                    res =res + splitedTitle[i];
-                                }else{
-                                    res =res + " " + splitedTitle[i];
-                                }
-                            }
-                            listTitle.add(res);
-                            mapImgUrl.put(res,"default");
-                        }
-                        for(Element element: crawledDate) {
-                            listDate.add(element.text());
-                        }
-                        for(Element element: crawledTxt) {
-                            listContent.add(element.text());
-                        }
-                        for(Element element: crawledUrl) {
-                            listUrl.add(element.attr("href"));
-                        }
-                        for(Element element: crawledImgUrl) {
-                            mapImgUrl.put(element.attr("alt"),element.attr("src"));
-                        }
-
-                        for (int i = 0; i < listTitle.size() ; i++) {
-                            mAdapter.addItem(mapImgUrl.get(listTitle.get(i)) , listTitle.get(i), listContent.get(i), listDate.get(i), listUrl.get(i));
-                        }
-                        mAdapter.notifyDataSetChanged();
-                    }
-                });
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-    }
 }
 
 

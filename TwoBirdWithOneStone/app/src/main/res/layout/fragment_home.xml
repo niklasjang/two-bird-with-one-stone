@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fillViewport="true"
+    android:background="#FFF"
     android:fontFamily="@font/barungothicbold">
 
-    <TextView
-        android:id="@+id/textView2"
+    <ViewFlipper
+        android:background="#E2E2E2"
+        android:id="@+id/imageAdSlide"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="center_vertical|center_horizontal"
-
-        android:layout_marginBottom="15dp"
-        android:text="광고" />
-
+        android:layout_height="160dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ic_home_ad_3" />
     <GridView
         android:id="@+id/shop_gridview"
         android:layout_width="match_parent"

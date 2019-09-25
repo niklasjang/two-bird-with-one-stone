@@ -15,48 +15,28 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
-import com.example.twobirdwithonestone.Activity.HomeListViewItem;
-import com.example.twobirdwithonestone.Activity.LoginActivity;
-import com.example.twobirdwithonestone.Activity.MainActivity;
 import com.example.twobirdwithonestone.Activity.ShopGridViewAdapter;
 import com.example.twobirdwithonestone.Activity.SubHomeActivity;
 import com.example.twobirdwithonestone.R;
-import com.github.siyamed.shapeimageview.CircularImageView;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HomeFragment extends Fragment {
     private GridView mGridView;
     private ShopGridViewAdapter mAdapter;
-    private Drawable image = null;
-    private String title = null;
     private Context mContext;
 
-    private Button btnEnvironment;
-    private Button btnEvent;
-    private Button btnFestival;
-    private Button btnTraffic;
-    private Button btnWelfare;
-    private Button btnHouse;
+    ViewFlipper v_fllipper;
+    ImageView imageView;
+    int imageAd = 1;
 
     @Nullable
     @Override
@@ -68,6 +48,16 @@ public class HomeFragment extends Fragment {
 
         mGridView.setAdapter(mAdapter);
         mContext = getContext();
+
+        int images[] = {
+                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3,
+                R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5, R.drawable.ic_home_ad_6};
+
+        v_fllipper = view.findViewById(R.id.imageAdSlide);
+
+        for(int image : images) {
+            fllipperImages(image);
+        }
 
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -126,6 +116,18 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    public void fllipperImages(int image) {
+        ImageView imageView = new ImageView(mContext);
+        imageView.setBackgroundResource(image);
+
+        v_fllipper.addView(imageView);      // 이미지 추가
+        v_fllipper.setFlipInterval(10000);       // 자동 이미지 슬라이드 딜레이시간(1000 당 1초)
+        v_fllipper.setAutoStart(true);          // 자동 시작 유무 설정
+
+        // animation
+        v_fllipper.setInAnimation(mContext,android.R.anim.slide_in_left);
+        v_fllipper.setOutAnimation(mContext,android.R.anim.slide_out_right);
+    }
 }
 
 

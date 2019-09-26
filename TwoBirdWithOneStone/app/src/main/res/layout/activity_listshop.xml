@@ -11,9 +11,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="150dp"
+        android:layout_gravity="center"
         android:src="@drawable/circle_logo"
         android:background="#E2E2E2"
-        android:paddingBottom="10dp"
+        android:padding="15dp"
         android:layout_marginBottom="10dp"
         />
 

@@ -2,16 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="#FFF"
+    android:fontFamily="@font/barungothicbold"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="상품 목록"
-        android:textSize="30dp"
-        android:gravity="center"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/edge_login"
+
+        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n\n상점\n"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서울시 정보를 보고 얻은 포인트로 다양한 상품을 얻어가자\n\n  "
+            />
+
+    </LinearLayout>
 
     <GridView
         android:id="@+id/shop_gridview"
@@ -22,4 +43,4 @@
         android:numColumns="2"
         android:stretchMode="spacingWidthUniform">
     </GridView>
-    </LinearLayout>
+</LinearLayout>

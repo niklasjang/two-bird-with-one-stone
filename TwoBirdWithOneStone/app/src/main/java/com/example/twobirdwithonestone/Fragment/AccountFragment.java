@@ -164,14 +164,14 @@ public class AccountFragment extends Fragment {
 
 
         //If Default coupon exists, add default coupon to couponList.
-        for (int i=0; i<1; i++) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
-            Calendar cal = Calendar.getInstance();
-            currentTime = sdf.format(cal.getTime());
-            Coupon c = new Coupon(currentTime, "쿠폰hh", currentUID, false, currentUID,1 );
-            couponList.add(c) ;
-            Log.d("QueryCoupons", "default 쿠폰이 추가했어요");
-        }
+//        for (int i=0; i<1; i++) {
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
+//            Calendar cal = Calendar.getInstance();
+//            currentTime = sdf.format(cal.getTime());
+//            Coupon c = new Coupon(currentTime, "쿠폰hh", currentUID, false, currentUID,1 );
+//            couponList.add(c) ;
+//            Log.d("QueryCoupons", "default 쿠폰이 추가했어요");
+//        }
     }
 
     /*

@@ -2,42 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="400dp"
     android:layout_height="wrap_content"
-    android:background="@color/popupBackground">
-
-    <Button
-        android:id="@+id/btnPopupCancel"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="취소"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnPopupUse"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPopUpQR" />
-
-    <Button
-        android:id="@+id/btnPopupUse"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="사용완료"
-        app:layout_constraintBottom_toBottomOf="@+id/btnPopupCancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/btnPopupCancel"
-        app:layout_constraintTop_toTopOf="@+id/btnPopupCancel" />
+    android:id="@+id/layoutQR"
+    android:background="#E2E2E2">
 
     <ImageView
         android:id="@+id/ivPopUpQR"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/btnPopupCancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/ic_qr_code" />
+
+    <Button
+        android:id="@+id/btnPopupUse"
+        android:background="@drawable/rounded_hz"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="사용완료"
+        app:layout_constraintLeft_toLeftOf="@+id/layoutQR"
+        app:layout_constraintRight_toLeftOf="@+id/btnPopupCancel"
+        app:layout_constraintTop_toBottomOf="@+id/ivPopUpQR" />
+
+    <Button
+        android:id="@+id/btnPopupCancel"
+        android:background="@drawable/rounded_hz"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:text="취소"
+        app:layout_constraintRight_toRightOf="@+id/layoutQR"
+        app:layout_constraintLeft_toRightOf="@+id/btnPopupUse"
+        app:layout_constraintTop_toBottomOf="@+id/ivPopUpQR" />
 
 <!--    <TextView-->
 <!--        android:id="@+id/tvPopupName"-->

@@ -6,15 +6,19 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="343dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
+        android:background="@drawable/ic_rounded"
         android:weightSum="10">
 
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_weight="7" />
 
         <LinearLayout
@@ -22,43 +26,29 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:orientation="vertical"
-            android:weightSum="10">
-
-            <TextView
-                android:id="@+id/brand_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_weight="4"
-                android:fontFamily="@font/barungothicbold"
-                android:paddingLeft="5dp"
-                android:text="베라"
-                android:textSize="15dp" />
+            >
 
             <TextView
                 android:id="@+id/text_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_height="60dp"
                 android:fontFamily="@font/hoon"
                 android:paddingLeft="5dp"
-                android:paddingTop="6dp"
+                android:paddingTop="15dp"
                 android:text="아이스크림"
-
+                android:textColor="#000000"
                 android:textSize="20dp">
 
             </TextView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="match_parent"
-                    android:paddingBottom="8dp"
                     android:src="@drawable/ic_attach_money_black_24dp" />
 
                 <TextView
@@ -66,10 +56,10 @@
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/barungothicbold"
-                    android:paddingTop="6dp"
+                    android:paddingTop="2dp"
                     android:text="3,500 P"
                     android:textColor="#000000"
-                    android:textSize="20dp">
+                    android:textSize="15dp">
 
                 </TextView>
             </LinearLayout>

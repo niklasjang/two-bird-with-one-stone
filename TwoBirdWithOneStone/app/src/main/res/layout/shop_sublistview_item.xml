@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@drawable/subshop_background"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,7 +16,8 @@
             android:id="@+id/category_text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:layout_marginTop="10dp"
+            android:paddingTop="10dp"
             android:gravity="center"
             android:text="문화"
             android:textSize="20sp" />
@@ -32,14 +33,14 @@
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/ic_icecream"></ImageView>
 
         <TextView
             android:id="@+id/title_view"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="상품명"
             android:textColor="@android:color/black"
@@ -52,7 +53,6 @@
             android:gravity="bottom"
             android:text="상품설명"
             android:textSize="18dp"
-
             android:textColor="@android:color/black"/>
         <TextView
             android:id="@+id/explanation_text_view"

@@ -13,14 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.twobirdwithonestone.Activity.LoginActivity;
+import com.example.twobirdwithonestone.Activity.SettingQuestPopup;
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Service.LockScreenService;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsFragment extends Fragment {
-
+    Button question;
     Boolean boolLockScreen = false;
-
     public Boolean getBoolLockScreen() {
         return boolLockScreen;
     }
@@ -32,6 +32,16 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+        //문의하기 popup
+        question = (Button) view.findViewById(R.id.question);
+        question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingQuestPopup.class);
+                startActivity(intent);
+            }
+        });
+
         //switch
         Switch switchLockScreen = view.findViewById(R.id.switch_lock_screen);
         switchLockScreen.setOnClickListener(new View.OnClickListener(){

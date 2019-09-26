@@ -91,20 +91,6 @@ public class SettingsFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), LockScreenService.class);
                 intent.putExtra("LockScreen", boolLockScreen);
                 getActivity().startService(intent);
-                //Firebase 연동
-//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                Toast.makeText(getContext(), "updateUserSwitchLockScreen  성공", Toast.LENGTH_SHORT).show();
-//
-//                            }
-//                        })
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Toast.makeText(getContext(), "updateUserSwitchLockScreen  실패", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
             }
         });
 

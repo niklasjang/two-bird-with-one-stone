@@ -121,6 +121,15 @@ public class AccountFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //쿠폰 Recycler View default 객체 생성
+        couponList = new ArrayList<Coupon>();
+        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         FirebaseFirestore.getInstance().collection("Coupons")
                 .whereEqualTo("userUID", currentUID)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -152,14 +161,6 @@ public class AccountFragment extends Fragment {
                         }
                     }
                 });
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //쿠폰 Recycler View default 객체 생성
-        couponList = new ArrayList<Coupon>();
-        currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
         //If Default coupon exists, add default coupon to couponList.

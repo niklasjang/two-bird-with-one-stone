@@ -64,6 +64,9 @@ public class SettingsFragment extends Fragment {
                 if (snapshot != null && snapshot.exists()) {
                     boolLockScreen = (Boolean) snapshot.get("switchLockScreen");
                     switchLockScreen.setChecked(boolLockScreen);
+                    Intent intent = new Intent(getActivity(), LockScreenService.class);
+                    intent.putExtra("LockScreen", boolLockScreen);
+                    getActivity().startService(intent);
                 } else {
                     Log.d(TAG, "Current data: null");
                 }

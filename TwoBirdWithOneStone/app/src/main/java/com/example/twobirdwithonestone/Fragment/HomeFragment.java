@@ -60,6 +60,8 @@ public class HomeFragment extends Fragment {
     private Button btnTraffic;
     private Button btnWelfare;
     private Button btnHouse;
+    private Button btnDisabled;
+    private Button btnRegion;
 
     @Nullable
     @Override
@@ -75,6 +77,8 @@ public class HomeFragment extends Fragment {
         btnTraffic = (Button)view.findViewById(R.id.traffic_btn);
         btnWelfare = (Button)view.findViewById(R.id.welfare_btn);
         btnHouse = (Button)view.findViewById(R.id.housing_btn);
+        btnDisabled = (Button)view.findViewById(R.id.disabled_btn);
+        btnRegion = (Button)view.findViewById(R.id.region_btn);
 
         mAdapter = new HomeListViewAdapter();
         mListView.setAdapter(mAdapter);
@@ -130,6 +134,24 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, SubHomeActivity.class);
                 intent.putExtra("category", "house");
+                startActivity(intent);
+            }
+        });
+
+        btnDisabled.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "disabled");
+                startActivity(intent);
+            }
+        });
+
+        btnRegion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SubHomeActivity.class);
+                intent.putExtra("category", "region");
                 startActivity(intent);
             }
         });

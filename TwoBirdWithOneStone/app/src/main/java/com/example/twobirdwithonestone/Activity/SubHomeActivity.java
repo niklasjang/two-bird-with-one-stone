@@ -39,10 +39,15 @@ public class SubHomeActivity extends AppCompatActivity {
     private String seoul_welfare_url = "https://news.seoul.go.kr/welfare/news-all/page/";
     private String seoul_house_url = "https://www.i-sh.co.kr/main/lay2/program/S1T294C295/www/brd/m_241/list.do";
     private String seoul_house_page_url = "https://www.i-sh.co.kr/main/lay2/program/S1T294C295/www/brd/m_241/view.do?seq=";
+    private String seoul_the_disabled_url = "http://jobable.seoul.go.kr/jobable/custmr_cntr/ntce/WwwNotice.do?method=selectWwwNoticeList&noticeCmmnSeNo=1&searchCondition=&pageSize=20&searchKeyword=";
+    private String getSeoul_the_disabled_url_content_url = "http://jobable.seoul.go.kr/jobable/custmr_cntr/ntce/WwwNotice.do?method=getWwwNotice&chUseZe=D&noticeCmmnSeNo=1&bbscttSn=";
+    private String seoul_region_url = "http://rss.seoul.go.kr/app/rss/board/list/0/";
     private int nextPage = 1;
     private SeoulBoardCrawler seoulBoardCrawler;
     private SeoulCategoryCrawler seoulCategoryCrawler;
     private SeoulHouseCrawler seoulHouseCrawler;
+    private SeoulDisalbedCrawler seoulDisalbedCrawler;
+    private SeoulRegionrawler seoulRegionrawler;
 
     private String categoryText;
     boolean lastitemVisibleFlag = false;
@@ -84,6 +89,14 @@ public class SubHomeActivity extends AppCompatActivity {
                 seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
                 seoulHouseCrawler.execute();
                 break;
+            case "disabled":
+                seoulDisalbedCrawler = new SeoulDisalbedCrawler(seoul_the_disabled_url);
+                seoulDisalbedCrawler.execute();
+                break;
+            case "region":
+                seoulRegionrawler = new SeoulRegionrawler(seoul_region_url);
+                seoulRegionrawler.execute();
+                break;
         }
         mListView = (ListView)findViewById(R.id.listView);
         mAdapter = new HomeListViewAdapter();
@@ -123,6 +136,14 @@ public class SubHomeActivity extends AppCompatActivity {
                         case "house":
                             seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
                             seoulHouseCrawler.execute();
+                            break;
+                        case "disabled":
+                            seoulDisalbedCrawler = new SeoulDisalbedCrawler(seoul_the_disabled_url);
+                            seoulDisalbedCrawler.execute();
+                            break;
+                        case "region":
+                            seoulRegionrawler = new SeoulRegionrawler(seoul_region_url);
+                            seoulRegionrawler.execute();
                             break;
                     }
                 }
@@ -351,6 +372,144 @@ public class SubHomeActivity extends AppCompatActivity {
                         for (int i = 0; i < listTitle.size() ; i++) {
                             HomeListViewItem item = new HomeListViewItem();
                             item.setImgUrl(listImgUrl.get(i));
+                            item.setTitle(listTitle.get(i));
+                            item.setContent(listContent.get(i));
+                            item.setDate(listDate.get(i));
+                            item.setUrl(listUrl.get(i));
+                            mAdapter.addItem(item);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
+    /*
+        작성자 : 박규영
+        날짜 : 2019 - 09 - 25
+        내용 : 서울 장애인 홈페이지 새 소식 크롤러
+     */
+    private class SeoulDisalbedCrawler extends AsyncTask<Void, Void, Void> {
+        ArrayList<String> listTitle = new ArrayList<>();
+        ArrayList<String> listDate = new ArrayList<>();
+        ArrayList<String> listContent = new ArrayList<>();
+        ArrayList<String> listUrl = new ArrayList<>();
+        String crawledUrl;
+        private SeoulDisalbedCrawler(String crawledUrl){
+            this.crawledUrl = crawledUrl;
+        }
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                String url = crawledUrl +"?page=" +nextPage;
+                Document doc = Jsoup.connect(url).get();
+                final Elements crawledDate = doc.select("tbody tr td");
+                final Elements crawledTxt = doc.select("tbody td.active a");
+//                final Elements crawledImgUrl = doc.select("tbody td a.btn_file");
+
+                Handler handler = new Handler(Looper.getMainLooper()); // 객체생성
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(Element element: crawledTxt) {
+                            listTitle.add(element.text());
+                            listContent.add(element.text());
+                            String[] parseElement = element.attr("href").split("\\'");
+                            String urlLink = parseElement[1];
+                            String fileCheck = parseElement[3];
+                            listUrl.add(getSeoul_the_disabled_url_content_url+urlLink);
+                        }
+                        int k = 1;
+                        for(Element element: crawledDate) {
+                            if(k%4 == 0) {
+                                listDate.add(element.text());
+                                k++;
+                            }else {
+                                k++;
+                                continue;
+                            }
+                        }
+//                        for(Element element: crawledImgUrl) {
+//                            String url = element.attr("href");
+//                            listImgUrl.add(url);
+//                        }
+                        int counter = 0;
+                        for (int i = 0; i < listTitle.size() ; i++) {
+                            HomeListViewItem item = new HomeListViewItem();
+                            item.setTitle(listTitle.get(i));
+                            item.setContent(listContent.get(i));
+                            item.setDate(listDate.get(i));
+                            item.setUrl(listUrl.get(i));
+                            item.setImgUrl("default");
+                            mAdapter.addItem(item);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+    /*
+        작성자 : 박규영
+        날짜 : 2019 - 09 - 26
+        내용 : 서울 자치구 홈페이지 크롤링
+     */
+    private class SeoulRegionrawler extends AsyncTask<Void, Void, Void> {
+        ArrayList<String> listTitle = new ArrayList<>();
+        ArrayList<String> listDate = new ArrayList<>();
+        ArrayList<String> listContent = new ArrayList<>();
+        ArrayList<String> listUrl = new ArrayList<>();
+        ArrayList<String> listAllSpanItem = new ArrayList<>();
+        ArrayList<String> listImgUrl = new ArrayList<>();
+        ArrayList<HomeListViewItem> viewItems = new ArrayList<>();
+        String crawledUrl;
+        private SeoulRegionrawler(String crawledUrl){
+            this.crawledUrl = crawledUrl;
+        }
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                String url = crawledUrl + nextPage+"0";
+                Document doc = Jsoup.connect(url).get();
+                //final Elements rank_list1 = doc.select("div.wrap_song_info div.ellipsis.rank01 span a");
+                final Elements crawledSubject = doc.select("tbody tr td.m-left-line");
+                //짝수번째에 날짜가 존재
+                final Elements crawledDate = doc.select("tbody tr td.pc-only");
+                //url, content는 같이 존재
+                final Elements crawledUrl = doc.select("tbody tr td a");
+
+                Handler handler = new Handler(Looper.getMainLooper()); // 객체생성
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(Element element: crawledSubject) {
+                            listTitle.add(element.text());
+                        }
+                        int dateFlag = 1;
+                        for(Element element: crawledDate) {
+                            if(dateFlag%2 == 0){
+                                listDate.add(element.text());
+                            }
+                            dateFlag++;
+                        }
+                        for(Element element: crawledUrl) {
+                            listUrl.add(element.attr("href"));
+                            listContent.add(element.text());
+                        }
+                        for(int i = 0; i < listTitle.size(); i++){
+                            HomeListViewItem item = new HomeListViewItem();
+                            item.setImgUrl("default");
                             item.setTitle(listTitle.get(i));
                             item.setContent(listContent.get(i));
                             item.setDate(listDate.get(i));

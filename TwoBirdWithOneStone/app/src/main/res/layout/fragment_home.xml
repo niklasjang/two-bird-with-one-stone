@@ -89,13 +89,13 @@
             <Button
                 android:drawableTop="@drawable/ic_home_culture"
                 android:background="@drawable/rounded_hz_home"
-                android:id="@+id/culture_btn"
+                android:id="@+id/disabled_btn"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="1dp"
-                android:text="문화"
+                android:text="장애인"
                 android:textSize="13dp"/>
             <Button
                 android:drawableTop="@drawable/ic_home_welfare"
@@ -111,13 +111,13 @@
             <Button
                 android:drawableTop="@drawable/ic_home_administrative"
                 android:background="@drawable/rounded_hz_home"
-                android:id="@+id/administrative_btn"
+                android:id="@+id/region_btn"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="1dp"
-                android:text="행정"
+                android:text="자치구"
                 android:textSize="13dp"/>
         </LinearLayout>
     </LinearLayout>

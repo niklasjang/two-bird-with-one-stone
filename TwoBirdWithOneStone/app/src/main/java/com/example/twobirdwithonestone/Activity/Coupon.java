@@ -1,7 +1,5 @@
 package com.example.twobirdwithonestone.Activity;
 
-import android.graphics.Bitmap;
-
 public class Coupon {
     public String  couponCreateTime;
     public String  couponName;
@@ -19,7 +17,13 @@ public class Coupon {
         this.couponImgIndex = _imgIndex;
     }
 
+    public void setCouponUID(String couponUID) {
+        this.couponUID = couponUID;
+    }
 
+    public String getCouponUID() {
+        return couponUID;
+    }
 
     public String getUserUID() {
         return userUID;

@@ -23,7 +23,7 @@
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="40dp"
 
             android:layout_margin="20dp"
@@ -37,6 +37,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="문화생활"
-            android:textSize="15dp"/>
+            android:textSize="13dp"/>
     </LinearLayout>
 </LinearLayout>

@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:src="@drawable/circle_logo"
         android:background="#E2E2E2"
-        android:paddingBottom="10dp"
+        android:padding="15dp"
         android:layout_marginBottom="10dp"
         />
 

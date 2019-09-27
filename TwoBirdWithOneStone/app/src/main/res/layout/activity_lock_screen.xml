@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E2E2E2"
     tools:context=".Activity.LockScreenActivity">
 
     <ViewFlipper
         android:id="@+id/vfLockScreen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="700dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/circle_logo"
-     >
-    </ViewFlipper>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_lock_screen"
+        ></ViewFlipper>
 
     <Button
+        android:background="@drawable/rounded_hz"
         android:id="@+id/btn_lock_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,6 +28,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn_un_lock" />
 
     <Button
+        android:background="@drawable/rounded_hz"
         android:id="@+id/btn_un_lock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

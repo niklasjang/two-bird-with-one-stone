@@ -65,8 +65,8 @@ public class LockScreenActivity extends AppCompatActivity {
         });
 
         int images[] = {
-                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3,
-                R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5, R.drawable.ic_home_ad_6
+                R.drawable.ic_lock_screen_ad_1, R.drawable.ic_lock_screen_ad_2, R.drawable.ic_lock_screen_ad_3,
+                R.drawable.ic_lock_screen_ad_4, R.drawable.ic_lock_screen_ad_5, R.drawable.ic_lock_screen_ad_6, R.drawable.ic_lock_screen_ad_7
         };
 
         v_fllipper = findViewById(R.id.vfLockScreen);
@@ -83,7 +83,7 @@ public class LockScreenActivity extends AppCompatActivity {
         v_fllipper.setInAnimation(in);
         v_fllipper.setOutAnimation(out);
         // set interval time for flipping between views
-        v_fllipper.setFlipInterval(1000);
+        v_fllipper.setFlipInterval(10000);
         // set auto start for flipping between views
         v_fllipper.setAutoStart(true);
     }

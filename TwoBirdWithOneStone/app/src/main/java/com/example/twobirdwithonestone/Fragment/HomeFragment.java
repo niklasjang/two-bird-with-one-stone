@@ -12,8 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +31,7 @@ import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
 import com.example.twobirdwithonestone.Activity.HomeListViewItem;
 import com.example.twobirdwithonestone.Activity.LoginActivity;
 import com.example.twobirdwithonestone.Activity.MainActivity;
+import com.example.twobirdwithonestone.Activity.ShopGridViewAdapter;
 import com.example.twobirdwithonestone.Activity.SubHomeActivity;
 import com.example.twobirdwithonestone.R;
 import com.github.siyamed.shapeimageview.CircularImageView;
@@ -42,120 +47,121 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeFragment extends Fragment {
-    private ListView mListView;
-    private HomeListViewAdapter mAdapter;
-
-    private Drawable image = null;
-    private String title = null;
-    private String subtitle = null;
-    private String coin = null;
-    private String getId = null;
-    // ?fetchStart=1로 페이지 라우팅을 실행
-    private String seoul_url = "https://www.seoul.go.kr/realmnews/in/list.do";
-
+    private GridView mGridView;
+    private ShopGridViewAdapter mAdapter;
     private Context mContext;
-    private Button btnEnvironment;
-    private Button btnEvent;
-    private Button btnFestival;
-    private Button btnTraffic;
-    private Button btnWelfare;
-    private Button btnHouse;
-    private Button btnDisabled;
-    private Button btnRegion;
+
+    ViewFlipper v_fllipper;
+    ImageView imageView;
+    int imageAd = 1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
+        mGridView = (GridView)view.findViewById(R.id.shop_gridview);
+        mAdapter = new ShopGridViewAdapter();
 
+        mGridView.setAdapter(mAdapter);
+        mContext = getContext();
 
-        mListView = (ListView)view.findViewById(R.id.listView);
-        btnEnvironment = (Button)view.findViewById(R.id.environment_btn);
-        btnEvent  = (Button)view.findViewById(R.id.event_btn);
-        btnFestival  = (Button)view.findViewById(R.id.festival_btn);
-        btnTraffic = (Button)view.findViewById(R.id.traffic_btn);
-        btnWelfare = (Button)view.findViewById(R.id.welfare_btn);
-        btnHouse = (Button)view.findViewById(R.id.housing_btn);
-        btnDisabled = (Button)view.findViewById(R.id.disabled_btn);
-        btnRegion = (Button)view.findViewById(R.id.region_btn);
+        int images[] = {
+                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3,
+                R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5, R.drawable.ic_home_ad_6};
+        v_fllipper = view.findViewById(R.id.imageAdSlide);
 
-        mAdapter = new HomeListViewAdapter();
-        mListView.setAdapter(mAdapter);
-        mContext = getActivity();
+        for(int image : images) {
+            fllipperImages(image);
+        }
 
-        btnEnvironment.setOnClickListener(new View.OnClickListener() {
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "news");
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "traffic");
+                    startActivity(intent);
+                }
+                else if (i == 1) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "house");
+                    startActivity(intent);
+                }
+                else if (i == 2) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "welfare");
+                    startActivity(intent);
+                }
+                else if (i == 3) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "news");
+                    startActivity(intent);
+                }
+                else if (i == 4) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "festival");
+                    startActivity(intent);
+                }
+                else if (i == 5) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "event");
+                    startActivity(intent);
+                }
+                else if (i == 5) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "event");
+                    startActivity(intent);
+                }
+                else if (i == 6) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "disabled");
+                    startActivity(intent);
+                }
+                else if (i == 7) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "region");
+                    startActivity(intent);
+                }
             }
         });
 
-        btnEvent.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "event");
-                startActivity(intent);
-            }
-        });
+        ArrayList<String> listTitle = new ArrayList<String>();
+        listTitle.add("교통"); listTitle.add("주택"); listTitle.add("복지");
+        listTitle.add("소식"); listTitle.add("행사 및 축제"); listTitle.add("이벤트 신청");
+        listTitle.add("장애인"); listTitle.add("자치구");
 
-        btnFestival.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "festival");
-                startActivity(intent);
-            }
-        });
+        ArrayList<Drawable> listIcon = new ArrayList<Drawable>();
 
-        btnTraffic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "traffic");
-                startActivity(intent);
-            }
-        });
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_transportation));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_housing));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_welfare));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_administrative));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_culture));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
 
-        btnWelfare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "welfare");
-                startActivity(intent);
-            }
-        });
+        //규영 : 2019.09.27 이미지 6, 7, -> 장애인 코너, 자치구 코너 변경 요망
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
 
-        btnHouse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "house");
-                startActivity(intent);
-            }
-        });
+        //gridview에 gridview item 루프돌며 생성
+        for(int i=0; i<listTitle.size();i++){
+            mAdapter.addItem(listIcon.get(i),listTitle.get(i));
+        }
 
-        btnDisabled.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "disabled");
-                startActivity(intent);
-            }
-        });
-
-        btnRegion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, SubHomeActivity.class);
-                intent.putExtra("category", "region");
-                startActivity(intent);
-            }
-        });
         return view;
+    }
+    public void fllipperImages(int image) {
+        ImageView imageView = new ImageView(mContext);
+        imageView.setBackgroundResource(image);
+
+        v_fllipper.addView(imageView);      // 이미지 추가
+        v_fllipper.setFlipInterval(10000);       // 자동 이미지 슬라이드 딜레이시간(1000 당 1초)
+        v_fllipper.setAutoStart(true);          // 자동 시작 유무 설정
+
+        // animation
+        v_fllipper.setInAnimation(mContext,android.R.anim.slide_in_left);
+        v_fllipper.setOutAnimation(mContext,android.R.anim.slide_out_right);
     }
 
 }

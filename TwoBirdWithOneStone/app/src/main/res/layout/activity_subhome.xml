@@ -16,7 +16,7 @@
         android:layout_margin="10dp"
         android:id="@+id/categoryTextView"
         android:layout_width="match_parent"
-        android:layout_height="51dp"
+        android:layout_height="70dp"
         android:gravity="center"
         android:text="카테고리"
         android:textSize="20sp" />

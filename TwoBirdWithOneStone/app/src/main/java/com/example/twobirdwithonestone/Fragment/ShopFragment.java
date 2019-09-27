@@ -49,27 +49,27 @@ public class ShopFragment extends Fragment {
                     //이미지 전달을 위해서 bitmap 이미지를 bytearray로 압축시켜 바꿈
                     //사진 용량 제한이 있음
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
-                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_goong1);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
 
-                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_bike);
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_2);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_aqua);
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_3);
                     ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                     sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byte[] byteArray3 = stream3.toByteArray();
 
-                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_park);
+                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_4);
                     ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
                     sendBitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byte[] byteArray4 = stream4.toByteArray();
 
-                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_tower);
+                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_culture_5);
                     ByteArrayOutputStream stream5 = new ByteArrayOutputStream();
                     sendBitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byte[] byteArray5 = stream5.toByteArray();
@@ -88,27 +88,27 @@ public class ShopFragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
 
-                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_unicef);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
 
-                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_peoplesub);
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_2);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_redcross);
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_3);
                     ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                     sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byte[] byteArray3 = stream3.toByteArray();
 
-                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_asia);
+                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_4);
                     ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
                     sendBitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byte[] byteArray4 = stream4.toByteArray();
 
-                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_goodneighbors);
+                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_fund_5);
                     ByteArrayOutputStream stream5 = new ByteArrayOutputStream();
                     sendBitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byte[] byteArray5 = stream5.toByteArray();
@@ -154,27 +154,27 @@ public class ShopFragment extends Fragment {
                 //캠핑
                 else if ( i == 3) {
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
-                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_nanji1);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();
 
-                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_noel1);
+                    Bitmap sendBitmap2 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_2);
                     ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
                     sendBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
                     byte[] byteArray2 = stream2.toByteArray();
 
-                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_seoulpark1);
+                    Bitmap sendBitmap3 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_3);
                     ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
                     sendBitmap3.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
                     byte[] byteArray3 = stream3.toByteArray();
 
-                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_jungrang1);
+                    Bitmap sendBitmap4 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_4);
                     ByteArrayOutputStream stream4 = new ByteArrayOutputStream();
                     sendBitmap4.compress(Bitmap.CompressFormat.JPEG, 100, stream4);
                     byte[] byteArray4 = stream4.toByteArray();
 
-                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_gangdong1);
+                    Bitmap sendBitmap5 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_camp_5);
                     ByteArrayOutputStream stream5 = new ByteArrayOutputStream();
                     sendBitmap5.compress(Bitmap.CompressFormat.JPEG, 100, stream5);
                     byte[] byteArray5 = stream5.toByteArray();
@@ -216,7 +216,7 @@ public class ShopFragment extends Fragment {
                 if ( i == 5) {
 
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
-                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_icecream_1);
+                    Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_etc_1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
                     sendBitmap1.compress(Bitmap.CompressFormat.JPEG, 100, stream1);
                     byte[] byteArray1 = stream1.toByteArray();

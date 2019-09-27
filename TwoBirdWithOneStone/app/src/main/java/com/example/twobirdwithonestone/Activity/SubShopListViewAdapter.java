@@ -44,7 +44,6 @@ public class SubShopListViewAdapter extends BaseAdapter {
         TextView titleTextView = (TextView) convertView.findViewById(R.id.title_view) ;
         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
         TextView explanationTextView = (TextView) convertView.findViewById(R.id.explanation_text_view) ;
-        TextView tvSubShopItemPrice = (TextView) convertView.findViewById(R.id.tvSubShopItemPrice);
 
 
 
@@ -57,7 +56,6 @@ public class SubShopListViewAdapter extends BaseAdapter {
         titleTextView.setText(listViewItem.getTitle());
         iconImageView.setImageBitmap(listViewItem.getIcon());
         explanationTextView.setText(listViewItem.getExplanation());
-        tvSubShopItemPrice.setText(listViewItem.getPriceStr());
         return convertView;
     }
 

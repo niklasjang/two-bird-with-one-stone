@@ -8,15 +8,18 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="120dp"
+        android:layout_margin="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="195dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:background="@drawable/ic_rounded"
         >
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="40dp"
 
             android:layout_margin="20dp"
@@ -30,6 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:text="문화생활"
-            android:textSize="15dp"/>
+            android:textSize="13dp"/>
     </LinearLayout>
 </LinearLayout>

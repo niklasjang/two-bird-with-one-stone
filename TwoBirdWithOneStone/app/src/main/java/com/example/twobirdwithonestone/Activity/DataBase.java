@@ -81,6 +81,16 @@ public class DataBase {
             return false;
         }
     }
+
+    public boolean updataCouponUsedOrNot(String collectionName, String _cUID, boolean currentUsedOrNot){
+        try{
+            db.collection(collectionName).document(_cUID).update("couponUesrOrNot", !currentUsedOrNot);
+            return true;
+        }catch( Exception e){
+            Log.d("Database", "Error : "+e.toString());
+            return false;
+        }
+    }
 }
 /**
  * 사용 방법 0, db handler 생성

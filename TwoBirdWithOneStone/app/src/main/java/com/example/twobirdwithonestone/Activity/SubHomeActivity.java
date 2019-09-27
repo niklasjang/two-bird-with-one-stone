@@ -25,12 +25,6 @@ public class SubHomeActivity extends AppCompatActivity {
     private ListView mListView;
     private HomeListViewAdapter mAdapter;
 
-    private Drawable image = null;
-    private String title = null;
-    private String subtitle = null;
-    private String coin = null;
-    private String getId = null;
-    //String melon_chart_url = "https://www.melon.com/chart/";
     // ?fetchStart=1로 페이지 라우팅을 실행
     private String seoul_news_url = "https://www.seoul.go.kr/realmnews/in/list.do";
     private String seoul_event_url = "https://www.seoul.go.kr/eventreqst/list.do";
@@ -62,32 +56,37 @@ public class SubHomeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         categoryText = intent.getExtras().getString("category");
-        categoryTextView.setText(categoryText) ;
-        switch (categoryText){
-            case "news":
-                seoulBoardCrawler = new SeoulBoardCrawler(seoul_news_url);
-                seoulBoardCrawler.execute();
-                break;
-            case "event":
-                seoulBoardCrawler = new SeoulBoardCrawler(seoul_event_url);
-                seoulBoardCrawler.execute();
-                break;
 
-            case "festival":
-                seoulBoardCrawler = new SeoulBoardCrawler(seoul_festival_url);
-                seoulBoardCrawler.execute();
-                break;
+        switch (categoryText){
             case "traffic":
+                categoryTextView.setText("교통") ;
                 seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_traffic_url);
                 seoulCategoryCrawler.execute();
                 break;
+            case "house":
+                categoryTextView.setText("주택") ;
+                seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
+                seoulHouseCrawler.execute();
+                break;
             case "welfare":
+                categoryTextView.setText("복지") ;
                 seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_welfare_url);
                 seoulCategoryCrawler.execute();
                 break;
-            case "house":
-                seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
-                seoulHouseCrawler.execute();
+            case "news":
+                categoryTextView.setText("소식") ;
+               seoulBoardCrawler = new SeoulBoardCrawler(seoul_news_url);
+                seoulBoardCrawler.execute();
+                break;
+            case "festival":
+                categoryTextView.setText("행사 및 축제") ;
+                seoulBoardCrawler = new SeoulBoardCrawler(seoul_festival_url);
+                seoulBoardCrawler.execute();
+                break;
+            case "event":
+                categoryTextView.setText("이벤트 신청") ;
+                seoulBoardCrawler = new SeoulBoardCrawler(seoul_event_url);
+                seoulBoardCrawler.execute();
                 break;
             case "disabled":
                 seoulDisalbedCrawler = new SeoulDisalbedCrawler(seoul_the_disabled_url);
@@ -173,6 +172,7 @@ public class SubHomeActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
+                //searchWord, https://www.seoul.go.kr/realmnews/in/list.do?fetchStart=1&searchWord=%ED%83%9D%EC%8B%9C+%EC%95%B1
                 String url = crawledUrl + "?fetchStart=" + nextPage;
                 Document doc = Jsoup.connect(url).get();
                 //final Elements rank_list1 = doc.select("div.wrap_song_info div.ellipsis.rank01 span a");

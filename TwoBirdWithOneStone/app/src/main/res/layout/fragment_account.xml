@@ -8,10 +8,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--TextView
+    <TextView
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="50dp"
 
         android:gravity="center"
 
@@ -23,8 +23,8 @@
 
         android:layout_marginTop="30dp"
         android:textSize="20dp"
-
-        android:text="닉네임" /-->
+        android:textStyle="bold"
+        android:text="현재 포인트" />
 
         <LinearLayout
             android:id="@+id/point_layout"
@@ -33,21 +33,20 @@
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
             app:layout_constraintVertical_chainStyle="packed"
-            android:layout_margin="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="20dp"
             android:gravity="right"
 
-            android:background="@drawable/edge_login"
+            android:background="@drawable/edge_under_bar"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvUserPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:text="000000"
                 android:layout_gravity="left|center_vertical"

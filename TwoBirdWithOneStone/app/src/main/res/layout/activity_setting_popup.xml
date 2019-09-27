@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="250dp"
+    tools:context=".Activity.SettingPopupActivity">
+
+
+    <!-- 타이틀바 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <TextView
+            android:text="만든 사람들"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E2E2E2"/>
+
+        <TextView
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:text="\t박규영(gyoue200125@gmail.com):  Back-end
+             \n\t장환석(niklasjang@gmail.com):  Back-end
+             \n\t박혜지(kauphj17@gmail.com):  UI, Front-end
+             \n\t천수환(su7651@gmail.com):  Front-end"
+            android:gravity="center_vertical|left"
+            android:layout_width="match_parent"
+            android:layout_height="130dp" />
+    </LinearLayout>
+    <!-- //end 타이틀바 -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:text="확인"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:gravity="center"
+            android:background="#cff0da"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:onClick="mOnClose"/>
+    </LinearLayout>
+    <!--// 닫기 버튼 -->
+
+</LinearLayout>

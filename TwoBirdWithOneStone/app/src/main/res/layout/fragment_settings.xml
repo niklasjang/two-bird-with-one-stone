@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4DFFFFFF"
         android:orientation="vertical">
 
         <TextView
@@ -19,7 +18,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="설정"
-
+            android:background="#4DFFFFFF"
             android:textSize="15dp"
             android:layout_marginTop="7dp"/>
 
@@ -30,6 +29,7 @@
             android:layout_height="50dp"
             android:background="@android:color/white"
             android:checked="true"
+            android:trackTint="#cff0da"
             android:track="@drawable/setting_switch_selector"
             android:thumb="@drawable/setting_switch_thumb"
             android:paddingLeft="10dp"
@@ -45,6 +45,7 @@
             android:paddingBottom="10dp"
             android:text="도움"
             android:textSize="15dp"
+            android:background="#4DFFFFFF"
             android:layout_marginTop="7dp"/>
 
         <Button
@@ -79,7 +80,7 @@
             android:text="FAQ"
             android:textSize="20dp"/>
 
-              <Button
+        <Button
             android:id="@+id/setting_introduce_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -115,6 +116,7 @@
             android:textSize="20dp"/>
 
         <TextView
+            android:background="#4DFFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"

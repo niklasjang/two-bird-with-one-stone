@@ -7,6 +7,7 @@
     android:background="#E2E2E2"
     tools:context=".Activity.LockScreenActivity">
 
+
     <ViewFlipper
         android:id="@+id/vfLockScreen"
         android:layout_width="match_parent"
@@ -18,20 +19,24 @@
         ></ViewFlipper>
 
     <Button
-        android:background="@drawable/rounded_hz"
+        android:background="#00ff0000"
         android:id="@+id/btn_lock_screen"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:gravity="right|center_vertical"
         android:text="앱으로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_un_lock" />
 
     <Button
-        android:background="@drawable/rounded_hz"
+        android:background="#00ff0000"
         android:id="@+id/btn_un_lock"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:gravity="left|center_vertical"
         android:text="홈으로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_lock_screen"

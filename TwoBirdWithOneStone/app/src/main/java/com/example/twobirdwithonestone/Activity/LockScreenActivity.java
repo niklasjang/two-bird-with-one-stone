@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -25,6 +26,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class LockScreenActivity extends AppCompatActivity {
     private ViewFlipper v_fllipper;
     @Override
@@ -34,6 +38,20 @@ public class LockScreenActivity extends AppCompatActivity {
 //            // 기본 잠금화면보다 우선출력
 //            WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         setContentView(R.layout.activity_lock_screen);
+
+        /**현재시간 출력하기
+        long now = System.currentTimeMillis();
+        // 현재시간을 date 변수에 저장한다.
+        Date date = new Date(now);
+        // 시간을 나타냇 포맷을 정한다 ( yyyy/MM/dd 같은 형태로 변형 가능 )
+        SimpleDateFormat sdfNow = new SimpleDateFormat("MM월dd일");
+        // nowDate 변수에 값을 저장한다.
+        String formatDate = sdfNow.format(date);
+
+        TextView dateNow = (TextView) findViewById(R.id.dateNow);
+        dateNow.setText(formatDate);
+        **/
+        
         findViewById(R.id.btn_lock_screen).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

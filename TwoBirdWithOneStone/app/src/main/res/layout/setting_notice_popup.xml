@@ -3,16 +3,16 @@
     android:background="#ffffff"
     android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="250dp">
+    android:layout_height="500dp">
 
     <!-- 타이틀바 -->
     <LinearLayout
         android:orientation="vertical"
         android:paddingTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="450dp">
         <TextView
-            android:text="문의하기"
+            android:text="공지사항"
             android:textSize="20sp"
             android:textColor="#000000"
             android:gravity="center"
@@ -25,13 +25,12 @@
             android:background="#E2E2E2"/>
 
         <TextView
-
             android:textSize="15sp"
-            android:textColor="#000000"
-            android:text="이용시 불편하신 점을 자세하게 작성하여\n soo7652@naver.com 으로 보내주세요.\n 확인 후 답변 드리겠습니다"
+            android:textColor="#e2e2e2"
+            android:text="추가된 공지사항이 없습니다"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="130dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
     <!-- //end 타이틀바 -->
 
@@ -48,7 +47,7 @@
             android:gravity="center"
             android:background="#F7E600"
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:onClick="mOnClose"/>
     </LinearLayout>
     <!--// 닫기 버튼 -->

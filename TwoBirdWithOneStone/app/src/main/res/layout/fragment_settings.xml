@@ -44,12 +44,11 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="도움"
-
             android:textSize="15dp"
             android:layout_marginTop="7dp"/>
 
         <Button
-            android:id="@+id/help_btn"
+            android:id="@+id/setting_notice_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
@@ -59,7 +58,7 @@
             android:text="공지사항"
             android:textSize="20dp"/>
         <Button
-            android:id="@+id/question"
+            android:id="@+id/setting_question_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
@@ -70,7 +69,7 @@
             android:textSize="20dp"/>
 
         <Button
-            android:id="@+id/faq"
+            android:id="@+id/setting_faq_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
@@ -80,19 +79,8 @@
             android:text="FAQ"
             android:textSize="20dp"/>
 
-        <Button
-            android:id="@+id/indi_info"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@android:color/white"
-            android:gravity="left"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:text="개인정보 처리방침"
-            android:textSize="20dp"/>
-
-        <Button
-            android:id="@+id/introduce_btn"
+              <Button
+            android:id="@+id/setting_introduce_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
@@ -104,7 +92,7 @@
             android:textSize="20dp"/>
 
         <Button
-            android:id="@+id/developer"
+            android:id="@+id/setting_developer_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
@@ -121,9 +109,9 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:layout_marginTop="7dp"
             android:text="개인"
-            android:textSize="15dp"
-            android:layout_marginTop="1dp"/>
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/btn_logout"

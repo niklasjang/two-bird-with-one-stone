@@ -26,10 +26,11 @@
         app:layout_constraintTop_toTopOf="parent"></ListView>
 
     <Button
-        android:background="@drawable/rounded_hz"
+        android:background="#F7E600"
         android:id="@+id/btn_buy_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+
         android:text="구매"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

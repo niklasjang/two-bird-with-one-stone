@@ -144,7 +144,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
                 content = "https://www.seoul.go.kr/main/index.jsp";
                 break;
             default:
-                holder.imgCoupon.setImageResource(R.drawable.circle_logo_b);
+                holder.imgCoupon.setImageResource(R.drawable.circle_logo);
                 content = "https://www.seoul.go.kr/main/index.jsp";
         }
         holder.tvCouponName.setText(coupon.couponName);

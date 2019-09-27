@@ -21,6 +21,10 @@
             android:background="#4DFFFFFF"
             android:textSize="15dp"
             android:layout_marginTop="7dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#E2E2E2"/>
 
 
         <Switch
@@ -44,9 +48,13 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="도움"
-            android:textSize="15dp"
             android:background="#4DFFFFFF"
+            android:textSize="15dp"
             android:layout_marginTop="7dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#E2E2E2"/>
 
         <Button
             android:id="@+id/setting_notice_btn"
@@ -116,15 +124,19 @@
             android:textSize="20dp"/>
 
         <TextView
-            android:background="#4DFFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:layout_marginTop="7dp"
             android:text="개인"
-            android:textSize="15dp" />
+            android:background="#4DFFFFFF"
+            android:textSize="15dp"
+            android:layout_marginTop="7dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#E2E2E2"/>
 
         <Button
             android:id="@+id/btn_logout"

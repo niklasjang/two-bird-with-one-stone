@@ -1,15 +1,12 @@
 package com.example.twobirdwithonestone.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,16 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.twobirdwithonestone.Activity.Coupon;
-import com.example.twobirdwithonestone.Activity.UserData;
-import com.example.twobirdwithonestone.Activity.ZeropayActivity;
-import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Activity.CouponRecyclerViewAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.example.twobirdwithonestone.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -35,13 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 

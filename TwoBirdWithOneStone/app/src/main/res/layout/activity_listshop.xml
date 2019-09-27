@@ -10,8 +10,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
+        android:layout_height="100dp"
         android:src="@drawable/circle_logo"
         android:background="#E2E2E2"
         android:padding="15dp"
@@ -19,12 +18,13 @@
         />
 
 
-
     <ListView
-        android:background="#00ffffff"
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="1dp" />
+        android:layout_height="540dp"
+        android:background="@drawable/rounded_hz_home"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:dividerHeight="4dp" />
 
 </LinearLayout>

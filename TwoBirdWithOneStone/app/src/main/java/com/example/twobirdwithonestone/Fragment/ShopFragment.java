@@ -75,11 +75,11 @@ public class ShopFragment extends Fragment {
                     byte[] byteArray5 = stream5.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"문화생활","경복궁 야간개장 입장권","3000",getString(R.string.culture_goong),"서울시"));
+                    culture_list.add(new ParcelableItems(byteArray1,"문화생활","경복궁 야간개장 입장권","4000",getString(R.string.culture_goong),"서울시"));
                     culture_list.add(new ParcelableItems(byteArray2,"문화생활","따릉이","3000",getString(R.string.bike),"서울시"));
-                    culture_list.add(new ParcelableItems(byteArray3,"문화생활","아쿠아리움","3000",getString(R.string.aqua),"코엑스"));
-                    culture_list.add(new ParcelableItems(byteArray4,"문화생활","서울대공원 동물원","3000",getString(R.string.seoulpark),"서울시"));
-                    culture_list.add(new ParcelableItems(byteArray5,"문화생활","롯데월드 타워 전망대","3000",getString(R.string.lotte),"롯데월드"));
+                    culture_list.add(new ParcelableItems(byteArray3,"문화생활","아쿠아리움","15000",getString(R.string.aqua),"코엑스"));
+                    culture_list.add(new ParcelableItems(byteArray4,"문화생활","서울대공원 동물원","5000",getString(R.string.seoulpark),"서울시"));
+                    culture_list.add(new ParcelableItems(byteArray5,"문화생활","롯데월드 타워 전망대","20000",getString(R.string.lotte),"롯데월드"));
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
@@ -118,7 +118,7 @@ public class ShopFragment extends Fragment {
                     culture_list.add(new ParcelableItems(byteArray2,"기부","도심 숲 조성과 보존","3000","치유의 숲 조성을 기본목표로 나아가 도심 곳곳에 역사적 콘텐츠를 문화적으로 소개하는 작은 생태공원 조성과 확장","사람숲"));
                     culture_list.add(new ParcelableItems(byteArray3,"기부","기부금품 모집","3000",getString(R.string.redcross),"대한적십자사"));
                     culture_list.add(new ParcelableItems(byteArray4,"기부","동화책선물","3000","아시아 도서 출판, 교육, 조사.연구, 교사 연수 사업 - 도서관에 책이 부족한 학교에 도서를 현지어로 번역, 제작하여 보급 - 이중 언어로 번역, 제작하여 국내 다문화 가정 및 외국인 근로자 등 이주민에게 보급","한국아시아우호재단"));
-                    culture_list.add(new ParcelableItems(byteArray5,"기부","국내 사업현장의 아동권리 보호","3000","국내복지사업 1. 아동의 권리보호 및 권익증진을 위한 다양한 사업을 추진하여 아동 및 지역 주민의 삶의 질 향상 및 가족복지 증진\n"+ "2. 학대피해아동보호 및 예방을 위한 전문복지서비스 지원\n"+" 3. 빈곤가정아동 및 가정, 지역사회를 포함한 통합적 사례관리를 통해 전문적 지원체계 마련","굿네이버스"));
+                    culture_list.add(new ParcelableItems(byteArray5,"기부","국내 사업현장의 아동권리 보호","3000","국내복지사업\n"+" 1. 아동의 권리보호 및 권익증진을 위한 다양한 사업을 추진하여 아동 및 지역 주민의 삶의 질 향상 및 가족복지 증진\n"+ "2. 학대피해아동보호 및 예방을 위한 전문복지서비스 지원\n"+" 3. 빈곤가정아동 및 가정, 지역사회를 포함한 통합적 사례관리를 통해 전문적 지원체계 마련","굿네이버스"));
 
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
@@ -143,9 +143,9 @@ public class ShopFragment extends Fragment {
                     byte[] byteArray3 = stream3.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"커피/음료","아메리카노","3000","아메리카노","커피"));
-                    culture_list.add(new ParcelableItems(byteArray2,"커피/음료","카푸치노","3000","카푸치노" ,"커피"));
-                    culture_list.add(new ParcelableItems(byteArray3,"커피/음료","프라푸치노","3000","프라푸치노","커피"));
+                    culture_list.add(new ParcelableItems(byteArray1,"커피/음료","아메리카노","3500","아메리카노","커피"));
+                    culture_list.add(new ParcelableItems(byteArray2,"커피/음료","카푸치노","4000","카푸치노" ,"커피"));
+                    culture_list.add(new ParcelableItems(byteArray3,"커피/음료","프라푸치노","5000","프라푸치노","커피"));
 
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
@@ -180,11 +180,11 @@ public class ShopFragment extends Fragment {
                     byte[] byteArray5 = stream5.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"캠핑","난지 캠핑장","3000",getString(R.string.camp_nanji),"서울로 떠나는 캠핑"));
-                    culture_list.add(new ParcelableItems(byteArray2,"캠핑","노을 캠핑장","3000",getString(R.string.camp_noel),"서울로 떠나는 캠핑"));
-                    culture_list.add(new ParcelableItems(byteArray3,"캠핑","서울대공원 캠핑장","3000",getString(R.string.camp_seoulpark),"서울로 떠나는 캠핑"));
-                    culture_list.add(new ParcelableItems(byteArray4,"캠핑","중랑 캠핑숲","3000",getString(R.string.camp_jungrang),"서울로 떠나는 캠핑"));
-                    culture_list.add(new ParcelableItems(byteArray5,"캠핑","강동 그린웨이 캠핑장","3000",getString(R.string.camp_gangdong),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray1,"캠핑","난지 캠핑장","15000",getString(R.string.camp_nanji),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray2,"캠핑","노을 캠핑장","18000",getString(R.string.camp_noel),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray3,"캠핑","서울대공원 캠핑장","12000",getString(R.string.camp_seoulpark),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray4,"캠핑","중랑 캠핑숲","15000",getString(R.string.camp_jungrang),"서울로 떠나는 캠핑"));
+                    culture_list.add(new ParcelableItems(byteArray5,"캠핑","강동 그린웨이 캠핑장","15000",getString(R.string.camp_gangdong),"서울로 떠나는 캠핑"));
 
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
@@ -205,8 +205,8 @@ public class ShopFragment extends Fragment {
                     byte[] byteArray2 = stream2.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"케이크","딸기 생크림 케이크","3000","","케이크"));
-                    culture_list.add(new ParcelableItems(byteArray2,"케이크","딸기 조각 케이크","3000","" ,"케이크"));
+                    culture_list.add(new ParcelableItems(byteArray1,"케이크","딸기 생크림 케이크","15000","","케이크"));
+                    culture_list.add(new ParcelableItems(byteArray2,"케이크","딸기 조각 케이크","5000","" ,"케이크"));
 
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
@@ -214,7 +214,6 @@ public class ShopFragment extends Fragment {
                 }
                 //기타
                 if ( i == 5) {
-
                     Intent intent = new Intent(getActivity(), ShopListViewActivity.class);
                     Bitmap sendBitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.ic_shop_etc_1);
                     ByteArrayOutputStream stream1 = new ByteArrayOutputStream();

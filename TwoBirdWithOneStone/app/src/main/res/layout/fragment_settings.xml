@@ -30,79 +30,12 @@
             android:layout_height="50dp"
             android:background="@android:color/white"
             android:checked="true"
-            android:thumbTint="#cff0da"
-            android:trackTint="#dadbdb"
+            android:track="@drawable/setting_switch_selector"
+            android:thumb="@drawable/setting_switch_thumb"
             android:paddingLeft="10dp"
             android:text="잠금화면 설정"
             android:textSize="20dp" />
 
-        <Switch
-            android:id="@+id/switch_make_vibration"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@android:color/white"
-            android:thumbTint="#cff0da"
-            android:trackTint="#dadbdb"
-            android:checked="false"
-            android:paddingLeft="10dp"
-            android:text="잠금해제 시 진동"
-            android:textSize="20dp">
-
-        </Switch>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="알림"
-
-            android:textSize="15dp"
-            android:layout_marginTop="7dp"
-            />
-
-        <Switch
-            android:id="@+id/switch_news"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@android:color/white"
-            android:thumbTint="#cff0da"
-            android:trackTint="#dadbdb"
-            android:checked="true"
-            android:paddingLeft="10dp"
-            android:text="서울시 새 소식"
-            android:textSize="20dp">
-
-        </Switch>
-
-        <Switch
-            android:id="@+id/switch_accumulate"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@android:color/white"
-            android:thumbTint="#cff0da"
-            android:trackTint="#dadbdb"
-            android:checked="true"
-            android:paddingLeft="10dp"
-            android:text="적립 알림"
-            android:textSize="20dp">
-
-        </Switch>
-
-        <Switch
-            android:id="@+id/switch_notice"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@android:color/white"
-            android:thumbTint="#cff0da"
-            android:trackTint="#dadbdb"
-            android:checked="true"
-            android:paddingLeft="10dp"
-            android:text="어플 공지사항"
-            android:textSize="20dp">
-
-        </Switch>
 
         <TextView
             android:layout_width="wrap_content"
@@ -111,25 +44,43 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="도움"
-
             android:textSize="15dp"
             android:layout_marginTop="7dp"/>
 
         <Button
-            android:id="@+id/help_btn"
+            android:id="@+id/setting_notice_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
             android:gravity="left"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-
             android:text="공지사항"
             android:textSize="20dp"/>
-
+        <Button
+            android:id="@+id/setting_question_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="문의하기"
+            android:textSize="20dp"/>
 
         <Button
-            android:id="@+id/introduce_btn"
+            android:id="@+id/setting_faq_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="FAQ"
+            android:textSize="20dp"/>
+
+              <Button
+            android:id="@+id/setting_introduce_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/white"
@@ -138,6 +89,17 @@
             android:paddingTop="10dp"
 
             android:text="꿩먹알먹 사용 방법"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/setting_developer_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="개발자"
             android:textSize="20dp"/>
 
         <Button
@@ -158,10 +120,9 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:layout_marginTop="7dp"
             android:text="개인"
-
-            android:textSize="15dp"
-            android:layout_marginTop="7dp"/>
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/btn_logout"
@@ -171,7 +132,6 @@
             android:gravity="left"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-
             android:text="로그아웃"
             android:textSize="20dp"/>
     </LinearLayout>

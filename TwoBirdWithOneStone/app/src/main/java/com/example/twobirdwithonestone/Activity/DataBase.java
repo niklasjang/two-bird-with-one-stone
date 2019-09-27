@@ -10,6 +10,8 @@ package com.example.twobirdwithonestone.Activity;
  ***/
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -17,8 +19,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import androidx.annotation.NonNull;
 
 public class DataBase {
     private FirebaseFirestore db;

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="500dp">
+
+    <!-- 타이틀바 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="450dp">
+        <TextView
+            android:text="공지사항"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E2E2E2"/>
+
+        <TextView
+            android:textSize="15sp"
+            android:textColor="#e2e2e2"
+            android:text="추가된 공지사항이 없습니다"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <!-- //end 타이틀바 -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Button
+            android:text="확인"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:gravity="center"
+            android:background="#F7E600"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="mOnClose"/>
+    </LinearLayout>
+    <!--// 닫기 버튼 -->
+</LinearLayout>

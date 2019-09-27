@@ -39,8 +39,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnWidth="200dp"
+
         android:verticalSpacing="5dp"
         android:numColumns="2"
         android:stretchMode="spacingWidthUniform">
     </GridView>
-</LinearLayout>
+
+    </LinearLayout>
+

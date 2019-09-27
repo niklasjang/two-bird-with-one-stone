@@ -1,7 +1,5 @@
 package com.example.twobirdwithonestone.Activity;
 
-import android.graphics.Bitmap;
-
 public class Coupon {
     public String  couponCreateTime;
     public String  couponName;

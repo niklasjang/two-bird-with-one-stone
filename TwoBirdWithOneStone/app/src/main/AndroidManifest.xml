@@ -29,8 +29,15 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.SubShopListViewActivity" />
-        <activity android:name=".Activity.ShopListViewActivity" />
+
+        <activity android:name=".Activity.SubShopListViewActivity"></activity>
+        <activity android:name=".Activity.ShopListViewActivity"></activity>
+        <activity android:name=".Activity.SettingQuestPopup" android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Activity.SettingFAQPopup" android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Activity.SettingNoticePopup" android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Activity.SettingIntroducePopup" android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Activity.SettingDeveloperPopup" android:theme="@android:style/Theme.Dialog" />
+
         <activity
             android:name=".Activity.MainActivity"
             android:label="@string/app_name" />

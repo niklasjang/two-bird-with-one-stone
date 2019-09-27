@@ -6,25 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
+    android:background="#E2E2E2"
     android:fillViewport="true">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:layout_gravity="center"
         android:src="@drawable/circle_logo"
-        android:background="#E2E2E2"
         android:padding="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
         />
 
 
-
     <ListView
-        android:background="#00ffffff"
+        android:background="#FFF"
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="1dp" />
+        android:layout_height="600dp"
+        android:layout_gravity="center"
+        android:dividerHeight="0.5dp" />
 
 </LinearLayout>

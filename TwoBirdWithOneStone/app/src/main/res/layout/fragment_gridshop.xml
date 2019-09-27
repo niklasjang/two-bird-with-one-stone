@@ -11,11 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="@drawable/edge_login"
 
-        android:layout_margin="15dp"
+        android:layout_margin="5dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
         android:orientation="vertical">
 
         <TextView
@@ -23,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="\n\n상점\n"
-            android:textSize="15dp"
+            android:textSize="20dp"
             />
 
         <TextView
@@ -33,14 +31,25 @@
             />
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#E2E2E2"/>
 
     <GridView
+
+        android:layout_marginTop="15dp"
         android:id="@+id/shop_gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnWidth="200dp"
+        android:columnWidth="198dp"
+
         android:verticalSpacing="5dp"
         android:numColumns="2"
         android:stretchMode="spacingWidthUniform">
     </GridView>
-</LinearLayout>
+
+    </LinearLayout>
+

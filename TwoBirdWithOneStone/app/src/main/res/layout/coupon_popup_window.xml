@@ -1,44 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
+    android:layout_width="330dp"
     android:layout_height="wrap_content"
     android:id="@+id/layoutQR"
-    android:background="#E2E2E2">
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:id="@+id/TextView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingTop="20dp"
+        android:gravity="center"
+        android:text="QR코드"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E2E2"/>
 
     <ImageView
         android:id="@+id/ivPopUpQR"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btnPopupCancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
         android:layout_marginTop="20dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/ic_qr_code" />
 
-    <Button
-        android:id="@+id/btnPopupUse"
-        android:background="@drawable/rounded_hz"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:text="사용완료"
-        app:layout_constraintLeft_toLeftOf="@+id/layoutQR"
-        app:layout_constraintRight_toLeftOf="@+id/btnPopupCancel"
-        app:layout_constraintTop_toBottomOf="@+id/ivPopUpQR" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp">
+        <Button
+            android:textColor="#000000"
+            android:background="#cff0da"
+            android:id="@+id/btnPopupUse"
+            android:layout_width="164.5dp"
+            android:layout_height="wrap_content"
+            android:text="사용완료"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E2E2E2"/>
+        <Button
+            android:textColor="#000000"
+            android:background="#cff0da"
+            android:id="@+id/btnPopupCancel"
+            android:layout_width="164.5dp"
+            android:layout_height="wrap_content"
+            android:text="취소"/>
 
-    <Button
-        android:id="@+id/btnPopupCancel"
-        android:background="@drawable/rounded_hz"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:text="취소"
-        app:layout_constraintRight_toRightOf="@+id/layoutQR"
-        app:layout_constraintLeft_toRightOf="@+id/btnPopupUse"
-        app:layout_constraintTop_toBottomOf="@+id/ivPopUpQR" />
+    </LinearLayout>
 
 <!--    <TextView-->
 <!--        android:id="@+id/tvPopupName"-->
@@ -52,4 +69,4 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        app:layout_constraintVertical_chainStyle="packed" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

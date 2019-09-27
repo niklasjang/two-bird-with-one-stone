@@ -9,18 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.twobirdwithonestone.Activity.DataBase;
-import com.example.twobirdwithonestone.Activity.LoginActivity;
+import com.example.twobirdwithonestone.Activity.SettingPopup;
+
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Service.LockScreenService;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,14 +25,13 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
-
 public class SettingsFragment extends Fragment {
     private final String TAG = "SettingsFragment";
     Boolean boolLockScreen = false;
     private FirebaseFirestore db;
     private String currentUID;
     private Switch switchLockScreen;
+    Button question1; Button question2; Button question3; Button question4; Button question5;
     public Boolean getBoolLockScreen() {
         return boolLockScreen;
     }
@@ -46,7 +42,70 @@ public class SettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         final View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+
+        //quest(문의하기) popup
+        question1 = (Button) view.findViewById(R.id.setting_question_btn);
+        question1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","question");
+                startActivity(intent);
+            }
+        });
+        // FAQ popup
+        question2 = (Button) view.findViewById(R.id.setting_faq_btn);
+        question2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","faq");
+                startActivity(intent);
+            }
+        });
+        //notice(공지사항) popup
+        question3 = (Button) view.findViewById(R.id.setting_notice_btn);
+        question3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","notice");
+                startActivity(intent);
+            }
+        });
+        // developer popup
+        question4 = (Button) view.findViewById(R.id.setting_developer_btn);
+        question4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","developer");
+                startActivity(intent);
+            }
+        });
+        // introduce (사용방법) popup
+        question5 = (Button) view.findViewById(R.id.setting_introduce_btn);
+        question5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","introduce");
+                startActivity(intent);
+            }
+        });
+
+        Button btn_copyright = (Button)view.findViewById(R.id.copyright_btn);
+        btn_copyright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","copyright");
+                startActivity(intent);
+            }
+        });
+
         switchLockScreen = view.findViewById(R.id.switch_lock_screen);
         //User data fetch. DB의 User정보 가져와기
         final TextView tvUserPoint = view.findViewById(R.id.tvUserPoint);
@@ -64,6 +123,9 @@ public class SettingsFragment extends Fragment {
                 if (snapshot != null && snapshot.exists()) {
                     boolLockScreen = (Boolean) snapshot.get("switchLockScreen");
                     switchLockScreen.setChecked(boolLockScreen);
+                    Intent intent = new Intent(getActivity(), LockScreenService.class);
+                    intent.putExtra("LockScreen", boolLockScreen);
+                    getActivity().startService(intent);
                 } else {
                     Log.d(TAG, "Current data: null");
                 }
@@ -88,22 +150,9 @@ public class SettingsFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), LockScreenService.class);
                 intent.putExtra("LockScreen", boolLockScreen);
                 getActivity().startService(intent);
-                //Firebase 연동
-//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                Toast.makeText(getContext(), "updateUserSwitchLockScreen  성공", Toast.LENGTH_SHORT).show();
-//
-//                            }
-//                        })
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Toast.makeText(getContext(), "updateUserSwitchLockScreen  실패", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
             }
         });
+
 
         //logout button , 2019,9,7 gyu-young
         Button btnLogout = (Button) view.findViewById(R.id.btn_logout);

@@ -14,14 +14,15 @@
         android:id="@+id/imageAdSlide"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="10dp"
         app:srcCompat="@drawable/ic_home_ad_3" />
+
     <GridView
         android:id="@+id/shop_gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnWidth="200dp"
+        android:columnWidth="198dp"
         android:verticalSpacing="5dp"
         android:numColumns="2"
         android:stretchMode="spacingWidthUniform">

@@ -16,35 +16,18 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.twobirdwithonestone.Activity.HomeListViewAdapter;
-import com.example.twobirdwithonestone.Activity.HomeListViewItem;
-import com.example.twobirdwithonestone.Activity.LoginActivity;
-import com.example.twobirdwithonestone.Activity.MainActivity;
 import com.example.twobirdwithonestone.Activity.ShopGridViewAdapter;
 import com.example.twobirdwithonestone.Activity.SubHomeActivity;
 import com.example.twobirdwithonestone.R;
-import com.github.siyamed.shapeimageview.CircularImageView;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HomeFragment extends Fragment {
     private GridView mGridView;
@@ -67,8 +50,9 @@ public class HomeFragment extends Fragment {
         mContext = getContext();
 
         int images[] = {
-                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3,
-                R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5, R.drawable.ic_home_ad_6};
+                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3, R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5,
+                R.drawable.ic_home_ad_6, R.drawable.ic_home_ad_7, R.drawable.ic_home_ad_8, R.drawable.ic_home_ad_9, R.drawable.ic_home_ad_10};
+
         v_fllipper = view.findViewById(R.id.imageAdSlide);
 
         for(int image : images) {
@@ -151,6 +135,7 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
     public void fllipperImages(int image) {
         ImageView imageView = new ImageView(mContext);
         imageView.setBackgroundResource(image);

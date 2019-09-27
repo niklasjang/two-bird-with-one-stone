@@ -10,8 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.SettingPopupActivity"></activity>
-        <activity android:name=".Activity.CopyrightActivity" />
         <activity android:name=".Activity.SubHomeActivity" />
         <activity android:name=".Activity.ZeropayActivity" />
         <activity android:name=".Activity.LoadingActivity" />
@@ -31,19 +29,7 @@
         <activity android:name=".Activity.SubShopListViewActivity" />
         <activity android:name=".Activity.ShopListViewActivity" />
         <activity
-            android:name=".Activity.SettingQuestPopup"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Activity.SettingFAQPopup"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Activity.SettingNoticePopup"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Activity.SettingIntroducePopup"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Activity.SettingDeveloperPopup"
+            android:name=".Activity.SettingPopup"
             android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name=".Activity.MainActivity"

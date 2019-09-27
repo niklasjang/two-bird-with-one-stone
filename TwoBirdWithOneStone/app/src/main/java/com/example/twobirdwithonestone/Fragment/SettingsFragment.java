@@ -14,15 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.twobirdwithonestone.Activity.CopyrightActivity;
-import com.example.twobirdwithonestone.Activity.DataBase;
-import com.example.twobirdwithonestone.Activity.LoginActivity;
-
-import com.example.twobirdwithonestone.Activity.SettingDeveloperPopup;
-import com.example.twobirdwithonestone.Activity.SettingFAQPopup;
-import com.example.twobirdwithonestone.Activity.SettingIntroducePopup;
-import com.example.twobirdwithonestone.Activity.SettingNoticePopup;
-import com.example.twobirdwithonestone.Activity.SettingQuestPopup;
+import com.example.twobirdwithonestone.Activity.SettingPopup;
 
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Service.LockScreenService;
@@ -52,12 +44,14 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final View view =  inflater.inflate(R.layout.fragment_settings, container, false);
+
         //quest(문의하기) popup
         question1 = (Button) view.findViewById(R.id.setting_question_btn);
         question1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SettingQuestPopup.class);
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","question");
                 startActivity(intent);
             }
         });
@@ -66,7 +60,8 @@ public class SettingsFragment extends Fragment {
         question2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SettingFAQPopup.class);
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","faq");
                 startActivity(intent);
             }
         });
@@ -75,7 +70,8 @@ public class SettingsFragment extends Fragment {
         question3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SettingNoticePopup.class);
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","notice");
                 startActivity(intent);
             }
         });
@@ -84,7 +80,8 @@ public class SettingsFragment extends Fragment {
         question4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SettingDeveloperPopup.class);
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","developer");
                 startActivity(intent);
             }
         });
@@ -93,10 +90,22 @@ public class SettingsFragment extends Fragment {
         question5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SettingIntroducePopup.class);
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","introduce");
                 startActivity(intent);
             }
         });
+
+        Button btn_copyright = (Button)view.findViewById(R.id.copyright_btn);
+        btn_copyright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingPopup.class);
+                intent.putExtra("settingText","copyright");
+                startActivity(intent);
+            }
+        });
+
         switchLockScreen = view.findViewById(R.id.switch_lock_screen);
         //User data fetch. DB의 User정보 가져와기
         final TextView tvUserPoint = view.findViewById(R.id.tvUserPoint);
@@ -141,15 +150,6 @@ public class SettingsFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), LockScreenService.class);
                 intent.putExtra("LockScreen", boolLockScreen);
                 getActivity().startService(intent);
-            }
-        });
-
-        Button btn_copyright = (Button)view.findViewById(R.id.copyright_btn);
-        btn_copyright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CopyrightActivity.class);
-                startActivity(intent);
             }
         });
 

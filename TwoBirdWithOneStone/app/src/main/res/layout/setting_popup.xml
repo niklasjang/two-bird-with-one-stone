@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#ffffff"
     android:orientation="vertical"
-    android:layout_width="300dp"
-    android:layout_height="250dp">
+    android:layout_width="330dp"
+    android:layout_height="wrap_content">
 
     <!-- 타이틀바 -->
     <LinearLayout
         android:orientation="vertical"
         android:paddingTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="wrap_content">
         <TextView
-            android:text="FAQ"
+            android:id="@+id/setting_title_text"
+            android:text="문의하기"
             android:textSize="20sp"
             android:textColor="#000000"
             android:gravity="center"
@@ -25,13 +26,15 @@
             android:background="#E2E2E2"/>
 
         <TextView
-
+            android:id="@+id/setting_main_text"
             android:textSize="15sp"
             android:textColor="#000000"
-            android:text="Q. 꿩먹알먹은 무슨 뜻인가요?\n A. 서울시 관련 정보도 얻고 포인트도 적립해 다양한 혜택을 받는 것을 의미합니다!"
+            android:text="이용시 불편하신 점을 자세하게 작성하여\n soo7652@naver.com 으로 보내주세요.\n 확인 후 답변 드리겠습니다"
             android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
             android:layout_width="match_parent"
-            android:layout_height="130dp" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
     <!-- //end 타이틀바 -->
 
@@ -46,7 +49,7 @@
             android:textColor="#000000"
             android:padding="16dp"
             android:gravity="center"
-            android:background="#F7E600"
+            android:background="#cff0da"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:onClick="mOnClose"/>

@@ -23,7 +23,6 @@ import androidx.annotation.NonNull;
 public class DataBase {
     private FirebaseFirestore db;
     private UserData currentUserData;
-
     public DataBase(){
         db = FirebaseFirestore.getInstance();
         currentUserData = null;
@@ -79,6 +78,16 @@ public class DataBase {
             db.collection(collectionName).document(uid).update("switchLockScreen", !currentSwichLockScreenFlag);
             return true;
         } else {
+            return false;
+        }
+    }
+
+    public boolean updataCouponUsedOrNot(String collectionName, String _cUID, boolean currentUsedOrNot){
+        try{
+            db.collection(collectionName).document(_cUID).update("couponUesrOrNot", !currentUsedOrNot);
+            return true;
+        }catch( Exception e){
+            Log.d("Database", "Error : "+e.toString());
             return false;
         }
     }

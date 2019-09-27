@@ -43,6 +43,7 @@ public class ShopListViewAdapter extends BaseAdapter {
         ImageView iconImageView = (ImageView) convertView.findViewById(R.id.image_view) ;
         TextView titleTextView = (TextView) convertView.findViewById(R.id.text_view) ;
         TextView coinTextView = (TextView) convertView.findViewById(R.id.coin_text_view) ;
+        TextView brandTextView = (TextView) convertView.findViewById(R.id.brand_text_view) ;
 
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
@@ -53,7 +54,7 @@ public class ShopListViewAdapter extends BaseAdapter {
         iconImageView.setImageBitmap(listViewItem.getIcon());
         titleTextView.setText(listViewItem.getTitle());
         coinTextView.setText(listViewItem.getCoin());
-
+        brandTextView.setText(listViewItem.getBrand());
         return convertView;
     }
 
@@ -72,16 +73,18 @@ public class ShopListViewAdapter extends BaseAdapter {
         public Bitmap image;
         public String name;
         public String price;
+        public String brand;
 
-        public Items(Bitmap image, String coffee, String s) {
+        public Items(Bitmap image, String coffee, String s, String brand) {
         }
     }
-    public void addItem(Bitmap image, String title, String coin) {
+    public void addItem(Bitmap image, String title, String coin, String brand) {
         ShopListViewItem item = new ShopListViewItem();
 
         item.setIcon(image);
         item.setTitle(title);
         item.setCoin(coin);
+        item.setBrand(brand);
         listViewItemList.add(item);
     }
 

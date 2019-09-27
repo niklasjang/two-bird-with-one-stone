@@ -5,17 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbars="vertical"
     android:fillViewport="true"
+    android:background="#FFF"
     android:fontFamily="@font/barungothicbold">
 
-    <ListView
-        android:id="@+id/listView"
-        android:background="#4DFFFFFF"
-        android:layout_margin="7dp"
+    <ViewFlipper
+        android:background="#E2E2E2"
+        android:id="@+id/imageAdSlide"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
-
+        android:layout_height="160dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ic_home_ad_3" />
+    <GridView
+        android:id="@+id/shop_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="200dp"
+        android:verticalSpacing="5dp"
+        android:numColumns="2"
+        android:stretchMode="spacingWidthUniform">
+    </GridView>
 </LinearLayout>
 

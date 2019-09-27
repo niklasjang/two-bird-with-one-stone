@@ -29,6 +29,7 @@ public class LockScreenService extends Service {
         public void onReceive(Context context, Intent intent) {
             if(boolLockScreen && Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
                 Intent i = new Intent(context, LockScreenActivity.class);
+                //TODO LockScreen Activity intent FLAG
                 /*
                 * Service에서 activitity를 호출할 때는 새로운 태스크를 생성하도록 플래그를 추가해야 한다. 서비스는 화면이 없기 떄문에
                 * 화면이 없는 서비스에서 화면이 있는 액티비티를 띄우려면 새로운 태스크를 만들어야 한다. 그리고 Activity 객체가 이미 만들어져 있을 때
@@ -36,6 +37,7 @@ public class LockScreenService extends Service {
                 * */
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 context.startActivity(i);
             }
         }
@@ -76,8 +78,6 @@ public class LockScreenService extends Service {
     }
 
     private void processCommand(Intent intent){
-
-
 
     }
 

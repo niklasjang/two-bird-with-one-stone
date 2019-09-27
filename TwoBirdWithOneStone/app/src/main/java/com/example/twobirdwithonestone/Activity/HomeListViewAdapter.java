@@ -2,6 +2,10 @@ package com.example.twobirdwithonestone.Activity;
 
 import com.bumptech.glide.Glide;
 import com.example.twobirdwithonestone.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +19,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
@@ -27,6 +32,7 @@ import java.util.ArrayList;
 * */
 
 public class HomeListViewAdapter extends BaseAdapter {
+    DataBase db;
     /**
      * Adapter가 하는 역할은 사용자 데이터를 입력받아 View를 생성하는 것이며 Adapter에서 생성되는 View는 ListView 내 하나의 아이템 영역에 표시되는 것입니다.
      * */
@@ -80,12 +86,20 @@ public class HomeListViewAdapter extends BaseAdapter {
             Glide.with(convertView.getContext()).load(listViewItem.getImgUrl()).into(imgUrlImageView);
         }
         titleTextView.setText(listViewItem.getTitle());
-        contentTextView.setText("내용: "+listViewItem.getContent());
-        rankTextView.setText("날짜: "+listViewItem.getDate());
+        contentTextView.setText(listViewItem.getContent());
+        rankTextView.setText(listViewItem.getDate());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db = new DataBase();
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                db.registerUserData("Users",uid).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        db.updateUserPoint("Users", FirebaseAuth.getInstance().getCurrentUser().getUid(),2);
+                    }
+                });
                 context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(listViewItem.getUrl())));
             }
         });
@@ -104,20 +118,7 @@ public class HomeListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(String imgUrl, String title, String subtitle, String rank, String url) {
-        HomeListViewItem item = new HomeListViewItem();
-
-        /**
-         item.setIcon(icon);
-         item.setCoin(coin);
-         */
-
-        item.setImgUrl(imgUrl);
-        item.setTitle(title);
-        item.setContent(subtitle);
-        item.setDate(rank);
-        item.setUrl(url);
-
+    public void addItem(HomeListViewItem item) {
         listViewItemList.add(item);
     }
 

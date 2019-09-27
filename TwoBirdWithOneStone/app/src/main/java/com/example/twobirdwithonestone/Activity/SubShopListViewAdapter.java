@@ -56,7 +56,6 @@ public class SubShopListViewAdapter extends BaseAdapter {
         titleTextView.setText(listViewItem.getTitle());
         iconImageView.setImageBitmap(listViewItem.getIcon());
         explanationTextView.setText(listViewItem.getExplanation());
-
         return convertView;
     }
 
@@ -71,12 +70,13 @@ public class SubShopListViewAdapter extends BaseAdapter {
     }
 
     //이미지, 카테고리 제목, 가격, 설명
-    public void addItem(String category, String title, Bitmap image, String explanation) {
+    public void addItem(String category, String title, Bitmap image,String _priceStr, String explanation) {
         SubShopListViewItem item = new SubShopListViewItem();
 
         item.setCategory(category);
         item.setTitle(title);
         item.setIcon(image);
+        item.setPriceStr(_priceStr);
         item.setExplanation(explanation);
         listViewItemList.add(item);
     }

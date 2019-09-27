@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.twobirdwithonestone.Activity.CopyrightActivity;
 import com.example.twobirdwithonestone.Activity.DataBase;
 import com.example.twobirdwithonestone.Activity.LoginActivity;
 import com.example.twobirdwithonestone.R;
@@ -93,6 +94,16 @@ public class SettingsFragment extends Fragment {
                 getActivity().startService(intent);
             }
         });
+
+        Button btn_copyright = (Button)view.findViewById(R.id.copyright_btn);
+        btn_copyright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CopyrightActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         //logout button , 2019,9,7 gyu-young
         Button btnLogout = (Button) view.findViewById(R.id.btn_logout);

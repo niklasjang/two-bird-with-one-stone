@@ -48,18 +48,18 @@
     한국의 자부심(Pride of Korea)을 주제로 한 다양한 전시 컨텐츠, 구름 위에서 즐기는 커피 한잔의 여유와 타워를 테마로 한
     다양한 기념품이 전망대에서의 경험을 더욱 특별하게 만들어줄 것입니다.
     </string>
-    <string name = "unicef">주소: 서울특별시 마포구 창전동 서강로 60 \n
+    <string name="unicef">주소: 서울특별시 마포구 창전동 서강로 60 \n
         전화번호: 02 - 737 - 1004\n\n\n
         유니세프 한국 위원회\n
         유니세프는 차별없는 구호 정신으로 어린이이 삶을 개선하기 위한 다양한 사업을 펼치고 있습니다\n
         "156개국 개발도상국 어린이의 보건, 에이즈, 식수와 위생, 영양, 교육, 어린이 보호, 사회통합의 유니세프 7가지 중점 사업 분야에 사용된다"
     </string>
-    <string name = "redcross">주소: 26465 강원도 원주시 혁신로 50\n
+    <string name="redcross">주소: 26465 강원도 원주시 혁신로 50\n
         전화번호: 02 - 3705- 3705\n
         "국내외 취약계층 지원 및 재난 구호 등을 위한 재원 마련"
 
     </string>
-    <string name = "camp_nanji">주소: 서울시 마포구 한강 난지로 28 한강 시민공원 난지캠핑장\n
+    <string name="camp_nanji">주소: 서울시 마포구 한강 난지로 28 한강 시민공원 난지캠핑장\n
         이용시간: 10:30 ~ 다음날 오전 9:30\n
         홈페이지: www.nanjicamp.com\n
         전화번호: 02 - 304 - 0061\n\n\n
@@ -71,7 +71,7 @@
         최적의 편리한 캠핑장 입니다.\n
         "사진 출처 (https://www.seoul.go.kr/story/campingjang/pc.html)"
     </string>
-    <string name = "camp_noel">주소: 서울특별시 마포구 상암동 월드컵공원 노을캠핑장\n
+    <string name="camp_noel">주소: 서울특별시 마포구 상암동 월드컵공원 노을캠핑장\n
         이용시간: 14:00 ~ 다음날 오전 12:00
         전화번호: 02 - 300 - 5576\n\n\n
         노을 캠핑장은\n
@@ -81,7 +81,7 @@
         이번 주말, 가족. 친구. 연인들과 함께 노을 캠핑장에서 즐거운 추억을 만들어 보세요!\n
          "사진 출처 (https://www.seoul.go.kr/story/campingjang/pc.html)"
     </string>
-    <string name = "camp_seoulpark">주소: 경기도 과천시 대공원광장로 102 서울대공원\n
+    <string name="camp_seoulpark">주소: 경기도 과천시 대공원광장로 102 서울대공원\n
         이용시간: 12:00 ~ 다음날 오전 10:00\n
         홈페이지:www.grandpark.seoul.go.kr\n
         전화번호: 02- 500 - 7335\n\n\n
@@ -90,7 +90,7 @@
          "사진 출처 (https://www.seoul.go.kr/story/campingjang/pc.html)"
 
     </string>
-    <string name = "camp_jungrang">주소: 서울특별시 중랑구 송림길 160\n
+    <string name="camp_jungrang">주소: 서울특별시 중랑구 송림길 160\n
         이용시간: 13:00 ~ 다음날 오전 11:00
         홈페이지: http://parks.seoul.go.kr/template/sub/JungnangCampGround.do\n
         전화번호: 02 - 434 - 4371\n\n\n
@@ -100,7 +100,7 @@
         또한 소규모 야외무대 설치등 청소년 중심의 문화중심 공원으로 조성되었습니다.\n
          "사진 출처 (https://www.seoul.go.kr/story/campingjang/pc.html)"
     </string>
-    <string name = "camp_gangdong">주소: 서울특별시 강동구 천호대로 206길 87 일자산 자연공원내\n
+    <string name="camp_gangdong">주소: 서울특별시 강동구 천호대로 206길 87 일자산 자연공원내\n
         이용시간: 13:00 ~ 다음날 오전 11:00\n
         홈페이지: http://www.gdfamilycamp.or.kr/intro/intro03.asp\n
         전화번호: 02 - 478 - 4079\n

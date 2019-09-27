@@ -140,6 +140,17 @@
             android:text="꿩먹알먹 사용 방법"
             android:textSize="20dp"/>
 
+        <Button
+            android:id="@+id/copyright_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+
+            android:text="저작권 출처"
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -50,8 +50,8 @@ public class HomeFragment extends Fragment {
         mContext = getContext();
 
         int images[] = {
-                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3,
-                R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5, R.drawable.ic_home_ad_6};
+                R.drawable.ic_home_ad_1, R.drawable.ic_home_ad_2, R.drawable.ic_home_ad_3, R.drawable.ic_home_ad_4, R.drawable.ic_home_ad_5,
+                R.drawable.ic_home_ad_6, R.drawable.ic_home_ad_7, R.drawable.ic_home_ad_8, R.drawable.ic_home_ad_9, R.drawable.ic_home_ad_10};
 
         v_fllipper = view.findViewById(R.id.imageAdSlide);
 

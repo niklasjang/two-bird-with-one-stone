@@ -76,11 +76,13 @@ public class SubHomeActivity extends AppCompatActivity {
                 seoulCategoryCrawler.execute();
                 break;
             case "house":
+                defalutImgUrl = "default_home";
                 categoryTextView.setText("주택") ;
                 seoulHouseCrawler = new SeoulHouseCrawler(seoul_house_url);
                 seoulHouseCrawler.execute();
                 break;
             case "welfare":
+                defalutImgUrl = "default_welfare";
                 categoryTextView.setText("복지") ;
                 seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_welfare_url);
                 seoulCategoryCrawler.execute();
@@ -101,6 +103,7 @@ public class SubHomeActivity extends AppCompatActivity {
                 seoulBoardCrawler.execute();
                 break;
             case "disabled":
+                defalutImgUrl = "default_disabled";
                 categoryTextView.setText("장애인") ;
                 seoulDisalbedCrawler = new SeoulDisalbedCrawler(seoul_the_disabled_url);
                 seoulDisalbedCrawler.execute();
@@ -380,7 +383,7 @@ public class SubHomeActivity extends AppCompatActivity {
                     public void run() {
                         for(Element element: crawledUrl) {
                             listTitle.add(element.text());
-                            listImgUrl.add(("default"));
+                            listImgUrl.add((defalutImgUrl));
                         }
                         int k = 1;
                         for(Element element: crawledDate) {
@@ -477,7 +480,7 @@ public class SubHomeActivity extends AppCompatActivity {
                             item.setContent(listContent.get(i));
                             item.setDate(listDate.get(i));
                             item.setUrl(listUrl.get(i));
-                            item.setImgUrl("default");
+                            item.setImgUrl(defalutImgUrl);
                             mAdapter.addItem(item);
                         }
                         mAdapter.notifyDataSetChanged();

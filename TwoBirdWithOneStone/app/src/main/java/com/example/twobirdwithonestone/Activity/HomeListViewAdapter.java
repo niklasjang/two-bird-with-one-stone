@@ -82,22 +82,14 @@ public class HomeListViewAdapter extends BaseAdapter {
             Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
             imgUrlImageView.setImageDrawable(image);
         }
-        else if(listViewItem.getImgUrl().equals("default_traffic")){
-            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.seoul_traffic_logo);
+        else if(listViewItem.getImgUrl().equals("default_traffic") || listViewItem.getImgUrl().equals("default_home")){
+            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.seoul_symbol);
             imgUrlImageView.setImageDrawable(image);
         }
-//        else if(listViewItem.getImgUrl() == "default_disable"){
-//            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.seoul_traffic_logo);
-//            imgUrlImageView.setImageDrawable(image);
-//        }
-//        else if(listViewItem.getImgUrl() == "default_home"){
-//            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
-//            imgUrlImageView.setImageDrawable(image);
-//        }
-//        else if(listViewItem.getImgUrl() == "default_region"){
-//            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
-//            imgUrlImageView.setImageDrawable(image);
-//        }
+        else if(listViewItem.getImgUrl().equals("default_welfare") || listViewItem.getImgUrl().equals("default_disabled")){
+            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.seoul_hatch1);
+            imgUrlImageView.setImageDrawable(image);
+        }
         else{
             Glide.with(convertView.getContext()).load(listViewItem.getImgUrl()).into(imgUrlImageView);
         }

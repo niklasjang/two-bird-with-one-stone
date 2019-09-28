@@ -78,10 +78,27 @@ public class HomeListViewAdapter extends BaseAdapter {
          iconImageView.setImageDrawable(listViewItem.getIcon());
          coinTextView.setText(listViewItem.getCoin());
          */
-        if(listViewItem.getImgUrl() == "default"){
+        if(listViewItem.getImgUrl().equals("default")){
             Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
             imgUrlImageView.setImageDrawable(image);
-        }else{
+        }
+        else if(listViewItem.getImgUrl().equals("default_traffic")){
+            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.seoul_traffic_logo);
+            imgUrlImageView.setImageDrawable(image);
+        }
+//        else if(listViewItem.getImgUrl() == "default_disable"){
+//            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.seoul_traffic_logo);
+//            imgUrlImageView.setImageDrawable(image);
+//        }
+//        else if(listViewItem.getImgUrl() == "default_home"){
+//            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
+//            imgUrlImageView.setImageDrawable(image);
+//        }
+//        else if(listViewItem.getImgUrl() == "default_region"){
+//            Drawable image = (Drawable) ContextCompat.getDrawable(convertView.getContext(), R.drawable.i_seoul_u);
+//            imgUrlImageView.setImageDrawable(image);
+//        }
+        else{
             Glide.with(convertView.getContext()).load(listViewItem.getImgUrl()).into(imgUrlImageView);
         }
         titleTextView.setText(listViewItem.getTitle());

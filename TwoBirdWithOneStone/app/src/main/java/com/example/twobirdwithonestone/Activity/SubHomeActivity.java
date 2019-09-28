@@ -35,21 +35,24 @@ public class SubHomeActivity extends AppCompatActivity {
     private String seoul_news_url = "https://www.seoul.go.kr/realmnews/in/list.do";
     private String seoul_event_url = "https://www.seoul.go.kr/eventreqst/list.do";
     private String seoul_festival_url = "https://www.seoul.go.kr/thismteventfstvl/list.do";
-    private String seoul_traffic_url = "https://news.seoul.go.kr/traffic/news-all/page/";
+    private String seoul_traffic_url = "http://news.seoul.go.kr/traffic/news-all/page/";
     private String seoul_welfare_url = "https://news.seoul.go.kr/welfare/news-all/page/";
     private String seoul_house_url = "https://www.i-sh.co.kr/main/lay2/program/S1T294C295/www/brd/m_241/list.do";
     private String seoul_house_page_url = "https://www.i-sh.co.kr/main/lay2/program/S1T294C295/www/brd/m_241/view.do?seq=";
     private String seoul_the_disabled_url = "http://jobable.seoul.go.kr/jobable/custmr_cntr/ntce/WwwNotice.do?method=selectWwwNoticeList&noticeCmmnSeNo=1&searchCondition=&pageSize=20&searchKeyword=";
     private String getSeoul_the_disabled_url_content_url = "http://jobable.seoul.go.kr/jobable/custmr_cntr/ntce/WwwNotice.do?method=getWwwNotice&chUseZe=D&noticeCmmnSeNo=1&bbscttSn=";
     private String seoul_region_url = "http://rss.seoul.go.kr/app/rss/board/list/0/";
+    private String seoul_zero_rul = "https://zeropaysupporters.or.kr/event.html?page=";
     private int nextPage = 1;
     private SeoulBoardCrawler seoulBoardCrawler;
     private SeoulCategoryCrawler seoulCategoryCrawler;
     private SeoulHouseCrawler seoulHouseCrawler;
     private SeoulDisalbedCrawler seoulDisalbedCrawler;
     private SeoulRegionrawler seoulRegionrawler;
+    private SeoulZeroPayCrawler seoulZeroPayCrawler;
 
     private String categoryText;
+    private String defalutImgUrl = "default";
     boolean lastitemVisibleFlag = false;
     //화면에 리스트의 마지막 아이템이 보여지는지 체크
 
@@ -67,6 +70,7 @@ public class SubHomeActivity extends AppCompatActivity {
 
         switch (categoryText){
             case "traffic":
+                defalutImgUrl = "default_traffic";
                 categoryTextView.setText("교통") ;
                 seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_traffic_url);
                 seoulCategoryCrawler.execute();
@@ -97,12 +101,19 @@ public class SubHomeActivity extends AppCompatActivity {
                 seoulBoardCrawler.execute();
                 break;
             case "disabled":
+                categoryTextView.setText("장애인") ;
                 seoulDisalbedCrawler = new SeoulDisalbedCrawler(seoul_the_disabled_url);
                 seoulDisalbedCrawler.execute();
                 break;
             case "region":
+                categoryTextView.setText("자치구");
                 seoulRegionrawler = new SeoulRegionrawler(seoul_region_url);
                 seoulRegionrawler.execute();
+                break;
+            case "zeropay":
+                categoryTextView.setText("제로 페이");
+                seoulZeroPayCrawler = new SeoulZeroPayCrawler(seoul_zero_rul);
+                seoulZeroPayCrawler.execute();
                 break;
         }
         mListView = (ListView)findViewById(R.id.listView);
@@ -126,6 +137,10 @@ public class SubHomeActivity extends AppCompatActivity {
                     nextPage++;
                     progressBar.setVisibility(View.VISIBLE);
                     switch (categoryText){
+                        case "traffic":
+                            seoulCategoryCrawler = new SeoulCategoryCrawler(seoul_traffic_url);
+                            seoulCategoryCrawler.execute();
+                            break;
                         case "news":
                             seoulBoardCrawler = new SeoulBoardCrawler(seoul_news_url);
                             seoulBoardCrawler.execute();
@@ -152,6 +167,10 @@ public class SubHomeActivity extends AppCompatActivity {
                         case "region":
                             seoulRegionrawler = new SeoulRegionrawler(seoul_region_url);
                             seoulRegionrawler.execute();
+                            break;
+                        case "zeropay":
+                            seoulZeroPayCrawler = new SeoulZeroPayCrawler(seoul_zero_rul);
+                            seoulZeroPayCrawler.execute();
                             break;
                     }
                 }
@@ -293,7 +312,7 @@ public class SubHomeActivity extends AppCompatActivity {
                     public void run() {
                         for(Element element: crawledUrl) {
                             listTitle.add(element.attr("title"));
-                            sub_img.put(element.attr("title"),"default");
+                            sub_img.put(element.attr("title"),defalutImgUrl);
                         }
                         for(Element element: crawledDate) {
                             listDate.add(element.text());
@@ -527,6 +546,88 @@ public class SubHomeActivity extends AppCompatActivity {
                             item.setContent(listContent.get(i));
                             item.setDate(listDate.get(i));
                             item.setUrl(listUrl.get(i));
+                            mAdapter.addItem(item);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
+    /*
+        작성자 : 박규영
+        날짜 : 2019 - 09 - 28
+        내용 : 제로페이 이벤트 크롤링
+     */
+    private class SeoulZeroPayCrawler extends AsyncTask<Void, Void, Void> {
+        ArrayList<String> listTitle = new ArrayList<>();
+        ArrayList<String> listDate = new ArrayList<>();
+        ArrayList<String> listContent = new ArrayList<>();
+        ArrayList<String> listUrl = new ArrayList<>();
+        ArrayList<String> listAllSpanItem = new ArrayList<>();
+        ArrayList<String> listImgUrl = new ArrayList<>();
+        ArrayList<HomeListViewItem> viewItems = new ArrayList<>();
+        String crawledUrl;
+        String urlPage = "https://zeropaysupporters.or.kr";
+        private SeoulZeroPayCrawler(String crawledUrl){
+            this.crawledUrl = crawledUrl;
+        }
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                //searchWord, https://www.seoul.go.kr/realmnews/in/list.do?fetchStart=1&searchWord=%ED%83%9D%EC%8B%9C+%EC%95%B1
+                String url = crawledUrl + nextPage;
+                Document doc = Jsoup.connect(url).get();
+                //final Elements rank_list1 = doc.select("div.wrap_song_info div.ellipsis.rank01 span a");
+                final Elements crawledSubject = doc.select("div.event_list td.title div.e_title");
+                final Elements crawledDate = doc.select("div.event_list td.title div.e_date");
+                final Elements crawledTxt = doc.select("div.event_list td.title div.e_exp");
+                final Elements crawledUrl = doc.select("div.event_list td.title div.e_btn a");
+                //이미지 url
+                final Elements crawledImgUrl = doc.select("div.event_list img");
+
+                Handler handler = new Handler(Looper.getMainLooper()); // 객체생성
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(Element element: crawledSubject) {
+                            listTitle.add(element.text());
+                        }
+                        for(Element element: crawledDate) {
+                            listDate.add(element.text());
+                        }
+                        for(Element element: crawledTxt) {
+                            listContent.add(element.text());
+                        }
+                        int i = 0;
+                        for(Element element: crawledUrl) {
+                            System.out.println(element.attr("href").substring(0,1));
+                            if(!element.attr("href").substring(0,1).equals("h")){
+                                listUrl.add(element.attr("href"));
+                                listDate.add(i,listDate.get(i) + " 종료");
+                            }else{
+                                listUrl.add(element.attr("href"));
+                            }
+                            i++;
+                        }
+
+                        for(Element element: crawledImgUrl) {
+                            listImgUrl.add(urlPage + element.attr("src"));
+                        }
+                        for(int k = 0; k < crawledSubject.size(); k++){
+                            HomeListViewItem item = new HomeListViewItem();
+                            item.setImgUrl(listImgUrl.get(k));
+                            item.setTitle(listTitle.get(k));
+                            item.setContent(listContent.get(k));
+                            item.setDate(listDate.get(k));
+                            item.setUrl(listUrl.get(k));
                             mAdapter.addItem(item);
                         }
                         mAdapter.notifyDataSetChanged();

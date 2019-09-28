@@ -2,6 +2,7 @@ package com.example.twobirdwithonestone.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,8 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
 public class LockScreenActivity extends AppCompatActivity {
     private ViewFlipper v_fllipper;
     @Override
@@ -40,18 +41,17 @@ public class LockScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lock_screen);
 
         /**현재시간 출력하기
-        long now = System.currentTimeMillis();
-        // 현재시간을 date 변수에 저장한다.
-        Date date = new Date(now);
-        // 시간을 나타냇 포맷을 정한다 ( yyyy/MM/dd 같은 형태로 변형 가능 )
-        SimpleDateFormat sdfNow = new SimpleDateFormat("MM월dd일");
-        // nowDate 변수에 값을 저장한다.
-        String formatDate = sdfNow.format(date);
+         long now = System.currentTimeMillis();
+         // 현재시간을 date 변수에 저장한다.
+         Date date = new Date(now);
+         // 시간을 나타냇 포맷을 정한다 ( yyyy/MM/dd 같은 형태로 변형 가능 )
+         SimpleDateFormat sdfNow = new SimpleDateFormat("MM월dd일");
+         // nowDate 변수에 값을 저장한다.
+         String formatDate = sdfNow.format(date);
+         TextView dateNow = (TextView) findViewById(R.id.dateNow);
+         dateNow.setText(formatDate);
+         **/
 
-        TextView dateNow = (TextView) findViewById(R.id.dateNow);
-        dateNow.setText(formatDate);
-        **/
-        
         findViewById(R.id.btn_lock_screen).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

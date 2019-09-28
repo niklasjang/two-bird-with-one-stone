@@ -114,6 +114,7 @@ public class HomeListViewAdapter extends BaseAdapter {
                 db.registerUserData("Users",uid).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        Toast.makeText(context,"100포인트가 적립되셨습니다.", Toast.LENGTH_SHORT).show();
                         db.updateUserPoint("Users", FirebaseAuth.getInstance().getCurrentUser().getUid(),100);
                     }
                 });

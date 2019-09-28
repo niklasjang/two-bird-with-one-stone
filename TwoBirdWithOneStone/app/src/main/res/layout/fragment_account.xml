@@ -9,19 +9,22 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:background="@drawable/edge_under_bar"
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+
         android:gravity="center"
-        android:background="@drawable/edge_login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/point_layout"
 
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="현재 포인트" />
@@ -81,8 +84,10 @@
         <TextView
             android:id="@+id/tvCurrentCoupons"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
 
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:gravity="center"
             android:background="@drawable/edge_login"
             app:layout_constraintLeft_toLeftOf="parent"

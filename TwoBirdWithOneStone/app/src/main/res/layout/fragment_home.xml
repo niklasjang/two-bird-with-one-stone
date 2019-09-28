@@ -9,14 +9,10 @@
     android:fillViewport="true"
     android:fontFamily="@font/barungothicbold">
 
-    <ViewFlipper
-        android:background="#E2E2E2"
-        android:id="@+id/imageAdSlide"
-        android:scaleType="centerCrop"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragment_home_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="10dp"
-        app:srcCompat="@drawable/ic_home_ad_3" />
+        android:layout_height="201dp"></androidx.viewpager.widget.ViewPager>
 
     <GridView
         android:id="@+id/shop_gridview"

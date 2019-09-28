@@ -2,12 +2,15 @@ package com.example.twobirdwithonestone.Activity;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +29,7 @@ import java.util.HashMap;
 public class SubHomeActivity extends AppCompatActivity {
     private ListView mListView;
     private HomeListViewAdapter mAdapter;
+    private ProgressBar progressBar;
 
     // ?fetchStart=1로 페이지 라우팅을 실행
     private String seoul_news_url = "https://www.seoul.go.kr/realmnews/in/list.do";
@@ -55,6 +59,8 @@ public class SubHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_subhome);
 
         TextView categoryTextView = (TextView)findViewById(R.id.categoryTextView);
+        progressBar = findViewById(R.id.subhome_progressbar);
+        progressBar.setVisibility(View.VISIBLE);
 
         Intent intent = getIntent();
         categoryText = intent.getExtras().getString("category");
@@ -118,6 +124,7 @@ public class SubHomeActivity extends AppCompatActivity {
                 if(scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && lastitemVisibleFlag) {
                     //Toast.makeText(SubHomeActivity.this,"바닥에 닿았어요!.",Toast.LENGTH_LONG).show();
                     nextPage++;
+                    progressBar.setVisibility(View.VISIBLE);
                     switch (categoryText){
                         case "news":
                             seoulBoardCrawler = new SeoulBoardCrawler(seoul_news_url);
@@ -241,6 +248,7 @@ public class SubHomeActivity extends AppCompatActivity {
                             mAdapter.addItem(viewItems.get(i));
                         }
                         mAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
 
@@ -310,6 +318,7 @@ public class SubHomeActivity extends AppCompatActivity {
                             mAdapter.addItem(item);
                         }
                         mAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
 
@@ -381,6 +390,7 @@ public class SubHomeActivity extends AppCompatActivity {
                             mAdapter.addItem(item);
                         }
                         mAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
 
@@ -452,6 +462,7 @@ public class SubHomeActivity extends AppCompatActivity {
                             mAdapter.addItem(item);
                         }
                         mAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
 
@@ -519,6 +530,7 @@ public class SubHomeActivity extends AppCompatActivity {
                             mAdapter.addItem(item);
                         }
                         mAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
 

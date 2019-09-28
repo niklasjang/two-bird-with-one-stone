@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,11 +42,13 @@ public class SubShopListViewActivity extends AppCompatActivity {
     private String itemPrice;
     private DataBase database;
     private Coupon selectedItemasCoupon;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sublistshop);
         mListView = (ListView)findViewById(R.id.SubShopListview);
+        progressBar = findViewById(R.id.sublistshop_progressbar);
         mAdapter = new SubShopListViewAdapter();
         mListView.setAdapter(mAdapter);
 
@@ -127,6 +130,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
         btn_buy_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 //유저의 포인트 가져오기
                 final DocumentReference docRef = db.collection("Users").document(currentUID);
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -156,6 +160,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                                             public void onSuccess(Void aVoid) {
                                                                 Toast.makeText(getApplicationContext(), "쿠폰을 구매했습니다.", Toast.LENGTH_SHORT).show();
                                                                 Log.d("SubShopListViewActivity", "햐햐 쿠폰 저장 성공");
+                                                                progressBar.setVisibility(View.INVISIBLE);
                                                                 finish();
                                                             }
                                                         })
@@ -163,6 +168,7 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                                             @Override
                                                             public void onFailure(@NonNull Exception e) {
                                                                 Log.d("SubShopListViewActivity", "햐햐 쿠폰 저장 실패");
+                                                                progressBar.setVisibility(View.INVISIBLE);
                                                                 finish();
                                                             }
                                                         });
@@ -185,15 +191,18 @@ public class SubShopListViewActivity extends AppCompatActivity {
                                             public void onFailure(@NonNull Exception e) {
                                                 Toast.makeText(getApplicationContext(), "유저 포인트 업데이트 실패", Toast.LENGTH_SHORT).show();
                                                 Log.w(TAG, "Error updating document", e);
+                                                progressBar.setVisibility(View.INVISIBLE);
                                                 finish();
                                             }
                                         });
                             }else{
                                 Toast.makeText(getApplicationContext(), "포인트가 부족합니다.", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.INVISIBLE);
                                 finish();
                             }
                         }else{
                             Toast.makeText(getApplicationContext(), "포인트가 부족합니다.", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.INVISIBLE);
                             Log.d("SubShopListViewActivity", "O point");
                             finish();
                         }

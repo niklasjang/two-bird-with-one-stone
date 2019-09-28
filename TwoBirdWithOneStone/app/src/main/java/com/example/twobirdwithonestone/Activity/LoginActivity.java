@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -49,7 +50,8 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private DataBase db;
     static Context mContext;
-    FirebaseUser user;
+    private FirebaseUser user;
+    private ProgressBar progressBar;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
         //***** Finish LoadingActivity *****
-
+        progressBar = findViewById(R.id.login_progressbar);
         //btn id정리
         Button btnSign = (Button) findViewById(R.id.btn_signin);
         Button btnLogin = (Button) findViewById(R.id.btn_login);
@@ -78,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //회원가입 후 최초 로그인 시에만 db에 생성, 아닐 시에는 데이터를 만들 필요가 없기 때문에 넘어가게 된다.
                 user = firebaseAuth.getCurrentUser(); //로그인한 사용자가 없으면 getCurrentUser는 null을 반환합니다.
+                progressBar.setVisibility(View.INVISIBLE);
                 if(user != null){
                     db = new DataBase();
                     db.registerUserData("Users",user.getUid()).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -101,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 createEmailId();
             }
         });
@@ -108,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 loginId();
             }
         });
@@ -116,7 +121,9 @@ public class LoginActivity extends AppCompatActivity {
         btnGoogleLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                progressBar.setVisibility(View.INVISIBLE);
                 startActivityForResult(signInIntent,1);
             }
         });
@@ -134,7 +141,6 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(etEmail.getText().toString(),etPassword.getText().toString())
-
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

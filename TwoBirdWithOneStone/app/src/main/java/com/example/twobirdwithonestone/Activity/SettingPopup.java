@@ -40,7 +40,7 @@ public class SettingPopup extends Activity {
                 break;
             case"faq":
                 settingTitleTextView.setText("FAQ");
-                settingMainTextView.setText("Q. 꿩먹알먹은 무슨 뜻인가요?\\n" +
+                settingMainTextView.setText("Q. 꿩먹알먹은 무슨 뜻인가요?\n" +
                         "A. 서울시 관련 정보도 얻고 포인트도 적립해 다양한 혜택을 받는 것을 의미합니다!");
                 break;
             case"introduce":

@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:scrollbars="vertical"
     android:fillViewport="true"
+    android:background="#FFF"
     android:fontFamily="@font/barungothicbold">
 
     <androidx.viewpager.widget.ViewPager

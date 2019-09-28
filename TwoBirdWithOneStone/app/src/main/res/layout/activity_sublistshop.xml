@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"></ListView>
 
     <Button
-        android:background="#cff0da"
+        android:background="#E2E2E2"
         android:id="@+id/btn_buy_item"
         android:layout_width="match_parent"
         android:layout_height="50dp"

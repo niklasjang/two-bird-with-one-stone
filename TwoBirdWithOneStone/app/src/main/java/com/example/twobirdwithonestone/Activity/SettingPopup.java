@@ -57,9 +57,10 @@ public class SettingPopup extends Activity {
 
             case"copyright":
                 settingTitleTextView.setText("저작권 출처");
-                settingMainTextView.setText("글꼴\n\t이 어플리케이션은 포천 오성과 한음체R를 사용하여 디자인 되었습니다.\n\n" +
-                        "아이콘\n\tIcon made by Freepik from www.flaticon.com\n\tIcon made by Good Ware from www.flaticon.com\n" +
-                        "\tIcon made by Nhor Phai from www.flaticon.com\n\tIcon made by Laymik from Noun Project");
+                settingMainTextView.setText("글꼴\n이 어플리케이션은 포천 오성과 한음체R를 사용하여 디자인 되었습니다.\n\n" +
+                        "아이콘\nIcon made by Freepik from www.flaticon.com\nIcon made by Good Ware from www.flaticon.com\n" +
+                        "Icon made by Nhor Phai from www.flaticon.com\nIcon made by Pixelmeetup from www.flaticon.com\n" +
+                        "Icon made by Laymik from Noun Project");
                 break;
 
         }

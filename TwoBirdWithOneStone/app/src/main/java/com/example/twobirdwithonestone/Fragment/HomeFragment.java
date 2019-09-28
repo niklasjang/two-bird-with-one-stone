@@ -92,11 +92,6 @@ public class HomeFragment extends Fragment {
                     intent.putExtra("category", "event");
                     startActivity(intent);
                 }
-                else if (i == 5) {
-                    Intent intent = new Intent(mContext, SubHomeActivity.class);
-                    intent.putExtra("category", "event");
-                    startActivity(intent);
-                }
                 else if (i == 6) {
                     Intent intent = new Intent(mContext, SubHomeActivity.class);
                     intent.putExtra("category", "disabled");
@@ -122,11 +117,11 @@ public class HomeFragment extends Fragment {
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_welfare));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_administrative));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_culture));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_event));
 
         //규영 : 2019.09.27 이미지 6, 7, -> 장애인 코너, 자치구 코너 변경 요망
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_disabled));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_environment));
 
         //gridview에 gridview item 루프돌며 생성
         for(int i=0; i<listTitle.size();i++){

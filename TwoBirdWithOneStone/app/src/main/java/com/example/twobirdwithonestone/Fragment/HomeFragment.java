@@ -3,11 +3,17 @@ package com.example.twobirdwithonestone.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
@@ -61,29 +67,44 @@ public class HomeFragment extends Fragment {
                     intent.putExtra("category", "traffic");
                     startActivity(intent);
                 }
-                if (i == 1) {
+                else if (i == 1) {
                     Intent intent = new Intent(mContext, SubHomeActivity.class);
                     intent.putExtra("category", "house");
                     startActivity(intent);
                 }
-                if (i == 2) {
+                else if (i == 2) {
                     Intent intent = new Intent(mContext, SubHomeActivity.class);
                     intent.putExtra("category", "welfare");
                     startActivity(intent);
                 }
-                if (i == 3) {
+                else if (i == 3) {
                     Intent intent = new Intent(mContext, SubHomeActivity.class);
                     intent.putExtra("category", "news");
                     startActivity(intent);
                 }
-                if (i == 4) {
+                else if (i == 4) {
                     Intent intent = new Intent(mContext, SubHomeActivity.class);
                     intent.putExtra("category", "festival");
                     startActivity(intent);
                 }
-                if (i == 5) {
+                else if (i == 5) {
                     Intent intent = new Intent(mContext, SubHomeActivity.class);
                     intent.putExtra("category", "event");
+                    startActivity(intent);
+                }
+                else if (i == 5) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "event");
+                    startActivity(intent);
+                }
+                else if (i == 6) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "disabled");
+                    startActivity(intent);
+                }
+                else if (i == 7) {
+                    Intent intent = new Intent(mContext, SubHomeActivity.class);
+                    intent.putExtra("category", "region");
                     startActivity(intent);
                 }
             }
@@ -92,6 +113,7 @@ public class HomeFragment extends Fragment {
         ArrayList<String> listTitle = new ArrayList<String>();
         listTitle.add("교통"); listTitle.add("주택"); listTitle.add("복지");
         listTitle.add("소식"); listTitle.add("행사 및 축제"); listTitle.add("이벤트 신청");
+        listTitle.add("장애인"); listTitle.add("자치구");
 
         ArrayList<Drawable> listIcon = new ArrayList<Drawable>();
 
@@ -100,6 +122,10 @@ public class HomeFragment extends Fragment {
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_welfare));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_administrative));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_culture));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
+
+        //규영 : 2019.09.27 이미지 6, 7, -> 장애인 코너, 자치구 코너 변경 요망
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_safety));
 
         //gridview에 gridview item 루프돌며 생성
@@ -122,6 +148,7 @@ public class HomeFragment extends Fragment {
         v_fllipper.setInAnimation(mContext,android.R.anim.slide_in_left);
         v_fllipper.setOutAnimation(mContext,android.R.anim.slide_out_right);
     }
+
 }
 
 

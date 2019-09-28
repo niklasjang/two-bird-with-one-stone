@@ -24,7 +24,6 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.util.ArrayList;
-
 public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecyclerViewAdapter.ViewHolder> {
     private ArrayList<Coupon> mData = null ;
     private final Context context;
@@ -162,7 +161,7 @@ public class CouponRecyclerViewAdapter extends RecyclerView.Adapter<CouponRecycl
                     //Popup window 설청
                     View popupView = LayoutInflater.from(context).inflate(R.layout.coupon_popup_window, null);
                     mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                      //popupView 에서 (LinearLayout 을 사용) 레이아웃이 둘러싸고 있는 컨텐츠의 크기 만큼 팝업 크기를 지정
+                    //popupView 에서 (LinearLayout 을 사용) 레이아웃이 둘러싸고 있는 컨텐츠의 크기 만큼 팝업 크기를 지정
                     mPopupWindow.setFocusable(true); // 외부 영역 선택시 PopUp 종료
                     mPopupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 //                    TextView tvPopupName = v.findViewById(R.id.tvPopupName);

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -113,7 +114,7 @@ public class HomeListViewAdapter extends BaseAdapter {
                 db.registerUserData("Users",uid).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        db.updateUserPoint("Users", FirebaseAuth.getInstance().getCurrentUser().getUid(),2);
+                        db.updateUserPoint("Users", FirebaseAuth.getInstance().getCurrentUser().getUid(),100);
                     }
                 });
                 context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(listViewItem.getUrl())));

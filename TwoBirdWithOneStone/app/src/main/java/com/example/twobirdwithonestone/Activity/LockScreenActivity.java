@@ -61,7 +61,8 @@ public class LockScreenActivity extends AppCompatActivity {
                 db.registerUserData("Users",uid).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        db.updateUserPoint("Users", FirebaseAuth.getInstance().getCurrentUser().getUid(),2);
+                        Toast.makeText(getApplicationContext(), "20포인트가 적립되셨습니다.", Toast.LENGTH_SHORT).show();
+                        db.updateUserPoint("Users", FirebaseAuth.getInstance().getCurrentUser().getUid(),20);
                     }
                 });
 //                String url ="https://www.seoul.go.kr/main/index.jsp";
@@ -109,7 +110,7 @@ public class LockScreenActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_HOME){
-            Toast.makeText(this, "홈으로 가게?", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "홈으로 가게?", Toast.LENGTH_SHORT).show();
             return false;
         }else{
             return super.onKeyDown(keyCode, event);

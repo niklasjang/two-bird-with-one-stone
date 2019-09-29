@@ -13,7 +13,7 @@ Reference : <https://www.youtube.com/watch?v=tPV8xA7m-iw>
 4. ~~Shop Fragment 모든 카테고리 클릭했을 때 적절한 상품 나오도록 추가~~
 5. ~~카테고리별 적절한 이미지 출력되게 if else 추가(CouponRecyclerViewAdapter ->onBindViewHolder에 추가하면 됨)~~
 6. ~~기사 클릭했을 때 포인트 쌓이는 기능 추가~~
-7. 잠금화면 기사 보여주기 추가
+7. ~~잠금화면 기사 보여주기 추가
 8. 잠금화면이 언제 뜨게하는지 결정하는 FLAG가 deprecated 되서 지금 사용 불가한 듯. 어떤 FLAG 써야하는지 찾아보기
 9. ~~Account Fragment 사용자 정보 제대로 보여주기 지금은 UID만 보여줌.~~
 10. ~~쿠폰 이름 및 쿠폰 상세 정보 예쁘게 보여주기~~

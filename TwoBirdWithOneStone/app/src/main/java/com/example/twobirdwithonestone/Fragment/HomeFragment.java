@@ -121,7 +121,8 @@ public class HomeFragment extends Fragment {
         ArrayList<String> listTitle = new ArrayList<String>();
         listTitle.add("교통"); listTitle.add("주택"); listTitle.add("복지");
         listTitle.add("소식"); listTitle.add("행사 및 축제"); listTitle.add("이벤트 신청");
-        listTitle.add("장애인"); listTitle.add("자치구"); listTitle.add("제로페이"); listTitle.add("서울시"); listTitle.add("서울교통공사");
+       //listTitle.add("장애인");
+        listTitle.add("자치구"); listTitle.add("제로페이"); listTitle.add("서울시"); listTitle.add("서울교통");
 
         ArrayList<Drawable> listIcon = new ArrayList<Drawable>();
 
@@ -133,7 +134,7 @@ public class HomeFragment extends Fragment {
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_event));
 
         //규영 : 2019.09.27 이미지 6, 7, -> 장애인 코너, 자치구 코너 변경 요망 -> 완료
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_disabled));
+        //listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_disabled));
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_environment));
 
         //규영 : 2019.09.28 이미지 8, 9, 10, ->제로페이, 서울 홈페이지 이동, 서울 교통 공사 이동 이미지 변경 요청
@@ -142,7 +143,7 @@ public class HomeFragment extends Fragment {
         //서울시 홈페이지
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_seoul));
         //교통
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_seoulmetro));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_metro));
 
         //gridview에 gridview item 루프돌며 생성
         for(int i=0; i<listTitle.size();i++){

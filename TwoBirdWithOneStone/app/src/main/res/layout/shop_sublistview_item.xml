@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_icecream"></ImageView>
+            app:srcCompat="@drawable/ic_shop_camp_1"></ImageView>
 
         <TextView
             android:id="@+id/title_view"

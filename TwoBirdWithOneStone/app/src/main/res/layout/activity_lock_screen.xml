@@ -19,26 +19,32 @@
         ></ViewFlipper>
 
     <Button
-        android:background="#00ff0000"
-        android:id="@+id/btn_lock_screen"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:paddingRight="20dp"
-        android:gravity="right|center_vertical"
-        android:text="앱으로"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_un_lock" />
-
-    <Button
+        android:drawableLeft="@drawable/ic_lock_screen_back_black"
+        android:drawableTint="#d6dcdc"
         android:background="#00ff0000"
         android:id="@+id/btn_un_lock"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:gravity="left|center_vertical"
-        android:text="홈으로"
+        android:text="  홈으로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_lock_screen"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:drawableRight="@drawable/ic_nav_home_black_24dp"
+        android:drawableTint="#d6dcdc"
+        android:background="#00ff0000"
+        android:id="@+id/btn_lock_screen"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:gravity="right|center_vertical"
+        android:text="꿩먹알먹 앱으로  "
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_un_lock" />
 </androidx.constraintlayout.widget.ConstraintLayout>

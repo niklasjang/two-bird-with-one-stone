@@ -127,8 +127,10 @@ public class AccountFragment extends Fragment {
                         if(documentSnapshots.isEmpty()){
                             Log.d("QueryCoupons", "쿠폰이 비었어요");
                         }else{
+                            couponList.clear();
                             for(DocumentSnapshot snapshot :documentSnapshots.getDocuments()){
                                 if(snapshot.exists()){
+
                                     //쿠폰의 각 필드를 일일이 가져와서 새로운 쿠폰 객체를 만든다.
                                     //.toObject를 쓰면 터져서 그냥 이렇게 한다. 변수명은 여기 부분에서만 쓰이니까 무시해도 됨.
                                     String str1 = snapshot.get("couponCreateTime").toString();

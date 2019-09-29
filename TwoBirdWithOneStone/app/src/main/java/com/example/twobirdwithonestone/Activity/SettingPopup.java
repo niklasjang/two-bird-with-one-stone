@@ -48,7 +48,7 @@ public class SettingPopup extends Activity {
                 settingMainTextView.setText("영상주소 첨부");
                 break;
             case "developer":
-                settingTitleTextView.setText("꿩먹알먹 사용방법");
+                settingTitleTextView.setText("개발자");
                 settingMainTextView.setText("박규영(gyoue200125@gmail.com):  Back-end\n" +
                         "장환석(niklasjang@gmail.com):  Back-end\n" +
                         "박혜지(kauphj17@gmail.com):  UI, Front-end\n" +

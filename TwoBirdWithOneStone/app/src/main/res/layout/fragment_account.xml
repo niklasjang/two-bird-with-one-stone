@@ -9,19 +9,22 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:background="@drawable/edge_under_bar"
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
-        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
 
+        android:gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/point_layout"
 
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="현재 포인트" />
@@ -39,7 +42,7 @@
             android:layout_marginBottom="20dp"
             android:gravity="right"
 
-            android:background="@drawable/edge_under_bar"
+
             android:orientation="horizontal">
 
             <TextView
@@ -64,7 +67,8 @@
 
             <Space
                 android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                />
 
 <!--            <Button-->
 <!--                android:background="@drawable/rounded_hz"-->
@@ -76,6 +80,22 @@
 <!--                android:textSize="15dp" />-->
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCurrentCoupons"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:background="@drawable/edge_login"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/point_layout"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="보유 쿠폰" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCoupon"
@@ -89,7 +109,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
 
-            app:layout_constraintTop_toBottomOf="@+id/point_layout"
+            app:layout_constraintTop_toBottomOf="@+id/tvCurrentCoupons"
             app:layout_constraintBottom_toBottomOf="parent">
 
         </androidx.recyclerview.widget.RecyclerView>

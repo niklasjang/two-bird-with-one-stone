@@ -7,12 +7,14 @@
     android:orientation="vertical"
     android:scrollbars="vertical"
     android:fillViewport="true"
+    android:background="#FFF"
     android:fontFamily="@font/barungothicbold">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fragment_home_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="201dp"></androidx.viewpager.widget.ViewPager>
+        android:layout_height="205dp"
+        android:layout_marginBottom="5dp"></androidx.viewpager.widget.ViewPager>
 
     <GridView
         android:id="@+id/shop_gridview"

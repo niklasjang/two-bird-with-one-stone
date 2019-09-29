@@ -25,7 +25,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -156,6 +159,12 @@ public class AccountFragment extends Fragment {
 //            couponList.add(c) ;
 //            Log.d("QueryCoupons", "default 쿠폰이 추가했어요");
 //        }
+
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
+//        Calendar cal = Calendar.getInstance();
+//        currentTime = sdf.format(cal.getTime());
+//        Coupon welcomeCoupon = new Coupon(currentTime, "가입 축하 쿠폰 : 아메리카노", currentUID, false, currentUID,301 );
+//        couponList.add(welcomeCoupon) ;
     }
 
     /*

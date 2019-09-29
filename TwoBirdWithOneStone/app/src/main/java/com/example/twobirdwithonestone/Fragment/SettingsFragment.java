@@ -1,5 +1,7 @@
 package com.example.twobirdwithonestone.Fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,8 +14,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.twobirdwithonestone.Activity.MainActivity;
 import com.example.twobirdwithonestone.Activity.SettingPopup;
 
 import com.example.twobirdwithonestone.R;
@@ -26,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class SettingsFragment extends Fragment {
+    private MainActivity mainActivity;
     private final String TAG = "SettingsFragment";
     Boolean boolLockScreen = false;
     private FirebaseFirestore db;
@@ -42,7 +47,6 @@ public class SettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         final View view =  inflater.inflate(R.layout.fragment_settings, container, false);
 
         //quest(문의하기) popup
@@ -123,9 +127,9 @@ public class SettingsFragment extends Fragment {
                 if (snapshot != null && snapshot.exists()) {
                     boolLockScreen = (Boolean) snapshot.get("switchLockScreen");
                     switchLockScreen.setChecked(boolLockScreen);
-                    Intent intent = new Intent(getActivity(), LockScreenService.class);
+                    Intent intent = new Intent(mainActivity, LockScreenService.class);
                     intent.putExtra("LockScreen", boolLockScreen);
-                    getActivity().startService(intent);
+                    mainActivity.startService(intent);
                 } else {
                     Log.d(TAG, "Current data: null");
                 }
@@ -172,5 +176,13 @@ public class SettingsFragment extends Fragment {
         currentUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         db = FirebaseFirestore.getInstance();
 
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Activity){
+            mainActivity =(MainActivity) context;
+        }
     }
 }

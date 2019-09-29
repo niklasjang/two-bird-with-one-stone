@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.bumptech.glide.Glide;
 import com.example.twobirdwithonestone.Fragment.HomeFragment;
 import com.example.twobirdwithonestone.R;
 import com.example.twobirdwithonestone.Service.LockScreenService;
@@ -92,7 +93,7 @@ public class LockScreenActivity extends AppCompatActivity {
 
         for(int image : images) {
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(image);
+            Glide.with(getApplicationContext()).load(image).into(imageView);
             v_fllipper.addView(imageView);
         }
         // Declare in and out animations and load them using AnimationUtils class
@@ -102,7 +103,7 @@ public class LockScreenActivity extends AppCompatActivity {
         v_fllipper.setInAnimation(in);
         v_fllipper.setOutAnimation(out);
         // set interval time for flipping between views
-        v_fllipper.setFlipInterval(10000);
+        v_fllipper.setFlipInterval(3000);
         // set auto start for flipping between views
         v_fllipper.setAutoStart(true);
     }

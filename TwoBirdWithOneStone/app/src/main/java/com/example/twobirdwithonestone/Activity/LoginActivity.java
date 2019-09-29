@@ -148,6 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,"회원가입에 성공하였습니다.",Toast.LENGTH_LONG).show();
                         }
                         else{
+                            progressBar.setVisibility(View.INVISIBLE);
                             try {
                                 throw task.getException();
                             } catch(FirebaseAuthWeakPasswordException e) {
@@ -184,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                     String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
-
+                    progressBar.setVisibility(View.INVISIBLE);
                     switch (errorCode) {
 
                         case "ERROR_INVALID_CUSTOM_TOKEN":

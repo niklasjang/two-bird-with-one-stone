@@ -143,7 +143,7 @@ public class HomeFragment extends Fragment {
         //서울시 홈페이지
         listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_seoul));
         //교통
-        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_seoulmetro));
+        listIcon.add((Drawable) ContextCompat.getDrawable(mContext, R.drawable.ic_home_metro));
 
         //gridview에 gridview item 루프돌며 생성
         for(int i=0; i<listTitle.size();i++){

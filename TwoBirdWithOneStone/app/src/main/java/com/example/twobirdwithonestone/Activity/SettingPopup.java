@@ -45,7 +45,11 @@ public class SettingPopup extends Activity {
                 break;
             case"introduce":
                 settingTitleTextView.setText("꿩먹알먹 사용방법");
-                settingMainTextView.setText("영상주소 첨부");
+                settingMainTextView.setText("Youtube에서 꿩먹알먹 검색\n" +
+                        "or\n" +
+                        "https://youtu.be/h04ovjgFKsM");
+
+
                 break;
             case "developer":
                 settingTitleTextView.setText("개발자");

@@ -205,8 +205,8 @@ public class ShopFragment extends Fragment {
                     byte[] byteArray2 = stream2.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"케이크","딸기 생크림 케이크","15000","","케이크"));
-                    culture_list.add(new ParcelableItems(byteArray2,"케이크","딸기 조각 케이크","5000","" ,"케이크"));
+                    culture_list.add(new ParcelableItems(byteArray1,"케이크","딸기 생크림 케이크","15000","맛있는 딸기 생크림 케이크","케이크"));
+                    culture_list.add(new ParcelableItems(byteArray2,"케이크","딸기 조각 케이크","5000","맛있는 딸기 조각 케이크" ,"케이크"));
 
                     //parcelable로 arraylist 넘기기
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
@@ -221,7 +221,7 @@ public class ShopFragment extends Fragment {
                     byte[] byteArray1 = stream1.toByteArray();
 
                     ArrayList<ParcelableItems> culture_list = new ArrayList<ParcelableItems>();
-                    culture_list.add(new ParcelableItems(byteArray1,"아이스크림","아이스크림 콘","3000","",""));
+                    culture_list.add(new ParcelableItems(byteArray1,"아이스크림","아이스크림 콘","3000","맛있는 아이스크림",""));
                     intent.putParcelableArrayListExtra("culture_list", culture_list);
                     startActivity(intent);
                 }
